@@ -1,3 +1,6 @@
 language: node_js
 node_js:
   - "7"
+
+after_script: # Upload coverage reports 
+  - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
