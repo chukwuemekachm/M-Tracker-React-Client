@@ -4,9 +4,10 @@
   "description": "M-Tracker-React-Client is a front-end client Powered by React.JS and Redux to support my previous Node.JS API for Maintenance-Tracker App.",
   "main": "webpack.config.js",
   "jest": {
-   "setupFiles": [
-     "./src/tests/setupTests.js"
-   ],
+    "setupFiles": [
+      "./src/tests/setupTests.js"
+    ],
+    "bail": true,
     "collectCoverageFrom": [
       "src/app/**/*.js",
       "!<rootDir>/node_modules/",
@@ -20,10 +21,11 @@
     ]
   },
   "scripts": {
-    "test": "jest --env=jsdom --coverage",
+    "test": "jest --env=jsdom --coverage --forceExit",
     "watch": "jest --watch",
     "dev": "webpack-dev-server --hot --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start": "babel-node index.js"
   },
   "repository": {
     "type": "git",
@@ -45,6 +47,7 @@
   },
   "homepage": "https://github.com/chukwuemekachm/M-Tracker-React-Client#readme",
   "dependencies": {
+    "express": "^4.16.3",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
@@ -56,6 +59,8 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
     "css-loader": "^1.0.0",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
@@ -69,6 +74,7 @@
     "jest": "^23.5.0",
     "react-test-renderer": "^16.4.2",
     "style-loader": "^0.22.1",
+    "supertest": "^3.1.0",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
