@@ -7,6 +7,9 @@
     "setupFiles": [
       "./src/tests/setupTests.js"
     ],
+    "moduleNameMapper": {
+      "\\.(css|jpg|png)$": "<rootDir>/empty-module.js"
+    },
     "bail": true,
     "collectCoverageFrom": [
       "src/app/**/*.*"
@@ -24,7 +27,8 @@
     "dev": "webpack-dev-server --hot --open",
     "build": "webpack --mode production",
     "start": "babel-node index.js",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "update:snap": "jest --updateSnapshot --coverage --forceExit && npm test -- -u"
   },
   "repository": {
     "type": "git",
@@ -68,6 +72,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
+    "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.5.0",
     "nyc": "^12.0.2",

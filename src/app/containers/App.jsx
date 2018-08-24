@@ -1,10 +1,10 @@
 import React from 'react';
+import HomePage from './HomePage';
+import '../assets/css/style.css';
 
 const App = () => (
   <div>
-    <h1>
-      Welcome to Maintenace Tracker React Application
-    </h1>
+    <HomePage />
   </div>
 );
 

@@ -1,0 +1,996 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should render without errors 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <HomePage />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <NavBar />,
+        <div
+          className="ch-aside"
+        >
+          <div
+            className="ch-row ch-banner"
+          >
+            <div
+              className="ch-col-6"
+            >
+              <h1
+                className="ch-display"
+              >
+                Facilities
+                 don't 
+                need to go bad any longer, request a repair or maintenance schedule
+                 
+                from us today.
+              </h1>
+              <div
+                className="ch-col-6"
+              >
+                <center>
+                  <a
+                    href="/"
+                  >
+                    <button
+                      className="ch-btn-flat"
+                      type="button"
+                    >
+                      Get Started Today
+                    </button>
+                  </a>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>,
+        <div
+          className="ch-row"
+        >
+          <h2
+            className="ch-about"
+          >
+            About Maintenance Tracker
+          </h2>
+          <p
+            className="ch-col-10"
+          >
+            Maintenance Tracker is an platform designed, to provide users with the oppurtunity
+             
+            of reaching out to operations or repairs department regarding repair or
+             
+            maintenance requests. It also enables users monitor the status of their request.
+          </p>
+        </div>,
+        <h2
+          className="ch-about"
+        >
+          How it works
+        </h2>,
+        <div
+          className="ch-row"
+        >
+          <Icon
+            icon="icon ion-md-key ch-about-icon"
+            title="Authenticate"
+          />
+          <Icon
+            icon="icon ion-md-settings ch-about-icon"
+            title="Log a request"
+          />
+          <Icon
+            icon="icon ion-md-checkbox-outline ch-about-icon"
+            title="Request gets approved"
+          />
+          <Icon
+            icon="icon ion-md-construct ch-about-icon"
+            title="Request gets resolved"
+          />
+        </div>,
+        <Footer />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="ch-row ch-banner"
+          >
+            <div
+              className="ch-col-6"
+            >
+              <h1
+                className="ch-display"
+              >
+                Facilities
+                 don't 
+                need to go bad any longer, request a repair or maintenance schedule
+                 
+                from us today.
+              </h1>
+              <div
+                className="ch-col-6"
+              >
+                <center>
+                  <a
+                    href="/"
+                  >
+                    <button
+                      className="ch-btn-flat"
+                      type="button"
+                    >
+                      Get Started Today
+                    </button>
+                  </a>
+                </center>
+              </div>
+            </div>
+          </div>,
+          "className": "ch-aside",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="ch-col-6"
+            >
+              <h1
+                className="ch-display"
+              >
+                Facilities
+                 don't 
+                need to go bad any longer, request a repair or maintenance schedule
+                 
+                from us today.
+              </h1>
+              <div
+                className="ch-col-6"
+              >
+                <center>
+                  <a
+                    href="/"
+                  >
+                    <button
+                      className="ch-btn-flat"
+                      type="button"
+                    >
+                      Get Started Today
+                    </button>
+                  </a>
+                </center>
+              </div>
+            </div>,
+            "className": "ch-row ch-banner",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h1
+                  className="ch-display"
+                >
+                  Facilities
+                   don't 
+                  need to go bad any longer, request a repair or maintenance schedule
+                   
+                  from us today.
+                </h1>,
+                <div
+                  className="ch-col-6"
+                >
+                  <center>
+                    <a
+                      href="/"
+                    >
+                      <button
+                        className="ch-btn-flat"
+                        type="button"
+                      >
+                        Get Started Today
+                      </button>
+                    </a>
+                  </center>
+                </div>,
+              ],
+              "className": "ch-col-6",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Facilities",
+                    " don't ",
+                    "need to go bad any longer, request a repair or maintenance schedule",
+                    " ",
+                    "from us today.",
+                  ],
+                  "className": "ch-display",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Facilities",
+                  " don't ",
+                  "need to go bad any longer, request a repair or maintenance schedule",
+                  " ",
+                  "from us today.",
+                ],
+                "type": "h1",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <center>
+                    <a
+                      href="/"
+                    >
+                      <button
+                        className="ch-btn-flat"
+                        type="button"
+                      >
+                        Get Started Today
+                      </button>
+                    </a>
+                  </center>,
+                  "className": "ch-col-6",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <a
+                      href="/"
+                    >
+                      <button
+                        className="ch-btn-flat"
+                        type="button"
+                      >
+                        Get Started Today
+                      </button>
+                    </a>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="ch-btn-flat"
+                        type="button"
+                      >
+                        Get Started Today
+                      </button>,
+                      "href": "/",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Get Started Today",
+                        "className": "ch-btn-flat",
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": "Get Started Today",
+                      "type": "button",
+                    },
+                    "type": "a",
+                  },
+                  "type": "center",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h2
+              className="ch-about"
+            >
+              About Maintenance Tracker
+            </h2>,
+            <p
+              className="ch-col-10"
+            >
+              Maintenance Tracker is an platform designed, to provide users with the oppurtunity
+               
+              of reaching out to operations or repairs department regarding repair or
+               
+              maintenance requests. It also enables users monitor the status of their request.
+            </p>,
+          ],
+          "className": "ch-row",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "About Maintenance Tracker",
+              "className": "ch-about",
+            },
+            "ref": null,
+            "rendered": "About Maintenance Tracker",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Maintenance Tracker is an platform designed, to provide users with the oppurtunity",
+                " ",
+                "of reaching out to operations or repairs department regarding repair or",
+                " ",
+                "maintenance requests. It also enables users monitor the status of their request.",
+              ],
+              "className": "ch-col-10",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Maintenance Tracker is an platform designed, to provide users with the oppurtunity",
+              " ",
+              "of reaching out to operations or repairs department regarding repair or",
+              " ",
+              "maintenance requests. It also enables users monitor the status of their request.",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "How it works",
+          "className": "ch-about",
+        },
+        "ref": null,
+        "rendered": "How it works",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Icon
+              icon="icon ion-md-key ch-about-icon"
+              title="Authenticate"
+            />,
+            <Icon
+              icon="icon ion-md-settings ch-about-icon"
+              title="Log a request"
+            />,
+            <Icon
+              icon="icon ion-md-checkbox-outline ch-about-icon"
+              title="Request gets approved"
+            />,
+            <Icon
+              icon="icon ion-md-construct ch-about-icon"
+              title="Request gets resolved"
+            />,
+          ],
+          "className": "ch-row",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "icon": "icon ion-md-key ch-about-icon",
+              "title": "Authenticate",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "icon": "icon ion-md-settings ch-about-icon",
+              "title": "Log a request",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "icon": "icon ion-md-checkbox-outline ch-about-icon",
+              "title": "Request gets approved",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "icon": "icon ion-md-construct ch-about-icon",
+              "title": "Request gets resolved",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavBar />,
+          <div
+            className="ch-aside"
+          >
+            <div
+              className="ch-row ch-banner"
+            >
+              <div
+                className="ch-col-6"
+              >
+                <h1
+                  className="ch-display"
+                >
+                  Facilities
+                   don't 
+                  need to go bad any longer, request a repair or maintenance schedule
+                   
+                  from us today.
+                </h1>
+                <div
+                  className="ch-col-6"
+                >
+                  <center>
+                    <a
+                      href="/"
+                    >
+                      <button
+                        className="ch-btn-flat"
+                        type="button"
+                      >
+                        Get Started Today
+                      </button>
+                    </a>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>,
+          <div
+            className="ch-row"
+          >
+            <h2
+              className="ch-about"
+            >
+              About Maintenance Tracker
+            </h2>
+            <p
+              className="ch-col-10"
+            >
+              Maintenance Tracker is an platform designed, to provide users with the oppurtunity
+               
+              of reaching out to operations or repairs department regarding repair or
+               
+              maintenance requests. It also enables users monitor the status of their request.
+            </p>
+          </div>,
+          <h2
+            className="ch-about"
+          >
+            How it works
+          </h2>,
+          <div
+            className="ch-row"
+          >
+            <Icon
+              icon="icon ion-md-key ch-about-icon"
+              title="Authenticate"
+            />
+            <Icon
+              icon="icon ion-md-settings ch-about-icon"
+              title="Log a request"
+            />
+            <Icon
+              icon="icon ion-md-checkbox-outline ch-about-icon"
+              title="Request gets approved"
+            />
+            <Icon
+              icon="icon ion-md-construct ch-about-icon"
+              title="Request gets resolved"
+            />
+          </div>,
+          <Footer />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="ch-row ch-banner"
+            >
+              <div
+                className="ch-col-6"
+              >
+                <h1
+                  className="ch-display"
+                >
+                  Facilities
+                   don't 
+                  need to go bad any longer, request a repair or maintenance schedule
+                   
+                  from us today.
+                </h1>
+                <div
+                  className="ch-col-6"
+                >
+                  <center>
+                    <a
+                      href="/"
+                    >
+                      <button
+                        className="ch-btn-flat"
+                        type="button"
+                      >
+                        Get Started Today
+                      </button>
+                    </a>
+                  </center>
+                </div>
+              </div>
+            </div>,
+            "className": "ch-aside",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="ch-col-6"
+              >
+                <h1
+                  className="ch-display"
+                >
+                  Facilities
+                   don't 
+                  need to go bad any longer, request a repair or maintenance schedule
+                   
+                  from us today.
+                </h1>
+                <div
+                  className="ch-col-6"
+                >
+                  <center>
+                    <a
+                      href="/"
+                    >
+                      <button
+                        className="ch-btn-flat"
+                        type="button"
+                      >
+                        Get Started Today
+                      </button>
+                    </a>
+                  </center>
+                </div>
+              </div>,
+              "className": "ch-row ch-banner",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h1
+                    className="ch-display"
+                  >
+                    Facilities
+                     don't 
+                    need to go bad any longer, request a repair or maintenance schedule
+                     
+                    from us today.
+                  </h1>,
+                  <div
+                    className="ch-col-6"
+                  >
+                    <center>
+                      <a
+                        href="/"
+                      >
+                        <button
+                          className="ch-btn-flat"
+                          type="button"
+                        >
+                          Get Started Today
+                        </button>
+                      </a>
+                    </center>
+                  </div>,
+                ],
+                "className": "ch-col-6",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Facilities",
+                      " don't ",
+                      "need to go bad any longer, request a repair or maintenance schedule",
+                      " ",
+                      "from us today.",
+                    ],
+                    "className": "ch-display",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Facilities",
+                    " don't ",
+                    "need to go bad any longer, request a repair or maintenance schedule",
+                    " ",
+                    "from us today.",
+                  ],
+                  "type": "h1",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <center>
+                      <a
+                        href="/"
+                      >
+                        <button
+                          className="ch-btn-flat"
+                          type="button"
+                        >
+                          Get Started Today
+                        </button>
+                      </a>
+                    </center>,
+                    "className": "ch-col-6",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <a
+                        href="/"
+                      >
+                        <button
+                          className="ch-btn-flat"
+                          type="button"
+                        >
+                          Get Started Today
+                        </button>
+                      </a>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          className="ch-btn-flat"
+                          type="button"
+                        >
+                          Get Started Today
+                        </button>,
+                        "href": "/",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Get Started Today",
+                          "className": "ch-btn-flat",
+                          "type": "button",
+                        },
+                        "ref": null,
+                        "rendered": "Get Started Today",
+                        "type": "button",
+                      },
+                      "type": "a",
+                    },
+                    "type": "center",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h2
+                className="ch-about"
+              >
+                About Maintenance Tracker
+              </h2>,
+              <p
+                className="ch-col-10"
+              >
+                Maintenance Tracker is an platform designed, to provide users with the oppurtunity
+                 
+                of reaching out to operations or repairs department regarding repair or
+                 
+                maintenance requests. It also enables users monitor the status of their request.
+              </p>,
+            ],
+            "className": "ch-row",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "About Maintenance Tracker",
+                "className": "ch-about",
+              },
+              "ref": null,
+              "rendered": "About Maintenance Tracker",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Maintenance Tracker is an platform designed, to provide users with the oppurtunity",
+                  " ",
+                  "of reaching out to operations or repairs department regarding repair or",
+                  " ",
+                  "maintenance requests. It also enables users monitor the status of their request.",
+                ],
+                "className": "ch-col-10",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Maintenance Tracker is an platform designed, to provide users with the oppurtunity",
+                " ",
+                "of reaching out to operations or repairs department regarding repair or",
+                " ",
+                "maintenance requests. It also enables users monitor the status of their request.",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "How it works",
+            "className": "ch-about",
+          },
+          "ref": null,
+          "rendered": "How it works",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Icon
+                icon="icon ion-md-key ch-about-icon"
+                title="Authenticate"
+              />,
+              <Icon
+                icon="icon ion-md-settings ch-about-icon"
+                title="Log a request"
+              />,
+              <Icon
+                icon="icon ion-md-checkbox-outline ch-about-icon"
+                title="Request gets approved"
+              />,
+              <Icon
+                icon="icon ion-md-construct ch-about-icon"
+                title="Request gets resolved"
+              />,
+            ],
+            "className": "ch-row",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "icon": "icon ion-md-key ch-about-icon",
+                "title": "Authenticate",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "icon": "icon ion-md-settings ch-about-icon",
+                "title": "Log a request",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "icon": "icon ion-md-checkbox-outline ch-about-icon",
+                "title": "Request gets approved",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "icon": "icon ion-md-construct ch-about-icon",
+                "title": "Request gets resolved",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getSnapshotBeforeUpdate": true,
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
