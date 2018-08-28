@@ -7,15 +7,16 @@ exports[`Navbar component should render without errors 1`] = `
   >
     <li>
       <h2>
-        <a
-          href="/"
+        <Link
+          replace={false}
+          to="/"
         >
           <i
             className="icon ion-md-construct"
           />
            
           Maintenance Tracker
-        </a>
+        </Link>
         <i
           className="icon ion-md-menu"
           id="menu"
@@ -33,11 +34,12 @@ exports[`Navbar component should render without errors 1`] = `
       }
     >
       <li>
-        <a
-          href="/"
+        <Link
+          replace={false}
+          to="/"
         >
           Login
-        </a>
+        </Link>
       </li>
     </div>
   </ul>

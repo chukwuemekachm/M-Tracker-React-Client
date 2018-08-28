@@ -25,8 +25,9 @@ exports[`Footer component should render without errors 1`] = `
           className="ch-col-6"
         >
           <center>
-            <a
-              href="/"
+            <Link
+              replace={false}
+              to="/"
             >
               <button
                 className="ch-btn-flat"
@@ -34,7 +35,7 @@ exports[`Footer component should render without errors 1`] = `
               >
                 Get Started Today
               </button>
-            </a>
+            </Link>
           </center>
         </div>
       </div>

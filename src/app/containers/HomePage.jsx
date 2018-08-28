@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Icon from '../components/Icon';
 import Footer from '../components/Footer';
@@ -18,11 +19,11 @@ const HomePage = () => (
           </h1>
           <div className="ch-col-6">
             <center>
-              <a href="/">
+              <Link to="/">
                 <button className="ch-btn-flat" type="button">
                   Get Started Today
                 </button>
-              </a>
+              </Link>
             </center>
           </div>
         </div>
