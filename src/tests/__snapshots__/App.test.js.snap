@@ -19,6 +19,9 @@ exports[`App component should render without errors 1`] = `
         exact={true}
         path="/"
       />
+      <Route
+        component={[Function]}
+      />
     </Switch>
   </BrowserRouter>
 </Provider>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -22,19 +23,19 @@ class NavBar extends React.Component {
         <ul className="ch-nav ch-card">
           <li>
             <h2>
-              <a href="/">
+              <Link to="/">
                 <i className="icon ion-md-construct" />
                 {' '}
                 Maintenance Tracker
-              </a>
+              </Link>
               <i className="icon ion-md-menu" id="menu" onClick={this.toggleMenu} />
             </h2>
           </li>
           <div className="ch-nav-right" id="nav" style={{ display: size }}>
             <li>
-              <a href="/">
+              <Link to="/">
                 Login
-              </a>
+              </Link>
             </li>
           </div>
         </ul>

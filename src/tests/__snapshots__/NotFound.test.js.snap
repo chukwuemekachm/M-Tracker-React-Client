@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests 404 NotFound component should render without errors 1`] = `
+<div
+  className="ch-aside"
+>
+  <NavBar />
+  <div
+    className="ch-row"
+    style={
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0.7)",
+        "color": "white",
+        "minHeight": "100%",
+        "position": "fixed",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="ch-col-6"
+    >
+      <h1
+        style={
+          Object {
+            "fontSize": "8em",
+          }
+        }
+      >
+        404
+      </h1>
+      <p>
+        Oops, the page you are looking for was not found.
+      </p>
+    </div>
+  </div>
+</div>
+`;
