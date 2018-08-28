@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import HomePage from './HomePage';
 import configureStore from '../store/configureStore';
 import '../assets/css/style.css';
+import NotFound from './NotFound';
 
 const store = configureStore({});
 
@@ -12,6 +13,7 @@ const App = () => (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={HomePage} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   </Provider>
