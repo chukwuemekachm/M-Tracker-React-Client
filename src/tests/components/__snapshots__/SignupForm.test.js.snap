@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar component should render without errors 1`] = `
+<SignupForm
+  history={Object {}}
+  userError={[MockFunction]}
+  userSignupRequest={[MockFunction]}
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      className="ch-label"
+      htmlFor="firstName"
+    >
+      First Name
+       
+      <span
+        className="ch-require"
+      >
+        *
+      </span>
+      <input
+        className="ch-input"
+        name="firstname"
+        onChange={[Function]}
+        placeholder="First Name"
+        required={true}
+        type="text"
+        value=""
+      />
+    </label>
+    <label
+      className="ch-label"
+      htmlFor="lastname"
+    >
+      Last Name
+       
+      <span
+        className="ch-require"
+      >
+        *
+      </span>
+      <input
+        className="ch-input"
+        name="lastname"
+        onChange={[Function]}
+        placeholder="Last Name"
+        required={true}
+        type="text"
+        value=""
+      />
+    </label>
+    <label
+      className="ch-label"
+      htmlFor="email"
+    >
+      Email Address
+       
+      <span
+        className="ch-require"
+      >
+        *
+      </span>
+      <input
+        className="ch-input"
+        name="email"
+        onChange={[Function]}
+        placeholder="Email Address"
+        required={true}
+        type="email"
+        value=""
+      />
+    </label>
+    <label
+      className="ch-label"
+      htmlFor="password"
+    >
+      Password
+       
+      <span
+        className="ch-require"
+      >
+        *
+      </span>
+      <input
+        className="ch-input"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        required={true}
+        type="password"
+        value=""
+      />
+    </label>
+    <label
+      className="ch-label"
+      htmlFor="confirmPassword"
+    >
+      Confirm Password
+       
+      <span
+        className="ch-require"
+      >
+        *
+      </span>
+      <input
+        className="ch-input"
+        name="confirmPassword"
+        onChange={[Function]}
+        placeholder="Password"
+        required={true}
+        type="password"
+        value=""
+      />
+    </label>
+    <button
+      className="ch-btn-flat"
+      type="submit"
+    >
+      Signup
+    </button>
+  </form>
+</SignupForm>
+`;

@@ -510,22 +510,18 @@ ul.ch-nav li>h2>i {
 
 /*  Alert */
 
-#display {
+div.ch-alert {
   width: 100%;
   text-align: center;
   padding: .8em;
   font-size: 1em;
-  visibility: hidden;
+  visibility: block;
   color: #f6f6f6;
   z-index: 1;
-  position: fixed;
+  border-radius: .1em;
   top: 4em;
-}
-
-#display.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s;
-  animation: fadein 0.5s;
+  left: 0;
+  margin-bottom: 3em;
 }
 
 @media only screen and (max-width: 769px) {

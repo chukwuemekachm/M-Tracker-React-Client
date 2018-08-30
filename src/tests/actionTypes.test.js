@@ -1,4 +1,4 @@
-import types from '../app/actions/actionTypes';
+import types from '../app/actions/commonTypes';
 
 const myTypes = {
   APPROVE_REQUEST: 'APPROVE_REQUEST',
@@ -14,6 +14,10 @@ const myTypes = {
   DELETE_REQUEST: 'DELETE_REQUEST',
   VIEW_ALL_REQUESTS: 'VIEW_ALL_REQUESTS',
   VIEW_SINGLE_REQUEST: 'VIEW_SINGLE_REQUEST',
+  USER_ERROR: 'USER_ERROR',
+  NETWORK_ERROR: 'USER_ERROR',
+  LOADING: 'LOADING',
+  COMPLETE: 'COMPLETE',
 };
 
 describe('Tests the action types string contants', () => {

@@ -19,7 +19,7 @@ const HomePage = () => (
           </h1>
           <div className="ch-col-6">
             <center>
-              <Link to="/">
+              <Link to="/signup">
                 <button className="ch-btn-flat" type="button">
                   Get Started Today
                 </button>
