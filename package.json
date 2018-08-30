@@ -11,7 +11,7 @@
       "enzyme-to-json/serializer"
     ],
     "moduleNameMapper": {
-      "\\.(css|jpg|png)$": "<rootDir>/empty-module.js"
+      "\\.(css|jpg|png|svg)$": "<rootDir>/empty-module.js"
     },
     "bail": true,
     "collectCoverageFrom": [
@@ -59,13 +59,15 @@
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "coveralls": "^3.0.2",

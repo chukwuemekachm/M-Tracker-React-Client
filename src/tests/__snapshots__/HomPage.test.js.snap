@@ -27,7 +27,7 @@ exports[`Footer component should render without errors 1`] = `
           <center>
             <Link
               replace={false}
-              to="/"
+              to="/signup"
             >
               <button
                 className="ch-btn-flat"

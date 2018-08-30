@@ -21,6 +21,11 @@ exports[`App component should render without errors 1`] = `
       />
       <Route
         component={[Function]}
+        exact={true}
+        path="/signup"
+      />
+      <Route
+        component={[Function]}
       />
     </Switch>
   </BrowserRouter>

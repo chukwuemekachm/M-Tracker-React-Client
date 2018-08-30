@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests Alert component should render without errors 1`] = `
+<div
+  className="ch-alert"
+  style={
+    Object {
+      "backgroundColor": "white",
+    }
+  }
+>
+  <p>
+    test
+  </p>
+</div>
+`;
