@@ -29,7 +29,7 @@ class SignupForm extends Component {
       userError('Passwords do not match');
       return;
     }
-    userSignupRequest(this.state, history);
+    userSignupRequest(this.state, history, 'signup');
   }
 
   render() {

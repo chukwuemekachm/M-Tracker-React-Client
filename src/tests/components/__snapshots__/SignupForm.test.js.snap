@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar component should render without errors 1`] = `
+exports[`Navbar component should render without errors and submit the form 1`] = `
 <SignupForm
   history={Object {}}
   userError={[MockFunction]}

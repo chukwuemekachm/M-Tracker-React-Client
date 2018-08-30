@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignupPage container should render without errors when props are falsy 1`] = `
+exports[`LoginPage container should render without errors when props are falsy 1`] = `
 <div>
   <NavBar />
   <div
@@ -9,7 +9,7 @@ exports[`SignupPage container should render without errors when props are falsy 
     <h2
       className="ch-about"
     >
-      Sign up to use Maintenance Tracker today
+      Login to access your Maintenance Tracker Account
     </h2>
   </div>
   <div
@@ -25,21 +25,21 @@ exports[`SignupPage container should render without errors when props are falsy 
     <div
       className="ch-col-3 ch-panel ch-signup"
     >
-      <SignupForm
+      <LoginForm
         history={Object {}}
-        userError={[MockFunction]}
-        userSignupRequest={[MockFunction]}
+        userLoginRequest={[MockFunction]}
       />
       <p
         className="ch-right"
       >
-        Already have an account?
+        Don't 
+        have an account?
          
         <Link
           replace={false}
-          to="/login"
+          to="/signup"
         >
-          Signin...
+          Signup...
         </Link>
       </p>
     </div>

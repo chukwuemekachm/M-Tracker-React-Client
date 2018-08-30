@@ -5,14 +5,16 @@ import HomePage from './HomePage';
 import store from '../store/configureStore';
 import '../assets/css/style.css';
 import NotFound from './NotFound';
-import SignupPage from './SignupPage';
+import Signup from './SignupPage';
+import Login from './LoginPage';
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={HomePage} />
-        <Route path="/signup" exact component={SignupPage} />
+        <Route path="/signup" exact component={Signup} />
+        <Route path="/login" exact component={Login} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
