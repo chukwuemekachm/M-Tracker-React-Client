@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login form component should render without errors and submit the form 1`] = `
+<LoginForm
+  history={Object {}}
+  userLoginRequest={[MockFunction]}
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      className="ch-label"
+      htmlFor="email"
+    >
+      Email Address
+       
+      <span
+        className="ch-require"
+      >
+        *
+      </span>
+      <input
+        className="ch-input"
+        name="email"
+        onChange={[Function]}
+        placeholder="Email Address"
+        required={true}
+        type="email"
+        value=""
+      />
+    </label>
+    <label
+      className="ch-label"
+      htmlFor="password"
+    >
+      Password
+       
+      <span
+        className="ch-require"
+      >
+        *
+      </span>
+      <input
+        className="ch-input"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        required={true}
+        type="password"
+        value=""
+      />
+    </label>
+    <button
+      className="ch-btn-flat"
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+</LoginForm>
+`;

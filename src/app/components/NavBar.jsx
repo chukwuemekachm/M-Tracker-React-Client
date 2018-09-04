@@ -33,7 +33,7 @@ class NavBar extends React.Component {
           </li>
           <div className="ch-nav-right" id="nav" style={{ display: size }}>
             <li>
-              <Link to="/">
+              <Link to="/login">
                 Login
               </Link>
             </li>

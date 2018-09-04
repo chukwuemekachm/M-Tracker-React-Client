@@ -18,6 +18,16 @@ const authReducer = (state = initialState, action) => {
           authenticated: true,
         },
       );
+    case types.LOGIN:
+      return Object.assign(
+        {},
+        { ...state },
+        {
+          user: action.payload.data,
+          token: action.payload.token,
+          authenticated: true,
+        },
+      );
     default:
       return state;
   }

@@ -1,11 +1,11 @@
-import { userError, loading } from './commonActions';
+import { userError, loading, networkError } from './commonActions';
 import types from './commonTypes';
 
-const baseUrl = 'http://my-maintenance-tracker.herokuapp.com/api/v1';
+const baseUrl = 'https://my-maintenance-tracker.herokuapp.com/api/v1';
 
-const signupAsync = (payload, history) => (dispatch) => {
+const authAsync = (payload, history, route) => (dispatch) => {
   dispatch(loading());
-  return fetch(`${baseUrl}/auth/signup`, {
+  return fetch(`${baseUrl}/auth/${route}`, {
     method: 'POST',
     body: JSON.stringify(payload),
     headers: { 'Content-Type': 'application/json' },
@@ -16,16 +16,21 @@ const signupAsync = (payload, history) => (dispatch) => {
         dispatch({ type: types.COMPLETE });
         history.push('/dashboard');
         break;
+      case 200:
+        dispatch({ type: types.LOGIN, payload: response });
+        dispatch({ type: types.COMPLETE });
+        history.push('/dashboard');
+        break;
       default:
         dispatch(userError(response.message));
         break;
     }
     return response;
   }).catch(() => {
-    dispatch(userError('Error connecting to our servers, we have logged a request with engineer'));
+    dispatch(networkError());
   });
 };
 
 export default {
-  signupAsync,
+  authAsync,
 };

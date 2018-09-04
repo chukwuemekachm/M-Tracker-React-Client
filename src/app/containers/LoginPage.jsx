@@ -4,13 +4,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NavBar from '../components/NavBar';
-import SignupForm from '../components/SignupForm';
+import LoginForm from '../components/LoginForm';
 import Alert from '../components/Alert';
 import authActions from '../actions/authActions';
-import { userError } from '../actions/commonActions';
 import loadingSvg from '../assets/svg/loading.svg';
 
-export class SignupPage extends Component {
+export class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -18,14 +17,14 @@ export class SignupPage extends Component {
 
   render() {
     const {
-      error, message, loading, history, userSignup, userErrorHandler,
+      error, message, loading, history, userLogin,
     } = this.props;
     return (
       <div>
         <NavBar />
         <div className="ch-row">
           <h2 className="ch-about">
-            Sign up to use Maintenance Tracker today
+            Login to access your Maintenance Tracker Account
           </h2>
         </div>
         <div className="ch-row">
@@ -49,16 +48,16 @@ export class SignupPage extends Component {
         </div>
         <div className="ch-row">
           <div className="ch-col-3 ch-panel ch-signup">
-            <SignupForm
-              userError={userErrorHandler}
-              userSignupRequest={userSignup}
+            <LoginForm
+              userLoginRequest={userLogin}
               history={history}
             />
             <p className="ch-right">
-              Already have an account?
+              {'Don\'t '}
+              have an account?
               {' '}
-              <Link to="/login">
-                Signin...
+              <Link to="/signup">
+                Signup...
               </Link>
             </p>
           </div>
@@ -68,12 +67,11 @@ export class SignupPage extends Component {
   }
 }
 
-SignupPage.propTypes = {
+LoginPage.propTypes = {
   message: PropTypes.string.isRequired,
   error: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
-  userErrorHandler: PropTypes.func.isRequired,
-  userSignup: PropTypes.func.isRequired,
+  userLogin: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
@@ -85,8 +83,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  userSignup: (user, history, route) => (authActions.authAsync(user, history, route)),
-  userErrorHandler: message => (userError(message)),
+  userLogin: (user, history, route) => (authActions.authAsync(user, history, route)),
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
