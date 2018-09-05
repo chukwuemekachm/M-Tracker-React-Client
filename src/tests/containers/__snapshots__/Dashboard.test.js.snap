@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard container should render without errors when props are truthy 1`] = `
+<div>
+  <NavBar />
+  <SideNav />
+  <div
+    className="ch-row"
+  >
+    <div
+      className="ch-col-2"
+    />
+    <div
+      className="ch-col-9"
+      id="user-display"
+    >
+      <h2
+        className="ch-display"
+      >
+        <i
+          className="icon ion-md-speedometer"
+        />
+         
+        Dashboard
+      </h2>
+      <UserRequest
+        createdat="2018-09-04T18:11:56.976Z"
+        description="Hey this is a new request updated"
+        format="ch-requests ch-pending"
+        id={67}
+        key="67"
+        status="pending"
+        title="Bad Television"
+        type="maintenance"
+        updatedat="2018-09-04T18:12:12.109Z"
+        user_id={3}
+      />
+      <UserRequest
+        createdat="2018-09-04T18:11:56.976Z"
+        description="Hey this is a new request updated"
+        format="ch-requests ch-approve"
+        id={67}
+        key="67"
+        status="approved"
+        title="Bad Television"
+        type="maintenance"
+        updatedat="2018-09-04T18:12:12.109Z"
+        user_id={3}
+      />
+      <UserRequest
+        createdat="2018-09-04T18:11:56.976Z"
+        description="Hey this is a new request updated"
+        format="ch-requests ch-disapprove"
+        id={67}
+        key="67"
+        status="disapproved"
+        title="Bad Television"
+        type="maintenance"
+        updatedat="2018-09-04T18:12:12.109Z"
+        user_id={3}
+      />
+      <UserRequest
+        createdat="2018-09-04T18:11:56.976Z"
+        description="Hey this is a new request updated"
+        format="ch-requests ch-resolve"
+        id={67}
+        key="67"
+        status="resolved"
+        title="Bad Television"
+        type="maintenance"
+        updatedat="2018-09-04T18:12:12.109Z"
+        user_id={3}
+      />
+    </div>
+  </div>
+</div>
+`;
