@@ -30,8 +30,7 @@
     "dev": "webpack-dev-server --hot --open",
     "build": "webpack --mode production",
     "start": "npm run build && babel-node index.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls && nyc report --reporter=lcov",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "coverage": "jest --env=jsdom --coverage --forceExit --coverageReporters=text-lcov | coveralls",
     "update:snap": "jest --updateSnapshot --coverage --forceExit && npm test -- -u"
   },
   "repository": {
