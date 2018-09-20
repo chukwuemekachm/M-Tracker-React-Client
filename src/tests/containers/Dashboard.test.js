@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { Dashboard } from '../../app/containers/Dashboard';
 
 const getRequests = jest.fn();
+const getSingleRequest = jest.fn();
 const history = {
   push: jest.fn(),
 };
@@ -56,6 +57,7 @@ describe('Dashboard container', () => {
       isAuthenticated
       getRequests={getRequests}
       history={history}
+      getSingleRequest={getSingleRequest}
     />);
     expect(wrapper).toMatchSnapshot();
   });
@@ -66,6 +68,7 @@ describe('Dashboard container', () => {
       isAuthenticated={false}
       getRequests={getRequests}
       history={history}
+      getSingleRequest={getSingleRequest}
     />);
     expect(wrapper).toBeTruthy();
   });

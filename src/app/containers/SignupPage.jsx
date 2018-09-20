@@ -74,7 +74,7 @@ SignupPage.propTypes = {
   loading: PropTypes.bool.isRequired,
   userErrorHandler: PropTypes.func.isRequired,
   userSignup: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.object).isRequired,
+  history: PropTypes.shape({}).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
