@@ -29,4 +29,5 @@ const getAllAsync = () => (dispatch, getState) => {
 
 export default {
   getAllAsync,
+  getSingleRequest: payload => ({ type: types.VIEW_SINGLE_REQUEST, payload }),
 };

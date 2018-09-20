@@ -29,6 +29,7 @@ exports[`Dashboard container should render without errors when props are truthy 
         format="ch-requests ch-pending"
         id={67}
         key="67"
+        onClick={[Function]}
         status="pending"
         title="Bad Television"
         type="maintenance"
@@ -41,6 +42,7 @@ exports[`Dashboard container should render without errors when props are truthy 
         format="ch-requests ch-approve"
         id={67}
         key="67"
+        onClick={[Function]}
         status="approved"
         title="Bad Television"
         type="maintenance"
@@ -53,6 +55,7 @@ exports[`Dashboard container should render without errors when props are truthy 
         format="ch-requests ch-disapprove"
         id={67}
         key="67"
+        onClick={[Function]}
         status="disapproved"
         title="Bad Television"
         type="maintenance"
@@ -65,6 +68,7 @@ exports[`Dashboard container should render without errors when props are truthy 
         format="ch-requests ch-resolve"
         id={67}
         key="67"
+        onClick={[Function]}
         status="resolved"
         title="Bad Television"
         type="maintenance"

@@ -4,14 +4,16 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import SideNav from '../components/SideNav';
 import NavBar from '../components/NavBar';
-import UserRequest from '../components/UserRequest';
 import { userError } from '../actions/commonActions';
 import userRequestActions from '../actions/userRequestActions';
+import UserRequest from '../components/UserRequest';
 
 export class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.viewRequest = this.viewRequest.bind(this);
+    this.formatRequest = this.formatRequest.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +38,12 @@ export class Dashboard extends Component {
     }
   }
 
+  viewRequest(payload) {
+    const { getSingleRequest, history } = this.props;
+    getSingleRequest(payload);
+    history.push(`/dashboard/${payload}`);
+  }
+
   render() {
     const { requests } = this.props;
     return (
@@ -55,6 +63,7 @@ export class Dashboard extends Component {
                 key={request.id}
                 {...request}
                 format={this.formatRequest(request.status)}
+                onClick={() => this.viewRequest(request.id)}
               />
             ))}
           </div>
@@ -67,12 +76,13 @@ export class Dashboard extends Component {
 Dashboard.propTypes = {
   requests: PropTypes.arrayOf(PropTypes.object).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  history: PropTypes.objectOf(PropTypes.object).isRequired,
+  history: PropTypes.shape({}).isRequired,
   getRequests: PropTypes.func.isRequired,
+  getSingleRequest: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownprops) => ({
-  requests: state.requests,
+  requests: state.requests.filteredRequests,
   isAuthenticated: state.auth.authenticated,
   history: ownprops.history,
 });
@@ -80,6 +90,7 @@ const mapStateToProps = (state, ownprops) => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
   getRequests: () => (userRequestActions.getAllAsync()),
   userErrorHandler: message => (userError(message)),
+  getSingleRequest: payload => (userRequestActions.getSingleRequest(payload))
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

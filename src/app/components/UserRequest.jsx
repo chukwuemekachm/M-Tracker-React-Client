@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const UserRequest = ({
-  title, createdat, status, format,
+  title, createdat, status, format, onClick,
 }) => (
-  <ul className={format}>
+  <ul className={format} onClick={() => onClick()}>
     <li>
       {title}
     </li>

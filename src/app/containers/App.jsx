@@ -8,6 +8,7 @@ import NotFound from './NotFound';
 import Signup from './SignupPage';
 import Login from './LoginPage';
 import Dashboard from './Dashboard';
+import RequestDetailsPage from './RequestDetailsPage';
 
 const App = () => (
   <Provider store={store}>
@@ -17,6 +18,7 @@ const App = () => (
         <Route path="/signup" exact component={Signup} />
         <Route path="/login" exact component={Login} />
         <Route path="/dashboard" exact component={Dashboard} />
+        <Route path="/dashboard/:requestId" exact component={RequestDetailsPage} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>

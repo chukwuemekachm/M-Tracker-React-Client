@@ -72,7 +72,7 @@ LoginPage.propTypes = {
   error: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   userLogin: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.object).isRequired,
+  history: PropTypes.shape({}).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
