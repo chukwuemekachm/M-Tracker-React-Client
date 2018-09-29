@@ -2,10 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Dashboard } from '../../app/containers/Dashboard';
 
-const getRequests = jest.fn();
-const getSingleRequest = jest.fn();
+const mockFunction = jest.fn();
 const history = {
-  push: jest.fn(),
+  push: mockFunction,
 };
 const requests = [
   {
@@ -50,14 +49,25 @@ const requests = [
   },
 ];
 
+const common = {
+  loading: false,
+  error: true,
+  message: 'No message',
+  showCreateModal: true,
+};
+
 describe('Dashboard container', () => {
   it('should render without errors when props are truthy', () => {
     const wrapper = shallow(<Dashboard
       requests={requests}
       isAuthenticated
-      getRequests={getRequests}
+      getRequests={mockFunction}
       history={history}
-      getSingleRequest={getSingleRequest}
+      getSingleRequest={mockFunction}
+      create={mockFunction}
+      toggleCreateRequestModal={mockFunction}
+      toggleCreateModal={mockFunction}
+      common={common}
     />);
     expect(wrapper).toMatchSnapshot();
   });
@@ -66,9 +76,13 @@ describe('Dashboard container', () => {
     const wrapper = shallow(<Dashboard
       requests={requests}
       isAuthenticated={false}
-      getRequests={getRequests}
+      getRequests={mockFunction}
       history={history}
-      getSingleRequest={getSingleRequest}
+      getSingleRequest={mockFunction}
+      common={common}
+      create={mockFunction}
+      toggleCreateRequestModal={mockFunction}
+      toggleCreateModal={mockFunction}
     />);
     expect(wrapper).toBeTruthy();
   });

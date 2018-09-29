@@ -27,6 +27,7 @@ describe('Tests Request Details Page', () => {
       isAuthenticated
       request={request}
       actions={{ _html: '<i class="ion"></i>' }}
+      toggleCreateRequestModal={jest.fn()}
     />);
     expect(wrapper.find('div')).toHaveLength(4);
     expect(wrapper.find('h2')).toHaveLength(1);

@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import SideNav from '../components/SideNav';
 import NavBar from '../components/NavBar';
-import { userError } from '../actions/commonActions';
+import { userError, toggleCreateModal } from '../actions/commonActions';
 import RequestDetails from '../components/RequestDetails';
 
 export class RequestDetailsPage extends Component {
@@ -44,11 +44,11 @@ export class RequestDetailsPage extends Component {
   }
 
   render() {
-    const { request } = this.props;
+    const { request, toggleCreateRequestModal } = this.props;
     return (
       <div>
         <NavBar />
-        <SideNav />
+        <SideNav toggleCreateModal={toggleCreateRequestModal} />
         <div className="ch-row">
           <div className="ch-col-2" />
           <div className="ch-col-9" id="user-display">
@@ -69,6 +69,7 @@ RequestDetailsPage.propTypes = {
   request: PropTypes.shape({}).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   history: PropTypes.shape({}).isRequired,
+  toggleCreateRequestModal: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownprops) => ({
@@ -79,6 +80,7 @@ const mapStateToProps = (state, ownprops) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   userErrorHandler: message => (userError(message)),
+  toggleCreateRequestModal: () => (toggleCreateModal()),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RequestDetailsPage);

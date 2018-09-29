@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const SideNav = () => (
+const SideNav = ({ toggleCreateModal }) => (
   <div className="ch-side-nav" id="side-nav">
     <i className="icon ion-md-construct ch-about-icon" />
     <h3>
@@ -46,7 +47,11 @@ const SideNav = () => (
         </h5>
       </li>
     </ul>
-    <button type="button" className="ch-btn-round" id="btn-add-request">
+    <button
+      type="button"
+      className="ch-btn-round"
+      onClick={() => toggleCreateModal()}
+    >
       <i className="icon ion-md-add" />
       {' '}
       Create Request
@@ -77,5 +82,9 @@ const SideNav = () => (
     <ul />
   </div>
 );
+
+SideNav.propTypes = {
+  toggleCreateModal: PropTypes.func.isRequired,
+};
 
 export default SideNav;
