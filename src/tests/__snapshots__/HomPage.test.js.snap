@@ -2,7 +2,7 @@
 
 exports[`Footer component should render without errors 1`] = `
 <div>
-  <NavBar />
+  <Connect(NavBar) />
   <div
     className="ch-aside"
   >

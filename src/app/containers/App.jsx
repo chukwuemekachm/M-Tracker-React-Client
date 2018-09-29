@@ -1,25 +1,25 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import HomePage from './HomePage';
+import DefaultHomePage from './HomePage';
 import store from '../store/configureStore';
 import '../assets/css/style.css';
-import NotFound from './NotFound';
-import Signup from './SignupPage';
-import Login from './LoginPage';
-import Dashboard from './Dashboard';
-import RequestDetailsPage from './RequestDetailsPage';
+import DefaultNotFound from './NotFound';
+import DefaultSignup from './SignupPage';
+import DefaultLogin from './LoginPage';
+import DefaultDashboard from './Dashboard';
+import DefaultRequestDetailsPage from './RequestDetailsPage';
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/dashboard" exact component={Dashboard} />
-        <Route path="/dashboard/:requestId" exact component={RequestDetailsPage} />
-        <Route component={NotFound} />
+        <Route path="/" exact component={DefaultHomePage} />
+        <Route path="/signup" exact component={DefaultSignup} />
+        <Route path="/login" exact component={DefaultLogin} />
+        <Route path="/dashboard" exact component={DefaultDashboard} />
+        <Route path="/dashboard/:requestId" exact component={DefaultRequestDetailsPage} />
+        <Route component={DefaultNotFound} />
       </Switch>
     </BrowserRouter>
   </Provider>
