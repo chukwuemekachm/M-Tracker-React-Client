@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-class NavBar extends React.Component {
+export class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +20,7 @@ class NavBar extends React.Component {
 
   render() {
     const { size } = this.state;
+    const { authenticated } = this.props;
     return (
       <nav>
         <ul className="ch-nav ch-card">
@@ -33,9 +36,19 @@ class NavBar extends React.Component {
           </li>
           <div className="ch-nav-right" id="nav" style={{ display: size }}>
             <li>
-              <Link to="/login">
-                Login
-              </Link>
+              {
+                authenticated
+                  ? (
+                    <Link to="/">
+                      Logout
+                    </Link>
+                  )
+                  : (
+                    <Link to="/login">
+                      Login
+                    </Link>
+                  )
+              }
             </li>
           </div>
         </ul>
@@ -44,4 +57,12 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+NavBar.propTypes = {
+  authenticated: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  authenticated: state.auth.authenticated,
+});
+
+export default connect(mapStateToProps, null)(NavBar);

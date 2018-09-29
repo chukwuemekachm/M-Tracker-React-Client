@@ -2,7 +2,7 @@
 
 exports[`LoginPage container should render without errors when props are falsy 1`] = `
 <div>
-  <NavBar />
+  <Connect(NavBar) />
   <div
     className="ch-row"
   >

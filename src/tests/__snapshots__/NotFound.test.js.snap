@@ -4,7 +4,7 @@ exports[`Tests 404 NotFound component should render without errors 1`] = `
 <div
   className="ch-aside"
 >
-  <NavBar />
+  <Connect(NavBar) />
   <div
     className="ch-row"
     style={

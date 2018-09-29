@@ -36,9 +36,9 @@ exports[`Navbar component should render without errors 1`] = `
       <li>
         <Link
           replace={false}
-          to="/login"
+          to="/"
         >
-          Login
+          Logout
         </Link>
       </li>
     </div>
