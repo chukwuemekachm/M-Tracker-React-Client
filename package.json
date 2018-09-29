@@ -29,9 +29,9 @@
     "test": "jest --env=jsdom --coverage --forceExit",
     "watch": "jest --watch",
     "dev": "webpack-dev-server --hot --open --mode development",
-    "build": "webpack --mode development",
     "prestart": "npm run build",
-    "start": "npm run build && babel-node index.js",
+    "build": "webpack --mode production",
+    "start": "babel-node index.js",
     "coverage": "jest --env=jsdom --coverage --forceExit --coverageReporters=text-lcov | coveralls",
     "update:snap": "jest --updateSnapshot --coverage --forceExit && npm test -- -u"
   },
@@ -62,7 +62,9 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -89,8 +91,6 @@
     "react-test-renderer": "^16.4.2",
     "style-loader": "^0.22.1",
     "supertest": "^3.1.0",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   }
 }

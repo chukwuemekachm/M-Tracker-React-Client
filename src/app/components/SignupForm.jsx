@@ -129,7 +129,7 @@ class SignupForm extends Component {
 SignupForm.propTypes = {
   userSignupRequest: PropTypes.func.isRequired,
   userError: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.object).isRequired,
+  history: PropTypes.shape({}).isRequired,
 };
 
 export default SignupForm;

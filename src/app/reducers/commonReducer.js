@@ -1,6 +1,8 @@
 import types from '../actions/commonTypes';
 
 const initialState = {
+  showCreateModal: false,
+  showUpdateModal: false,
   loading: false,
   error: false,
   message: '',
@@ -48,6 +50,11 @@ const commonReducer = (state = initialState, action) => {
           message: '',
         },
       );
+    case types.TOGGLE_CREATE_MODAL:
+      return {
+        ...state,
+        showCreateModal: state.showCreateModal !== true ? true : false,
+      };
     default:
       return state;
   }

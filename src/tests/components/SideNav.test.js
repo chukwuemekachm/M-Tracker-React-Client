@@ -2,9 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import SideNav from '../../app/components/SideNav';
 
+const props = {
+  toggleCreateModal: jest.fn(),
+};
+
 describe('Tests Side Nav component', () => {
   it('should render without errors', () => {
-    const wrapper = shallow(<SideNav />);
+    const wrapper = shallow(<SideNav {...props} />);
     expect(wrapper.find('div')).toHaveLength(1);
     expect(wrapper.find('h3')).toHaveLength(1);
     expect(wrapper.find('ul')).toHaveLength(3);

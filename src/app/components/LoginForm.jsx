@@ -72,7 +72,7 @@ class LoginForm extends Component {
 }
 LoginForm.propTypes = {
   userLoginRequest: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.object).isRequired,
+  history: PropTypes.shape({}).isRequired,
 };
 
 export default LoginForm;
