@@ -107,8 +107,6 @@ exports[`Homepage component should render without errors 1`] = `
       />
     </div>
   </div>
-  <br />
-  <br />
   <Footer />
 </div>
 `;

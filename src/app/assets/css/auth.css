@@ -1,0 +1,32 @@
+.text {
+  border: none;
+  border-radius: 0;
+  border-bottom: .1px solid #b2c0ce;
+  text-align: left;
+}
+
+.text:focus {
+  border: none!important;
+  box-shadow: none;
+}
+
+.ion-icon {
+  font-size: 5em;
+  color: #2b3e50;
+}
+
+.auth-form {
+  margin-top: 6em;
+}
+
+.auth-form a {
+  color: rgb(28, 97, 175);
+  text-decoration: underline;
+}
+
+.card {
+  -webkit-box-shadow: 1px 5px 6px -6px #777;
+  -moz-box-shadow: 1px 5px 6px -6px #777;
+  box-shadow: 1px 5px 6px -6px #777;
+  border-radius: 0;
+}

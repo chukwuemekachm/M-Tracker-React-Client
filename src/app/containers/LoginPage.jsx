@@ -1,75 +1,57 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import NavBar from '../components/NavBar';
+import DefaultNavBar from '../components/NavBar';
 import LoginForm from '../components/LoginForm';
-import Alert from '../components/Alert';
 import authActions from '../actions/authActions';
-import loadingSvg from '../assets/svg/loading.svg';
+import Loader from '../components/Loader';
 
 export class LoginPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      email: '',
+      password: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const { userLogin, history } = this.props;
+    userLogin(this.state, history, 'login');
   }
 
   render() {
-    const {
-      error, message, loading, history, userLogin,
-    } = this.props;
+    const { loading } = this.props;
     return (
       <div>
-        <NavBar />
-        <div className="ch-row">
-          <h2 className="ch-about">
-            Login to access your Maintenance Tracker Account
-          </h2>
-        </div>
-        <div className="ch-row">
-          <div className="ch-col-3">
-            {
-              error
-                ? (
-                  <Alert
-                    message={message}
-                    backgroundColor="#E74C3C"
-                  />
-                )
-                : ''
-            }
-            {
-              loading
-                ? <img src={loadingSvg} alt="loading" />
-                : ''
-            }
-          </div>
-        </div>
-        <div className="ch-row">
-          <div className="ch-col-3 ch-panel ch-signup">
-            <LoginForm
-              userLoginRequest={userLogin}
-              history={history}
-            />
-            <p className="ch-right">
-              {'Don\'t '}
-              have an account?
-              {' '}
-              <Link to="/signup">
-                Signup...
-              </Link>
-            </p>
-          </div>
-        </div>
+        <DefaultNavBar />
+        <LoginForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          bindValues={this.state}
+        />
+        {
+          loading
+            ? <Loader />
+            : ''
+        }
       </div>
     );
   }
 }
 
 LoginPage.propTypes = {
-  message: PropTypes.string.isRequired,
-  error: PropTypes.bool.isRequired,
+  // message: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   userLogin: PropTypes.func.isRequired,
   history: PropTypes.shape({}).isRequired,

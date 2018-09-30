@@ -1,76 +1,67 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import NavBar from '../components/NavBar';
+import toastr from 'toastr';
+import DefaultNavBar from '../components/NavBar';
 import SignupForm from '../components/SignupForm';
-import Alert from '../components/Alert';
 import authActions from '../actions/authActions';
 import { userError } from '../actions/commonActions';
-import loadingSvg from '../assets/svg/loading.svg';
+import Loader from '../components/Loader';
 
 export class SignupPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const { password, confirmPassword } = this.state;
+    const { userSignup, userErrorHandler, history } = this.props;
+    if (confirmPassword !== password) {
+      userErrorHandler('Confirm Password must match the Password');
+      toastr.error('Confirm Password must match the Password');
+      return;
+    }
+    userSignup(this.state, history, 'signup');
   }
 
   render() {
-    const {
-      error, message, loading, history, userSignup, userErrorHandler,
-    } = this.props;
+    const { loading } = this.props;
     return (
       <div>
-        <NavBar />
-        <div className="ch-row">
-          <h2 className="ch-about">
-            Sign up to use Maintenance Tracker today
-          </h2>
-        </div>
-        <div className="ch-row">
-          <div className="ch-col-3">
-            {
-              error
-                ? (
-                  <Alert
-                    message={message}
-                    backgroundColor="#E74C3C"
-                  />
-                )
-                : ''
-            }
-            {
-              loading
-                ? <img src={loadingSvg} alt="loading" />
-                : ''
-            }
-          </div>
-        </div>
-        <div className="ch-row">
-          <div className="ch-col-3 ch-panel ch-signup">
-            <SignupForm
-              userError={userErrorHandler}
-              userSignupRequest={userSignup}
-              history={history}
-            />
-            <p className="ch-right">
-              Already have an account?
-              {' '}
-              <Link to="/login">
-                Signin...
-              </Link>
-            </p>
-          </div>
-        </div>
+        <DefaultNavBar />
+        <SignupForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          bindValues={this.state}
+        />
+        {
+          loading
+            ? <Loader />
+            : ''
+        }
       </div>
     );
   }
 }
 
 SignupPage.propTypes = {
-  message: PropTypes.string.isRequired,
-  error: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   userErrorHandler: PropTypes.func.isRequired,
   userSignup: PropTypes.func.isRequired,

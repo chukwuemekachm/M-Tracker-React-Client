@@ -1,78 +1,64 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import '../assets/css/auth.css';
 
-class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-    };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+const LoginForm = ({ bindValues, handleSubmit, handleChange }) => (
+  <div className="row mb-4 auth-form">
+    <div className="col-md-4" />
+    <div className="col-md-4">
+      <div className="card text-center">
+        <h3 className="text-center mt-5">
+          Login to access your account
+        </h3>
+        <i className="icon ion-md-construct text-center ion-icon" />
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="input-group mb-4">
+              <input
+                type="email"
+                className="form-control text"
+                placeholder="Email"
+                name="email"
+                onChange={handleChange}
+                value={bindValues.email}
+              />
+            </div>
+            <div className="input-group mb-4">
+              <input
+                type="password"
+                className="form-control text"
+                placeholder="Password"
+                name="password"
+                onChange={handleChange}
+                value={bindValues.password}
+              />
+            </div>
+            <button
+              type="submit"
+              className="btn btn-success btn-md btn-block mb-3"
+            >
+              Login
+            </button>
+            <span>
+              Have no account?
+              {' '}
+              <Link to="/signup">
+                Create one
+              </Link>
+            </span>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div className="col-md-4" />
+  </div>
+);
 
-  onChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
-
-  onSubmit(event) {
-    event.preventDefault();
-
-    const { userLoginRequest, history } = this.props;
-    userLoginRequest(this.state, history, 'login');
-  }
-
-  render() {
-    const {
-      email, password,
-    } = this.state;
-    return (
-      <form onSubmit={this.onSubmit}>
-        <label htmlFor="email" className="ch-label">
-          Email Address
-          {' '}
-          <span className="ch-require">
-            *
-          </span>
-          <input
-            type="email"
-            name="email"
-            className="ch-input"
-            required
-            placeholder="Email Address"
-            value={email}
-            onChange={this.onChange}
-          />
-        </label>
-        <label htmlFor="password" className="ch-label">
-          Password
-          {' '}
-          <span className="ch-require">
-            *
-          </span>
-          <input
-            type="password"
-            name="password"
-            className="ch-input"
-            required
-            placeholder="Password"
-            value={password}
-            onChange={this.onChange}
-          />
-        </label>
-        <button type="submit" className="ch-btn-flat">
-          Login
-        </button>
-      </form>
-    );
-  }
-}
 LoginForm.propTypes = {
-  userLoginRequest: PropTypes.func.isRequired,
-  history: PropTypes.shape({}).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  bindValues: PropTypes.shape({}).isRequired,
 };
 
 export default LoginForm;

@@ -76,9 +76,6 @@ const HomePage = () => (
         />
       </div>
     </div>
-
-    <br />
-    <br />
     <Footer />
   </div>
 );

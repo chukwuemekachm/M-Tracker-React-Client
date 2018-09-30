@@ -1,125 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar component should render without errors and submit the form 1`] = `
-<SignupForm
-  history={Object {}}
-  userError={[MockFunction]}
-  userSignupRequest={[MockFunction]}
+<div
+  className="row mb-4 auth-form"
 >
-  <form
-    onSubmit={[Function]}
+  <div
+    className="col-md-4"
+  />
+  <div
+    className="col-md-4"
   >
-    <label
-      className="ch-label"
-      htmlFor="firstName"
+    <div
+      className="card text-center"
     >
-      First Name
-       
-      <span
-        className="ch-require"
+      <h3
+        className="text-center mt-5"
       >
-        *
-      </span>
-      <input
-        className="ch-input"
-        name="firstname"
-        onChange={[Function]}
-        placeholder="First Name"
-        required={true}
-        type="text"
-        value=""
+        Sign up to use Maintenance Tracker
+      </h3>
+      <i
+        className="icon ion-md-construct text-center ion-icon"
       />
-    </label>
-    <label
-      className="ch-label"
-      htmlFor="lastname"
-    >
-      Last Name
-       
-      <span
-        className="ch-require"
+      <div
+        className="card-body"
       >
-        *
-      </span>
-      <input
-        className="ch-input"
-        name="lastname"
-        onChange={[Function]}
-        placeholder="Last Name"
-        required={true}
-        type="text"
-        value=""
-      />
-    </label>
-    <label
-      className="ch-label"
-      htmlFor="email"
-    >
-      Email Address
-       
-      <span
-        className="ch-require"
-      >
-        *
-      </span>
-      <input
-        className="ch-input"
-        name="email"
-        onChange={[Function]}
-        placeholder="Email Address"
-        required={true}
-        type="email"
-        value=""
-      />
-    </label>
-    <label
-      className="ch-label"
-      htmlFor="password"
-    >
-      Password
-       
-      <span
-        className="ch-require"
-      >
-        *
-      </span>
-      <input
-        className="ch-input"
-        name="password"
-        onChange={[Function]}
-        placeholder="Password"
-        required={true}
-        type="password"
-        value=""
-      />
-    </label>
-    <label
-      className="ch-label"
-      htmlFor="confirmPassword"
-    >
-      Confirm Password
-       
-      <span
-        className="ch-require"
-      >
-        *
-      </span>
-      <input
-        className="ch-input"
-        name="confirmPassword"
-        onChange={[Function]}
-        placeholder="Password"
-        required={true}
-        type="password"
-        value=""
-      />
-    </label>
-    <button
-      className="ch-btn-flat"
-      type="submit"
-    >
-      Signup
-    </button>
-  </form>
-</SignupForm>
+        <form
+          onSubmit={[MockFunction]}
+        >
+          <div
+            className="input-group mb-4"
+          >
+            <input
+              className="form-control text"
+              name="firstname"
+              onChange={[MockFunction]}
+              placeholder="First name"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="input-group mb-4"
+          >
+            <input
+              className="form-control text"
+              name="lastname"
+              onChange={[MockFunction]}
+              placeholder="Last name"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="input-group mb-4"
+          >
+            <input
+              className="form-control text"
+              name="email"
+              onChange={[MockFunction]}
+              placeholder="Email"
+              type="email"
+              value=""
+            />
+          </div>
+          <div
+            className="input-group mb-4"
+          >
+            <input
+              className="form-control text"
+              name="password"
+              onChange={[MockFunction]}
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+          </div>
+          <div
+            className="input-group mb-4"
+          >
+            <input
+              className="form-control text"
+              name="confirmPassword"
+              onChange={[MockFunction]}
+              placeholder="Confirm password"
+              type="password"
+              value=""
+            />
+          </div>
+          <button
+            className="btn btn-success btn-md btn-block mb-3"
+            type="submit"
+          >
+            Signup
+          </button>
+          <span>
+            Have an account?
+             
+            <Link
+              replace={false}
+              to="/login"
+            >
+              Login
+            </Link>
+          </span>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div
+    className="col-md-4"
+  />
+</div>
 `;
