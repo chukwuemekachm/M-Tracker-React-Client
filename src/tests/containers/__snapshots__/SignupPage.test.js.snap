@@ -3,46 +3,18 @@
 exports[`SignupPage container should render without errors when props are falsy 1`] = `
 <div>
   <Connect(NavBar) />
-  <div
-    className="ch-row"
-  >
-    <h2
-      className="ch-about"
-    >
-      Sign up to use Maintenance Tracker today
-    </h2>
-  </div>
-  <div
-    className="ch-row"
-  >
-    <div
-      className="ch-col-3"
-    />
-  </div>
-  <div
-    className="ch-row"
-  >
-    <div
-      className="ch-col-3 ch-panel ch-signup"
-    >
-      <SignupForm
-        history={Object {}}
-        userError={[MockFunction]}
-        userSignupRequest={[MockFunction]}
-      />
-      <p
-        className="ch-right"
-      >
-        Already have an account?
-         
-        <Link
-          replace={false}
-          to="/login"
-        >
-          Signin...
-        </Link>
-      </p>
-    </div>
-  </div>
+  <SignupForm
+    bindValues={
+      Object {
+        "confirmPassword": "",
+        "email": "",
+        "firstname": "",
+        "lastname": "",
+        "password": "",
+      }
+    }
+    handleChange={[Function]}
+    handleSubmit={[Function]}
+  />
 </div>
 `;

@@ -1,14 +1,20 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import LoginForm from '../../app/components/LoginForm';
 
-const userLoginRequest = jest.fn();
-const history = {};
+const handleChange = jest.fn();
+const handleSubmit = jest.fn();
+const bindValues = {
+  email: '',
+  password: '',
+};
+
 describe('Login form component', () => {
   it('should render without errors and submit the form', () => {
-    const wrapper = mount(<LoginForm
-      userLoginRequest={userLoginRequest}
-      history={history}
+    const wrapper = shallow(<LoginForm
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      bindValues={bindValues}
     />);
     expect(wrapper).toMatchSnapshot();
     wrapper.find('[name="email"]').simulate('change', {

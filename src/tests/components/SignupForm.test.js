@@ -1,16 +1,23 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import SignupForm from '../../app/components/SignupForm';
 
-const userError = jest.fn();
-const userSignupRequest = jest.fn();
-const history = {};
+const handleChange = jest.fn();
+const handleSubmit = jest.fn();
+const bindValues = {
+  firstname: '',
+  lastname: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+};
+
 describe('Navbar component', () => {
   it('should render without errors and submit the form', () => {
-    const wrapper = mount(<SignupForm
-      userError={userError}
-      userSignupRequest={userSignupRequest}
-      history={history}
+    const wrapper = shallow(<SignupForm
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      bindValues={bindValues}
     />);
     expect(wrapper).toMatchSnapshot();
     wrapper.find('[name="firstname"]').simulate('change', {
@@ -31,11 +38,11 @@ describe('Navbar component', () => {
     wrapper.find('form').simulate('submit');
   });
 
-  it('should render without errors but form submission  is not successful', () => {
-    const wrapper = mount(<SignupForm
-      userError={userError}
-      userSignupRequest={userSignupRequest}
-      history={history}
+  it('should render without errors but form submission should fail', () => {
+    const wrapper = shallow(<SignupForm
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      bindValues={bindValues}
     />);
     wrapper.find('[name="firstname"]').simulate('change', {
       target: { value: 'john' },

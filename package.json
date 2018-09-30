@@ -53,6 +53,9 @@
   },
   "homepage": "https://github.com/chukwuemekachm/M-Tracker-React-Client#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "express": "^4.16.3",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
@@ -61,15 +64,13 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "coveralls": "^3.0.2",
     "css-loader": "^1.0.0",

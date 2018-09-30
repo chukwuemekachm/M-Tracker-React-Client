@@ -1,3 +1,4 @@
+import toastr from 'toastr';
 import { userError, loading, networkError } from './commonActions';
 import types from './commonTypes';
 
@@ -15,13 +16,16 @@ const authAsync = (payload, history, route) => (dispatch) => {
         dispatch({ type: types.SIGNUP, payload: response });
         dispatch({ type: types.COMPLETE });
         history.push('/dashboard');
+        toastr.success(response.message);
         break;
       case 200:
         dispatch({ type: types.LOGIN, payload: response });
         dispatch({ type: types.COMPLETE });
         history.push('/dashboard');
+        toastr.success(response.message);
         break;
       default:
+        toastr.error(response.message);
         dispatch(userError(response.message));
         break;
     }
