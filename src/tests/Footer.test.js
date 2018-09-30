@@ -6,7 +6,6 @@ describe('Footer component', () => {
   it('should render without errors', () => {
     const wrapper = shallow(<Footer />);
     expect(wrapper.find('div')).toHaveLength(1);
-    expect(wrapper.find('h5')).toHaveLength(1);
     expect(wrapper).toMatchSnapshot();
   });
 });

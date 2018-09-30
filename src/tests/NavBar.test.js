@@ -6,7 +6,5 @@ describe('Navbar component', () => {
   it('should render without errors', () => {
     const wrapper = shallow(<NavBar authenticated />);
     expect(wrapper).toMatchSnapshot();
-    wrapper.findWhere(n => n.prop('id') === 'menu').simulate('click');
-    wrapper.findWhere(n => n.prop('id') === 'menu').simulate('click');
   });
 });

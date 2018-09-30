@@ -1,0 +1,29 @@
+.jumbotron {
+  min-height: 45em !important;
+  background-image: url('https://res.cloudinary.com/dvcaeuvee/image/upload/v1527700136/img1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 0;
+}
+
+.banner {
+  background-color: rgba(43, 62, 80, .78);
+  min-height: 45em !important;
+  width: 100%;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .jumbotron {
+    min-height: 30em !important;
+  }
+
+  .banner {
+    min-height: 30em !important;
+  }
+
+  .banner h2 {
+    font-size: 1.1em;
+  }
+}

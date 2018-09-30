@@ -1,89 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer component should render without errors 1`] = `
+exports[`Homepage component should render without errors 1`] = `
 <div>
   <Connect(NavBar) />
   <div
-    className="ch-aside"
+    className="jumbotron"
   >
     <div
-      className="ch-row ch-banner"
+      className="banner"
     >
       <div
-        className="ch-col-6"
+        className="w3-display-middle"
       >
-        <h1
-          className="ch-display"
+        <h3
+          className="text-center"
         >
-          Facilities
-           don't 
-          need to go bad any longer, request a repair or maintenance schedule
+          Facilities don
+          '
+          t need to go bad any longer,
            
-          from us today.
-        </h1>
+          request a repair or maintenance schedule from us today.
+        </h3>
+        <br />
         <div
-          className="ch-col-6"
+          className="row"
         >
-          <center>
+          <div
+            className="col-md-3"
+          />
+          <div
+            className="col-md-6"
+          >
             <Link
               replace={false}
               to="/signup"
             >
               <button
-                className="ch-btn-flat"
+                className="btn btn-success btn-lg btn-block"
                 type="button"
               >
-                Get Started Today
+                Get Started
               </button>
             </Link>
-          </center>
+          </div>
+          <div
+            className="col-md-3"
+          />
         </div>
       </div>
     </div>
   </div>
   <div
-    className="ch-row"
+    className="container"
   >
-    <h2
-      className="ch-about"
+    <br />
+    <h3
+      className="display-6 text-center"
     >
       About Maintenance Tracker
-    </h2>
-    <p
-      className="ch-col-10"
+    </h3>
+    <br />
+    <div
+      className="container"
     >
-      Maintenance Tracker is an platform designed, to provide users with the oppurtunity
-       
-      of reaching out to operations or repairs department regarding repair or
-       
-      maintenance requests. It also enables users monitor the status of their request.
-    </p>
+      <p
+        className="text-center"
+      >
+        Maintenance Tracker is an platform designed, to provide users with the oppurtunity of
+         
+        reaching out to operations or repairs department regarding repair or maintenance
+         
+        requests. It also enables users to monitor the status of their requests.
+      </p>
+    </div>
   </div>
-  <h2
-    className="ch-about"
-  >
-    How it works
-  </h2>
+  <br />
+  <br />
   <div
-    className="ch-row"
+    className="container"
   >
-    <Icon
-      icon="icon ion-md-key ch-about-icon"
-      title="Authenticate"
-    />
-    <Icon
-      icon="icon ion-md-settings ch-about-icon"
-      title="Log a request"
-    />
-    <Icon
-      icon="icon ion-md-checkbox-outline ch-about-icon"
-      title="Request gets approved"
-    />
-    <Icon
-      icon="icon ion-md-construct ch-about-icon"
-      title="Request gets resolved"
-    />
+    <h3
+      className="display-6 text-center"
+    >
+      How it Works
+    </h3>
+    <br />
+    <br />
+    <div
+      className="row w3-display-center"
+    >
+      <Icon
+        icon="https://res.cloudinary.com/dvcaeuvee/image/upload/v1538265100/undraw_login_jdch.svg"
+        title="Authenticate"
+      />
+      <Icon
+        icon="https://res.cloudinary.com/dvcaeuvee/image/upload/v1538265099/undraw_add_file2_gvbb.svg"
+        title="Log a request"
+      />
+      <Icon
+        icon="https://res.cloudinary.com/dvcaeuvee/image/upload/v1538265100/undraw_hiring_cyhs.svg"
+        title="Request gets approved"
+      />
+      <Icon
+        icon="https://res.cloudinary.com/dvcaeuvee/image/upload/v1538265100/undraw_confirmation_2uy0.svg"
+        title="Request gets resolved"
+      />
+    </div>
   </div>
+  <br />
+  <br />
   <Footer />
 </div>
 `;

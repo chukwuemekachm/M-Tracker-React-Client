@@ -1,47 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar component should render without errors 1`] = `
-<nav>
-  <ul
-    className="ch-nav ch-card"
+<nav
+  className="navbar navbar-expand-lg w3-flat-midnight-blue"
+>
+  <Link
+    className="navbar-brand"
+    replace={false}
+    to="/"
   >
-    <li>
-      <h2>
-        <Link
-          replace={false}
-          to="/"
-        >
-          <i
-            className="icon ion-md-construct"
-          />
-           
-          Maintenance Tracker
-        </Link>
-        <i
-          className="icon ion-md-menu"
-          id="menu"
-          onClick={[Function]}
-        />
-      </h2>
-    </li>
-    <div
-      className="ch-nav-right"
-      id="nav"
-      style={
-        Object {
-          "display": "",
-        }
-      }
+    <i
+      className="icon ion-md-construct"
+    />
+     
+    Maintenance Tracker
+  </Link>
+  <button
+    aria-controls="navbarHidden"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    className="navbar-toggler"
+    data-target="#navbarHidden"
+    data-toggle="collapse"
+    type="button"
+  >
+    <i
+      className="icon ion-md-menu w3-text-white"
+    />
+  </button>
+  <div
+    className="collapse navbar-collapse justify-content-end"
+    id="navbarHidden"
+  >
+    <ul
+      className="navbar-nav"
     >
-      <li>
+      <li
+        className="nav-item"
+      >
         <Link
           replace={false}
           to="/"
         >
-          Logout
+          <button
+            className="btn btn-success"
+            type="button"
+          >
+            Logout
+          </button>
         </Link>
       </li>
-    </div>
-  </ul>
+    </ul>
+  </div>
 </nav>
 `;
