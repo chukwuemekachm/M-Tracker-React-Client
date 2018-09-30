@@ -2,10 +2,8 @@
 
 exports[`Footer component should render without errors 1`] = `
 <div
-  className="ch-footer ch-card"
+  className="w3-flat-midnight-blue footer"
 >
-  <h5>
-    Copyright of ©2018 Maintenance Tracker by Chima Chukwuemeka
-  </h5>
+  Copyright of ©2018 Maintenance Tracker by Chima Chukwuemeka
 </div>
 `;

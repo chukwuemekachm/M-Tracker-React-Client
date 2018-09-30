@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../assets/css/icon.css';
 
 const Icon = ({ title, icon }) => (
-  <div className="ch-col-3">
-    <i className={icon} />
-    <h3>
+  <div className="col-md-3 text-center">
+    <div className="icon-container">
+      <img src={icon} className="about-img" alt="authenticate" />
+    </div>
+    <h4>
       {title}
-    </h3>
+    </h4>
   </div>
 );
 

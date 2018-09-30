@@ -1,57 +1,53 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../assets/css/navbar.css';
 
-export class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      size: '',
-    };
-    this.toggleMenu = this.toggleMenu.bind(this);
-  }
-
-  toggleMenu() {
-    let { size } = this.state;
-    size = size === 'none' ? 'block' : 'none';
-    this.setState({ size });
-  }
-
+export class NavBar extends PureComponent {
   render() {
-    const { size } = this.state;
     const { authenticated } = this.props;
     return (
-      <nav>
-        <ul className="ch-nav ch-card">
-          <li>
-            <h2>
-              <Link to="/">
-                <i className="icon ion-md-construct" />
-                {' '}
-                Maintenance Tracker
-              </Link>
-              <i className="icon ion-md-menu" id="menu" onClick={this.toggleMenu} />
-            </h2>
-          </li>
-          <div className="ch-nav-right" id="nav" style={{ display: size }}>
-            <li>
+      <nav className="navbar navbar-expand-lg w3-flat-midnight-blue">
+        <Link className="navbar-brand" to="/">
+          <i className="icon ion-md-construct" />
+          {' '}
+          Maintenance Tracker
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarHidden"
+          aria-controls="navbarHidden"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i className="icon ion-md-menu w3-text-white" />
+        </button>
+        <div className="collapse navbar-collapse justify-content-end" id="navbarHidden">
+          <ul className="navbar-nav">
+            <li className="nav-item">
               {
-                authenticated
+                !authenticated
                   ? (
-                    <Link to="/">
-                      Logout
+                    <Link to="/login">
+                      <button type="button" className="btn btn-success">
+                        Login
+                      </button>
                     </Link>
                   )
                   : (
-                    <Link to="/login">
-                      Login
+                    <Link to="/">
+                      <button type="button" className="btn btn-success">
+                        Logout
+                      </button>
                     </Link>
                   )
               }
             </li>
-          </div>
-        </ul>
+          </ul>
+        </div>
       </nav>
     );
   }

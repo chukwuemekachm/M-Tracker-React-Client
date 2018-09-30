@@ -2,13 +2,19 @@
 
 exports[`Footer component should render without errors 1`] = `
 <div
-  className="ch-col-3"
+  className="col-md-3 text-center"
 >
-  <i
-    className="icon icon-md"
-  />
-  <h3>
+  <div
+    className="icon-container"
+  >
+    <img
+      alt="authenticate"
+      className="about-img"
+      src="icon icon-md"
+    />
+  </div>
+  <h4>
     Repair
-  </h3>
+  </h4>
 </div>
 `;
