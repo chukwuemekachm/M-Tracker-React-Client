@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Side nav component should render without errors 1`] = `
+<ul
+  className="list-group mb-3"
+>
+  <li
+    className="list-group-item d-flex justify-content-between align-items-center"
+  >
+    Create Request
+  </li>
+  <li
+    className="list-group-item d-flex justify-content-between align-items-center"
+  >
+    All Requests
+    <span
+      className="badge badge-primary badge-pill"
+    >
+      4
+    </span>
+  </li>
+  <li
+    className="list-group-item d-flex justify-content-between align-items-center"
+  >
+    Pending Requests
+    <span
+      className="badge badge-primary badge-pill"
+    >
+      1
+    </span>
+  </li>
+  <li
+    className="list-group-item d-flex justify-content-between align-items-center"
+  >
+    Approved Requests
+    <span
+      className="badge badge-primary badge-pill"
+    >
+      1
+    </span>
+  </li>
+  <li
+    className="list-group-item d-flex justify-content-between align-items-center"
+  >
+    Resolved Requests
+    <span
+      className="badge badge-primary badge-pill"
+    >
+      1
+    </span>
+  </li>
+  <li
+    className="list-group-item d-flex justify-content-between align-items-center"
+  >
+    Dis-approved Requests
+    <span
+      className="badge badge-primary badge-pill"
+    >
+      1
+    </span>
+  </li>
+</ul>
+`;

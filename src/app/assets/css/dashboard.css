@@ -1,0 +1,54 @@
+li.flex-fill {
+  list-style-type: none;
+}
+
+ul.request-card {
+  -webkit-box-shadow: 1px 5px 6px -6px #777;
+  -moz-box-shadow: 1px 5px 6px -6px #777;
+  box-shadow: 1px 5px 6px -6px #777;
+  border: 1px solid #f2f2f2;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+ul.resolved {
+  border-left: .2em solid #26ae60;
+  border-right: .2em solid #26ae60;
+}
+
+ul.pending {
+  border-left: .2em solid #3498da;
+  border-right: .2em solid #3498da;
+}
+
+ul.approved {
+  border-left: .2em solid #f1c40f;
+  border-right: .2em solid #f1c40f;
+}
+
+ul.disapproved {
+  border-left: .2em solid #e74c3c;
+  border-right: .2em solid #e74c3c;
+}
+
+.dashboard-body {
+  background-image: url('https://res.cloudinary.com/dvcaeuvee/image/upload/v1538346576/Desktop.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  overflow: auto;
+}
+
+.list-group li.list-group-item:hover {
+  background-color: #f8fafb;
+  cursor: pointer;
+}
+
+span.badge-primary {
+  background-color: #2b3e50
+}
