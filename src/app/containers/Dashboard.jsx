@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import DefaultNavBar from '../components/NavBar';
 import userRequestActions from '../actions/userRequestActions';
 import UserRequest from '../components/UserRequest';
@@ -38,7 +39,9 @@ export class Dashboard extends Component {
                 {
                   requests[0]
                     ? requests.map(request => (
-                      <UserRequest key={request.title} {...request} />
+                      <Link to={`/${request.id}`} key={request.id}>
+                        <UserRequest key={request.id} {...request} />
+                      </Link>
                     ))
                     : (
                       <p className="text-center">

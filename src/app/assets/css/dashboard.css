@@ -44,11 +44,19 @@ ul.disapproved {
   overflow: auto;
 }
 
-.list-group li.list-group-item:hover {
+.list-group li.list-group-item:hover, ul:hover {
   background-color: #f8fafb;
   cursor: pointer;
 }
 
 span.badge-primary {
   background-color: #2b3e50
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }

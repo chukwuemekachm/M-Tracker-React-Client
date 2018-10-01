@@ -36,6 +36,10 @@ exports[`App component should render without errors 1`] = `
       />
       <Route
         component={[Function]}
+        path="/:requestId"
+      />
+      <Route
+        component={[Function]}
       />
     </Switch>
   </BrowserRouter>
