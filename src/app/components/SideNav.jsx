@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const SideNav = ({ requests }) => (
   <ul className="list-group mb-3">
-    <li className="list-group-item d-flex justify-content-between align-items-center">
+    <li className="list-group-item d-flex justify-content-between align-items-center" data-toggle="modal" data-target="#createRequest">
       Create Request
     </li>
     <li className="list-group-item d-flex justify-content-between align-items-center">

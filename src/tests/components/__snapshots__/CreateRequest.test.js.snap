@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create request component should render without errors 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="createRequest"
+  className="modal fade"
+  id="createRequest"
+  role="dialog"
+  tabIndex="-1"
+>
+  <div
+    className="modal-dialog modal-dialog-centered"
+    role="document"
+  >
+    <div
+      className="modal-content"
+    >
+      <div
+        className="modal-header p-2 w3-flat-midnight-blue"
+      >
+        <h5
+          className="modal-title"
+          id="exampleModalCenterTitle"
+        >
+          Create a new request
+        </h5>
+        <button
+          aria-label="Close"
+          className="close p-4"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            ×
+          </span>
+        </button>
+      </div>
+      <div
+        className="modal-body"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="input-group mb-4"
+          >
+            <input
+              className="form-control text"
+              name="title"
+              onChange={[Function]}
+              placeholder="Title"
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+          <br />
+          <div
+            className="input-group mb-4"
+          >
+            <select
+              className="form-control text"
+              name="type"
+              onChange={[Function]}
+              required={true}
+              value=""
+            >
+              <option
+                value=""
+              >
+                Type
+              </option>
+              <option
+                value="repair"
+              >
+                Repair
+              </option>
+              <option
+                value="maintenance"
+              >
+                Maintenance
+              </option>
+            </select>
+          </div>
+          <br />
+          <div
+            className="input-group mb-4"
+          >
+            <textarea
+              className="form-control text"
+              name="description"
+              onChange={[Function]}
+              placeholder="Description"
+              required={true}
+              value=""
+            />
+          </div>
+          <div
+            className="p-4"
+          >
+            <button
+              className="btn btn-success btn-md btn-block"
+              type="submit"
+            >
+              Create request
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

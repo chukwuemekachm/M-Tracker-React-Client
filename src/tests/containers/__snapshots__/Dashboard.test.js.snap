@@ -1,118 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dashboard container should render without errors when props are truthy 1`] = `
-<div
-  className="dashboard-body"
->
-  <Connect(NavBar) />
+<div>
   <div
-    className="container mt-5"
+    className="dashboard-body"
   >
+    <Connect(NavBar) />
     <div
-      className="row"
+      className="container mt-5"
     >
       <div
-        className="col-md-3"
+        className="row"
       >
-        <SideNav
-          requests={
-            Array [
-              Object {
-                "createdat": "2018-09-04T18:11:56.976Z",
-                "description": "Hey this is a new request updated",
-                "id": 67,
-                "status": "pending",
-                "title": "Bad Television",
-                "type": "maintenance",
-                "updatedat": "2018-09-04T18:12:12.109Z",
-                "user_id": 3,
-              },
-              Object {
-                "createdat": "2018-09-04T18:11:56.976Z",
-                "description": "Hey this is a new request updated",
-                "id": 67,
-                "status": "approved",
-                "title": "Bad Television",
-                "type": "maintenance",
-                "updatedat": "2018-09-04T18:12:12.109Z",
-                "user_id": 3,
-              },
-              Object {
-                "createdat": "2018-09-04T18:11:56.976Z",
-                "description": "Hey this is a new request updated",
-                "id": 67,
-                "status": "disapproved",
-                "title": "Bad Television",
-                "type": "maintenance",
-                "updatedat": "2018-09-04T18:12:12.109Z",
-                "user_id": 3,
-              },
-              Object {
-                "createdat": "2018-09-04T18:11:56.976Z",
-                "description": "Hey this is a new request updated",
-                "id": 67,
-                "status": "resolved",
-                "title": "Bad Television",
-                "type": "maintenance",
-                "updatedat": "2018-09-04T18:12:12.109Z",
-                "user_id": 3,
-              },
-            ]
-          }
-        />
+        <div
+          className="col-md-3"
+        >
+          <SideNav
+            requests={
+              Array [
+                Object {
+                  "createdat": "2018-09-04T18:11:56.976Z",
+                  "description": "Hey this is a new request updated",
+                  "id": 67,
+                  "status": "pending",
+                  "title": "Bad Television",
+                  "type": "maintenance",
+                  "updatedat": "2018-09-04T18:12:12.109Z",
+                  "user_id": 3,
+                },
+                Object {
+                  "createdat": "2018-09-04T18:11:56.976Z",
+                  "description": "Hey this is a new request updated",
+                  "id": 67,
+                  "status": "approved",
+                  "title": "Bad Television",
+                  "type": "maintenance",
+                  "updatedat": "2018-09-04T18:12:12.109Z",
+                  "user_id": 3,
+                },
+                Object {
+                  "createdat": "2018-09-04T18:11:56.976Z",
+                  "description": "Hey this is a new request updated",
+                  "id": 67,
+                  "status": "disapproved",
+                  "title": "Bad Television",
+                  "type": "maintenance",
+                  "updatedat": "2018-09-04T18:12:12.109Z",
+                  "user_id": 3,
+                },
+                Object {
+                  "createdat": "2018-09-04T18:11:56.976Z",
+                  "description": "Hey this is a new request updated",
+                  "id": 67,
+                  "status": "resolved",
+                  "title": "Bad Television",
+                  "type": "maintenance",
+                  "updatedat": "2018-09-04T18:12:12.109Z",
+                  "user_id": 3,
+                },
+              ]
+            }
+          />
+        </div>
+        <div
+          className="col-md-8"
+        >
+          <UserRequest
+            createdat="2018-09-04T18:11:56.976Z"
+            description="Hey this is a new request updated"
+            id={67}
+            key="Bad Television"
+            status="pending"
+            title="Bad Television"
+            type="maintenance"
+            updatedat="2018-09-04T18:12:12.109Z"
+            user_id={3}
+          />
+          <UserRequest
+            createdat="2018-09-04T18:11:56.976Z"
+            description="Hey this is a new request updated"
+            id={67}
+            key="Bad Television"
+            status="approved"
+            title="Bad Television"
+            type="maintenance"
+            updatedat="2018-09-04T18:12:12.109Z"
+            user_id={3}
+          />
+          <UserRequest
+            createdat="2018-09-04T18:11:56.976Z"
+            description="Hey this is a new request updated"
+            id={67}
+            key="Bad Television"
+            status="disapproved"
+            title="Bad Television"
+            type="maintenance"
+            updatedat="2018-09-04T18:12:12.109Z"
+            user_id={3}
+          />
+          <UserRequest
+            createdat="2018-09-04T18:11:56.976Z"
+            description="Hey this is a new request updated"
+            id={67}
+            key="Bad Television"
+            status="resolved"
+            title="Bad Television"
+            type="maintenance"
+            updatedat="2018-09-04T18:12:12.109Z"
+            user_id={3}
+          />
+        </div>
       </div>
       <div
-        className="col-md-8"
-      >
-        <UserRequest
-          createdat="2018-09-04T18:11:56.976Z"
-          description="Hey this is a new request updated"
-          id={67}
-          key="Bad Television"
-          status="pending"
-          title="Bad Television"
-          type="maintenance"
-          updatedat="2018-09-04T18:12:12.109Z"
-          user_id={3}
-        />
-        <UserRequest
-          createdat="2018-09-04T18:11:56.976Z"
-          description="Hey this is a new request updated"
-          id={67}
-          key="Bad Television"
-          status="approved"
-          title="Bad Television"
-          type="maintenance"
-          updatedat="2018-09-04T18:12:12.109Z"
-          user_id={3}
-        />
-        <UserRequest
-          createdat="2018-09-04T18:11:56.976Z"
-          description="Hey this is a new request updated"
-          id={67}
-          key="Bad Television"
-          status="disapproved"
-          title="Bad Television"
-          type="maintenance"
-          updatedat="2018-09-04T18:12:12.109Z"
-          user_id={3}
-        />
-        <UserRequest
-          createdat="2018-09-04T18:11:56.976Z"
-          description="Hey this is a new request updated"
-          id={67}
-          key="Bad Television"
-          status="resolved"
-          title="Bad Television"
-          type="maintenance"
-          updatedat="2018-09-04T18:12:12.109Z"
-          user_id={3}
-        />
-      </div>
+        className="col-md-1"
+      />
     </div>
-    <div
-      className="col-md-1"
-    />
   </div>
+  <CreateRequestForm
+    create={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": Promise {},
+          },
+        ],
+      }
+    }
+    history={
+      Object {
+        "push": [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": Promise {},
+            },
+          ],
+        },
+      }
+    }
+  />
 </div>
 `;

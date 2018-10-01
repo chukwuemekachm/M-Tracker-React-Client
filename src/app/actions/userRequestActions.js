@@ -1,3 +1,4 @@
+import toastr from 'toastr';
 import { userError, loading, networkError } from './commonActions';
 import types from './commonTypes';
 
@@ -22,7 +23,7 @@ const getAllAsync = () => (dispatch, getState) => {
         break;
     }
     return response;
-  }).catch(() => {
+  }).catch((error) => {
     dispatch(networkError());
   });
 };
@@ -41,9 +42,12 @@ const createRequestAsync = payload => (dispatch, getState) => {
       case 201:
         dispatch({ type: types.CREATE_REQUEST, payload: response.data });
         dispatch({ type: types.COMPLETE });
+        toastr.success(response.message);
+        getAllAsync()(dispatch, getState);
         break;
       default:
         dispatch(userError(response.message));
+        toastr.success(response.message);
         break;
     }
     return response;
