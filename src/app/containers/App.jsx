@@ -8,7 +8,6 @@ import DefaultNotFound from './NotFound';
 import DefaultSignup from './SignupPage';
 import DefaultLogin from './LoginPage';
 import DefaultDashboard from './Dashboard';
-import DefaultRequestDetailsPage from './RequestDetailsPage';
 
 const App = () => (
   <Provider store={store}>
@@ -18,7 +17,6 @@ const App = () => (
         <Route path="/signup" exact component={DefaultSignup} />
         <Route path="/login" exact component={DefaultLogin} />
         <Route path="/dashboard" exact component={DefaultDashboard} />
-        <Route path="/dashboard/:requestId" exact component={DefaultRequestDetailsPage} />
         <Route component={DefaultNotFound} />
       </Switch>
     </BrowserRouter>

@@ -60,7 +60,7 @@ describe('Dashboard container', () => {
   it('should render without errors when props are truthy', () => {
     const wrapper = shallow(<Dashboard
       requests={requests}
-      isAuthenticated
+      authenticated
       getRequests={mockFunction}
       history={history}
       getSingleRequest={mockFunction}
@@ -75,7 +75,7 @@ describe('Dashboard container', () => {
   it('should render without errors when props are falsy', () => {
     const wrapper = shallow(<Dashboard
       requests={requests}
-      isAuthenticated={false}
+      authenticated={false}
       getRequests={mockFunction}
       history={history}
       getSingleRequest={mockFunction}

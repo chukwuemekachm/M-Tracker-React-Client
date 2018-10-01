@@ -8,7 +8,6 @@ describe('Tests UserRequest component', () => {
       title="New Request"
       status="approved"
       createdat="2018-09-04T18:11:56.976Z"
-      format="ch-requests ch-approve"
     />);
     expect(wrapper.find('ul')).toHaveLength(1);
     expect(wrapper.find('li')).toHaveLength(3);
