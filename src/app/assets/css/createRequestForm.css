@@ -1,0 +1,19 @@
+.text, select.text {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #b2c0ce;
+  text-align: left;
+}
+
+.text:focus {
+  border: none!important;
+  box-shadow: none;
+}
+
+.modal-content, .modal-header {
+  border-radius: 1px;
+}
+
+button.close > span {
+  color: #fff;
+}
