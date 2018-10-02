@@ -13,6 +13,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    onClick={[Function]}
   >
     All Requests
     <span
@@ -23,6 +24,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    onClick={[Function]}
   >
     Pending Requests
     <span
@@ -33,6 +35,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    onClick={[Function]}
   >
     Approved Requests
     <span
@@ -43,6 +46,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    onClick={[Function]}
   >
     Resolved Requests
     <span
@@ -53,6 +57,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    onClick={[Function]}
   >
     Dis-approved Requests
     <span

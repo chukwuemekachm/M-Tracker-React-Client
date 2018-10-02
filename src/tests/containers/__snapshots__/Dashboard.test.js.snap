@@ -16,6 +16,7 @@ exports[`Dashboard container should render without errors when props are truthy 
           className="col-md-3"
         >
           <SideNav
+            handleNavigation={[Function]}
             requests={
               Array [
                 Object {
@@ -156,6 +157,9 @@ exports[`Dashboard container should render without errors when props are truthy 
     }
     history={
       Object {
+        "location": Object {
+          "search": "?pending",
+        },
         "push": [MockFunction] {
           "calls": Array [
             Array [],

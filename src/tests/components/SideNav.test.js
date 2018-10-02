@@ -11,7 +11,7 @@ const requests = [
 
 describe('Side nav component', () => {
   it('should render without errors', () => {
-    const wrapper = shallow(<SideNav requests={requests} />);
+    const wrapper = shallow(<SideNav requests={requests} handleNavigation={jest.fn} />);
     expect(wrapper.find('ul')).toHaveLength(1);
     expect(wrapper.find('li')).toHaveLength(6);
     expect(wrapper).toMatchSnapshot();
