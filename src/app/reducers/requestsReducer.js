@@ -10,22 +10,28 @@ const initialState = {
 const requestsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.VIEW_ALL_REQUESTS:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          allRequests: [...action.payload],
-          filteredRequests: [...action.payload],
-        },
-      );
+      return {
+        ...state,
+        allRequests: [...action.payload],
+        filteredRequests: [...action.payload],
+      };
     case types.VIEW_SINGLE_REQUEST:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          currentRequest: state.allRequests.find(request => request.id === action.payload),
-        },
-      );
+      return {
+        ...state,
+        currentRequest: state.allRequests.find(request => request.id === action.payload),
+      };
+    case types.CREATE_REQUEST:
+      return {
+        ...state,
+        allRequests: [...state.allRequests, action.payload],
+      };
+    case types.DELETE_REQUEST:
+      return {
+        ...state,
+        allRequests: state.allRequests
+          .filter(request => request.id !== Number.parseInt(action.payload, 10)),
+        currentRequest: {},
+      };
     default:
       return state;
   }

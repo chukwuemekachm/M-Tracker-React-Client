@@ -26,7 +26,7 @@ export class ViewSingleRequestPage extends Component {
 
   render() {
     const {
-      request = {}, requests, createRequest, history,
+      request = {}, requests, createRequest, history, deleteRequest,
     } = this.props;
     return (
       <div>
@@ -45,7 +45,7 @@ export class ViewSingleRequestPage extends Component {
                     </Link>
                   </div>
                   <div className="p-3 bd-highlight">
-                    <i className="icon ion-md-trash ion-icon-button" />
+                    <i className="icon ion-md-trash ion-icon-button" onClick={() => deleteRequest(request.id)} />
                   </div>
                   <div className="p-3 bd-highlight">
                     <i className="icon ion-md-create ion-icon-button" />
@@ -78,6 +78,7 @@ ViewSingleRequestPage.propTypes = {
   match: PropTypes.shape({}).isRequired,
   history: PropTypes.shape({}).isRequired,
   createRequest: PropTypes.func.isRequired,
+  deleteRequest: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -91,6 +92,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   viewRequest: payload => (userRequestActions.getSingleRequest(payload)),
   getRequests: () => (userRequestActions.getAllAsync()),
   createRequest: payload => (userRequestActions.createRequest(payload)),
+  deleteRequest: payload => (userRequestActions.deleteRequest(payload)),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewSingleRequestPage);
