@@ -32,6 +32,31 @@ const requestsReducer = (state = initialState, action) => {
           .filter(request => request.id !== Number.parseInt(action.payload, 10)),
         currentRequest: {},
       };
+    case types.VIEW_APPROVED_REQUESTS:
+      return {
+        ...state,
+        filteredRequests: state.allRequests.filter(request => request.status === 'approved'),
+      };
+    case types.VIEW_DISAPPROVED_REQUESTS:
+      return {
+        ...state,
+        filteredRequests: state.allRequests.filter(request => request.status === 'disapproved'),
+      };
+    case types.VIEW_RESOLVED_REQUESTS:
+      return {
+        ...state,
+        filteredRequests: state.allRequests.filter(request => request.status === 'resolved'),
+      };
+    case types.VIEW_PENDING_REQUESTS:
+      return {
+        ...state,
+        filteredRequests: state.allRequests.filter(request => request.status === 'pending'),
+      };
+    case types.VIEW_UNFILTERED_REQUESTS:
+      return {
+        ...state,
+        filteredRequests: [...state.allRequests],
+      };
     default:
       return state;
   }

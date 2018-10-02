@@ -3,11 +3,14 @@ import { shallow } from 'enzyme';
 import { Dashboard } from '../../app/containers/Dashboard';
 
 const mockFunction = jest.fn();
-mockFunction.mockResolvedValueOnce({
+mockFunction.mockResolvedValue({
   status: 201,
 });
 const history = {
   push: mockFunction,
+  location: {
+    search: '?pending',
+  },
 };
 const requests = [
   {
@@ -60,6 +63,8 @@ describe('Dashboard container', () => {
       getRequests={mockFunction}
       history={history}
       createRequest={mockFunction}
+      filter={mockFunction}
+      filteredRequests={requests}
     />);
     expect(wrapper).toMatchSnapshot();
   });
@@ -71,6 +76,8 @@ describe('Dashboard container', () => {
       getRequests={mockFunction}
       history={history}
       createRequest={mockFunction}
+      filter={mockFunction}
+      filteredRequests={requests}
     />);
     expect(wrapper).toBeTruthy();
   });

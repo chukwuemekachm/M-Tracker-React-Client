@@ -9,6 +9,7 @@ import SideNav from '../components/SideNav';
 import userRequestActions from '../actions/userRequestActions';
 import CreateRequestForm from '../components/CreateRequest';
 import '../assets/css/viewSingleRequest.css';
+import { navigateFilter } from '../actions/filterRequestsAction';
 
 export class ViewSingleRequestPage extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export class ViewSingleRequestPage extends Component {
           <div className="container">
             <div className="row  mt-5">
               <div className="col-md-3">
-                <SideNav requests={requests} />
+                <SideNav requests={requests} handleNavigation={navigateFilter} />
               </div>
               <div className="col-md-6">
                 <div className="d-flex justify-content-center">

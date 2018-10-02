@@ -9,6 +9,7 @@ import UserRequest from '../components/UserRequest';
 import '../assets/css/dashboard.css';
 import SideNav from '../components/SideNav';
 import CreateRequestForm from '../components/CreateRequest';
+import filterRequests, { navigateFilter } from '../actions/filterRequestsAction';
 
 export class Dashboard extends Component {
   constructor(props) {
@@ -17,15 +18,22 @@ export class Dashboard extends Component {
   }
 
   componentDidMount() {
-    const { authenticated, history, getRequests } = this.props;
+    const {
+      authenticated, history, getRequests, filter,
+    } = this.props;
     if (!authenticated) {
       history.push('/login');
     }
-    getRequests();
+    getRequests().then(() => {
+      const { search } = history.location;
+      filter(search.substring(1));
+    });
   }
 
   render() {
-    const { requests, history, createRequest } = this.props;
+    const {
+      requests, history, createRequest, filteredRequests,
+    } = this.props;
     return (
       <div>
         <div className="dashboard-body">
@@ -33,12 +41,12 @@ export class Dashboard extends Component {
           <div className="container mt-5">
             <div className="row">
               <div className="col-md-3">
-                <SideNav requests={requests} />
+                <SideNav requests={requests} handleNavigation={navigateFilter} />
               </div>
               <div className="col-md-8">
                 {
-                  requests[0]
-                    ? requests.map(request => (
+                  filteredRequests[0]
+                    ? filteredRequests.map(request => (
                       <Link to={`/${request.id}`} key={request.id}>
                         <UserRequest key={request.id} {...request} />
                       </Link>
@@ -68,10 +76,13 @@ Dashboard.propTypes = {
   history: PropTypes.shape({}).isRequired,
   getRequests: PropTypes.func.isRequired,
   createRequest: PropTypes.func.isRequired,
+  filter: PropTypes.func.isRequired,
+  filteredRequests: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = (state, ownprops) => ({
-  requests: state.requests.filteredRequests,
+  requests: state.requests.allRequests,
+  filteredRequests: state.requests.filteredRequests,
   authenticated: state.auth.authenticated,
   history: ownprops.history,
 });
@@ -79,6 +90,7 @@ const mapStateToProps = (state, ownprops) => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
   getRequests: () => (userRequestActions.getAllAsync()),
   createRequest: payload => (userRequestActions.createRequest(payload)),
+  filter: payload => (filterRequests(payload)),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

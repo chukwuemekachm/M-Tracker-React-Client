@@ -2,6 +2,12 @@ import requestsReducer from '../../app/reducers/requestsReducer';
 import types from '../../app/actions/commonTypes';
 
 const payload = [];
+const allRequestsArray = [
+  { status: 'resolved' },
+  { status: 'approved' },
+  { status: 'disapproved' },
+  { status: 'pending' },
+];
 
 describe('Tests requests reducer', () => {
   it('should return a new array of requests', () => {
@@ -13,6 +19,7 @@ describe('Tests requests reducer', () => {
         },
       );
   });
+
   it('should view a single request', () => {
     expect(requestsReducer(
       {
@@ -25,6 +32,7 @@ describe('Tests requests reducer', () => {
       currentRequest: { id: 1 },
     });
   });
+
   it('should create a new request', () => {
     expect(requestsReducer(
       {
@@ -36,6 +44,7 @@ describe('Tests requests reducer', () => {
       allRequests: [{ id: 1 }, { id: 2 }],
     });
   });
+
   it('should delete a request', () => {
     expect(requestsReducer(
       {
@@ -50,6 +59,62 @@ describe('Tests requests reducer', () => {
       currentRequest: {},
     });
   });
+
+  it('should return disapproved requests', () => {
+    expect(requestsReducer(
+      {
+        allRequests: allRequestsArray,
+      }, { type: types.VIEW_DISAPPROVED_REQUESTS },
+    )).toEqual({
+      allRequests: allRequestsArray,
+      filteredRequests: [{ status: 'disapproved' }],
+    });
+  });
+
+  it('should return approved requests', () => {
+    expect(requestsReducer(
+      {
+        allRequests: allRequestsArray,
+      }, { type: types.VIEW_APPROVED_REQUESTS },
+    )).toEqual({
+      allRequests: allRequestsArray,
+      filteredRequests: [{ status: 'approved' }],
+    });
+  });
+
+  it('should return resolved requests', () => {
+    expect(requestsReducer(
+      {
+        allRequests: allRequestsArray,
+      }, { type: types.VIEW_RESOLVED_REQUESTS },
+    )).toEqual({
+      allRequests: allRequestsArray,
+      filteredRequests: [{ status: 'resolved' }],
+    });
+  });
+
+  it('should return pending requests', () => {
+    expect(requestsReducer(
+      {
+        allRequests: allRequestsArray,
+      }, { type: types.VIEW_PENDING_REQUESTS },
+    )).toEqual({
+      allRequests: allRequestsArray,
+      filteredRequests: [{ status: 'pending' }],
+    });
+  });
+
+  it('should return unfiltered requests', () => {
+    expect(requestsReducer(
+      {
+        allRequests: allRequestsArray,
+      }, { type: types.VIEW_UNFILTERED_REQUESTS },
+    )).toEqual({
+      allRequests: allRequestsArray,
+      filteredRequests: allRequestsArray,
+    });
+  });
+
   it('should return the state', () => {
     expect(requestsReducer({ allRequests: [] }, { type: types.SIGNUP }))
       .toEqual({ allRequests: [] });
