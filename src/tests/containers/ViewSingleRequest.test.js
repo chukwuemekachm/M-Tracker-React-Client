@@ -18,6 +18,7 @@ const props = {
   createRequest: mockFunction,
   getRequests: mockFunction,
   viewRequest: mockFunction,
+  deleteRequest: mockFunction,
   request: {
     title: 'New Request',
     description: 'The description of my test request',

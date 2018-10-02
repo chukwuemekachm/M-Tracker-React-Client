@@ -47,7 +47,34 @@ const createRequestAsync = payload => (dispatch, getState) => {
         break;
       default:
         dispatch(userError(response.message));
+        toastr.error(response.message);
+        break;
+    }
+    return response;
+  }).catch(() => {
+    dispatch(networkError());
+  });
+};
+
+const deleteRequestAsync = payload => (dispatch, getState) => {
+  const state = getState();
+  const { token } = state.auth;
+  dispatch(loading());
+  return fetch(`${baseUrl}/users/requests/${payload}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    cache: 'reload',
+  }).then(response => response.json()).then((response) => {
+    switch (response.code) {
+      case 200:
+        dispatch({ type: types.DELETE_REQUEST, payload });
+        dispatch({ type: types.COMPLETE });
         toastr.success(response.message);
+        getAllAsync()(dispatch, getState);
+        break;
+      default:
+        dispatch(userError(response.message));
+        toastr.error(response.message);
         break;
     }
     return response;
@@ -58,6 +85,7 @@ const createRequestAsync = payload => (dispatch, getState) => {
 
 export default {
   getAllAsync,
+  deleteRequest: payload => deleteRequestAsync(payload),
   getSingleRequest: payload => ({ type: types.VIEW_SINGLE_REQUEST, payload }),
   createRequest: payload => createRequestAsync(payload),
 };

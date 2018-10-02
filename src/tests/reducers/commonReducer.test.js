@@ -21,4 +21,9 @@ describe('Tests common reducer', () => {
     expect(commonReducer({}, { type: types.COMPLETE }))
       .toEqual({ loading: false, error: false, message: '' });
   });
+
+  it('should return the state', () => {
+    expect(commonReducer({}, { type: types.LOGIN }))
+      .toEqual({});
+  });
 });

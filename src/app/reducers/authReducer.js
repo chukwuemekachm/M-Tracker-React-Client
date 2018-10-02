@@ -9,25 +9,19 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SIGNUP:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          user: action.payload.data,
-          token: action.payload.token,
-          authenticated: true,
-        },
-      );
+      return {
+        ...state,
+        user: action.payload.data,
+        token: action.payload.token,
+        authenticated: true,
+      };
     case types.LOGIN:
-      return Object.assign(
-        {},
-        { ...state },
-        {
-          user: action.payload.data,
-          token: action.payload.token,
-          authenticated: true,
-        },
-      );
+      return {
+        ...state,
+        user: action.payload.data,
+        token: action.payload.token,
+        authenticated: true,
+      };
     default:
       return state;
   }

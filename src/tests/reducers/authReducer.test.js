@@ -7,8 +7,18 @@ const payload = {
 };
 
 describe('Tests auth reducer', () => {
-  it('should return a signup payload', () => {
+  it('should signup a user', () => {
     expect(authReducer({}, { type: types.SIGNUP, payload }))
       .toEqual({ user: payload.data, token: payload.token, authenticated: true });
+  });
+
+  it('should login a user', () => {
+    expect(authReducer({}, { type: types.LOGIN, payload }))
+      .toEqual({ user: payload.data, token: payload.token, authenticated: true });
+  });
+
+  it('should return the state', () => {
+    expect(authReducer({}, { type: types.CREATE_REQUEST }))
+      .toEqual({});
   });
 });
