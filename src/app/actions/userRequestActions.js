@@ -23,7 +23,7 @@ const getAllAsync = () => (dispatch, getState) => {
         break;
     }
     return response;
-  }).catch((error) => {
+  }).catch(() => {
     dispatch(networkError());
   });
 };

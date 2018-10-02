@@ -1,0 +1,50 @@
+i.ion-md-trash,
+i.ion-md-close,
+i.ion-ios-close,
+i.ion-ios-trash {
+  color: #e74c3c;
+}
+
+i.ion-ios-arrow-back,
+i.ion-ios-arrow-forward,
+i.ion-md-arrow-back {
+  color: #3498da;
+}
+
+i.ion-md-done-all,
+i.ion-ios-done-all,
+i.ion-md-create,
+i.ion-md-checkmark,
+i.ion-ios-checkmark,
+i.ion-ios-create {
+  color: #26ae60;
+}
+
+.ion-icon-button {
+  font-size: 1.5em;
+  padding: .24em .5em;
+  border-radius: .8em;
+  background-color: #f7f7f7;
+}
+
+.ion-icon-button:hover {
+  background-color: #e4e4e4;
+  cursor: pointer;
+}
+
+.dashboard-body {
+  background-image: url('https://res.cloudinary.com/dvcaeuvee/image/upload/v1538346576/Desktop.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  overflow: auto;
+}
+
+h6.text-left>strong {
+  font-weight: bold;
+}
