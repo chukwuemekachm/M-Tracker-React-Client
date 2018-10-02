@@ -37,4 +37,5 @@ const authAsync = (payload, history, route) => (dispatch) => {
 
 export default {
   authAsync,
+  logout: () => ({ type: types.LOGOUT }),
 };

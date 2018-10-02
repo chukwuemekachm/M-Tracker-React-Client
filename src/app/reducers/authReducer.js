@@ -1,4 +1,5 @@
 import types from '../actions/commonTypes';
+import { clearState } from '../store/persistState';
 
 const initialState = {
   user: null,
@@ -21,6 +22,14 @@ const authReducer = (state = initialState, action) => {
         user: action.payload.data,
         token: action.payload.token,
         authenticated: true,
+      };
+    case types.LOGOUT:
+      clearState();
+      return {
+        ...state,
+        user: {},
+        token: '',
+        authenticated: false,
       };
     default:
       return state;

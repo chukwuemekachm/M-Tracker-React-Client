@@ -4,7 +4,7 @@ import { NavBar } from '../app/components/NavBar';
 
 describe('Navbar component', () => {
   it('should render without errors', () => {
-    const wrapper = shallow(<NavBar authenticated />);
+    const wrapper = shallow(<NavBar authenticated logout={jest.fn()} />);
     expect(wrapper).toMatchSnapshot();
   });
 });

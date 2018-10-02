@@ -44,6 +44,7 @@ exports[`Navbar component should render without errors 1`] = `
         >
           <button
             className="btn btn-success"
+            onClick={[Function]}
             type="button"
           >
             Logout
