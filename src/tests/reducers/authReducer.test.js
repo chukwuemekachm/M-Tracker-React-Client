@@ -17,6 +17,15 @@ describe('Tests auth reducer', () => {
       .toEqual({ user: payload.data, token: payload.token, authenticated: true });
   });
 
+  it('should logout a user', () => {
+    expect(authReducer({}, { type: types.LOGOUT }))
+      .toEqual({
+        user: {},
+        token: '',
+        authenticated: false,
+      });
+  });
+
   it('should return the state', () => {
     expect(authReducer({}, { type: types.CREATE_REQUEST }))
       .toEqual({});

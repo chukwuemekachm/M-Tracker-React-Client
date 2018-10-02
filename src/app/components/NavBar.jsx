@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../assets/css/navbar.css';
+import authActions from '../actions/authActions';
 
 export class NavBar extends PureComponent {
   render() {
-    const { authenticated } = this.props;
+    const { authenticated, logout } = this.props;
     return (
       <nav className="navbar navbar-expand-lg w3-flat-midnight-blue">
         <Link className="navbar-brand" to="/">
@@ -39,7 +41,7 @@ export class NavBar extends PureComponent {
                   )
                   : (
                     <Link to="/">
-                      <button type="button" className="btn btn-success">
+                      <button type="button" className="btn btn-success" onClick={() => logout()}>
                         Logout
                       </button>
                     </Link>
@@ -55,10 +57,15 @@ export class NavBar extends PureComponent {
 
 NavBar.propTypes = {
   authenticated: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   authenticated: state.auth.authenticated,
 });
 
-export default connect(mapStateToProps, null)(NavBar);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  logout: () => (authActions.logout()),
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
