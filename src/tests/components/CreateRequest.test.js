@@ -4,7 +4,7 @@ import CreateRequest from '../../app/components/CreateRequest';
 
 const mockCreate = jest.fn();
 mockCreate.mockResolvedValueOnce({
-  status: 201,
+  code: 201,
 });
 const history = {
   push: jest.fn(),

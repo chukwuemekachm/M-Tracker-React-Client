@@ -10,6 +10,7 @@ import userRequestActions from '../actions/userRequestActions';
 import CreateRequestForm from '../components/CreateRequest';
 import '../assets/css/viewSingleRequest.css';
 import { navigateFilter } from '../actions/filterRequestsAction';
+import UpdateRequestForm from '../components/UpdateRequest';
 
 export class ViewSingleRequestPage extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ export class ViewSingleRequestPage extends Component {
 
   render() {
     const {
-      request = {}, requests, createRequest, history, deleteRequest,
+      request = {}, requests, createRequest, history, deleteRequest, updateRequest,
     } = this.props;
     return (
       <div>
@@ -49,7 +50,11 @@ export class ViewSingleRequestPage extends Component {
                     <i className="icon ion-md-trash ion-icon-button" onClick={() => deleteRequest(request.id)} />
                   </div>
                   <div className="p-3 bd-highlight">
-                    <i className="icon ion-md-create ion-icon-button" />
+                    <i
+                      className="icon ion-md-create ion-icon-button"
+                      data-toggle="modal"
+                      data-target="#updateRequest"
+                    />
                   </div>
                 </div>
                 {
@@ -66,6 +71,7 @@ export class ViewSingleRequestPage extends Component {
           </div>
         </div>
         <CreateRequestForm history={history} create={createRequest} />
+        <UpdateRequestForm history={history} update={updateRequest} request={request} />
       </div>
     );
   }
@@ -80,6 +86,7 @@ ViewSingleRequestPage.propTypes = {
   history: PropTypes.shape({}).isRequired,
   createRequest: PropTypes.func.isRequired,
   deleteRequest: PropTypes.func.isRequired,
+  updateRequest: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -94,6 +101,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   getRequests: () => (userRequestActions.getAllAsync()),
   createRequest: payload => (userRequestActions.createRequest(payload)),
   deleteRequest: payload => (userRequestActions.deleteRequest(payload)),
+  updateRequest: payload => (userRequestActions.updateRequest(payload)),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewSingleRequestPage);

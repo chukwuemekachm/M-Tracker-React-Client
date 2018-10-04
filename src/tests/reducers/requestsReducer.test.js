@@ -8,6 +8,10 @@ const allRequestsArray = [
   { status: 'disapproved' },
   { status: 'pending' },
 ];
+const updateRequestsArray = [
+  { id: 1, status: 'approved' },
+  { id: 2, status: 'pending' },
+];
 
 describe('Tests requests reducer', () => {
   it('should return a new array of requests', () => {
@@ -112,6 +116,18 @@ describe('Tests requests reducer', () => {
     )).toEqual({
       allRequests: allRequestsArray,
       filteredRequests: allRequestsArray,
+    });
+  });
+
+  it('should update a request', () => {
+    expect(requestsReducer(
+      {
+        allRequests: updateRequestsArray,
+      }, { type: types.UPDATE_REQUEST, payload: { id: 2, status: 'approved' } },
+    )).toEqual({
+      allRequests: [{ id: 1, status: 'approved' }, { id: 2, status: 'approved' }],
+      filteredRequests: [{ id: 1, status: 'approved' }, { id: 2, status: 'approved' }],
+      currentRequest: { id: 2, status: 'approved' },
     });
   });
 

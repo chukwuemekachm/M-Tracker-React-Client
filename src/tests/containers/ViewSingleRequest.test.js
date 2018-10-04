@@ -7,11 +7,12 @@ import CreateRequestForm from '../../app/components/CreateRequest';
 import ViewSingleRequest from '../../app/components/ViewSingleRequest';
 
 const mockFunction = jest.fn();
-mockFunction.mockResolvedValue({ status: 201 });
+mockFunction.mockResolvedValue({ status: 200 });
 const props = {
   history: {
     push: mockFunction,
   },
+  updateRequest: mockFunction,
   match: {
     params: { requestId: 20 },
   },
