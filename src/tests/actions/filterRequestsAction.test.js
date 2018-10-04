@@ -2,6 +2,11 @@ import filterRequests, { navigateFilter } from '../../app/actions/filterRequests
 import types from '../../app/actions/commonTypes';
 
 describe('Filter request action creator', () => {
+  beforeAll(() => {
+    window.location.assign = jest.fn();
+    window.location.replace = jest.fn();
+  });
+
   it('should return approved requests', () => {
     expect(filterRequests('approved')).toEqual({
       type: types.VIEW_APPROVED_REQUESTS,

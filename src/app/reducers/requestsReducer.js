@@ -57,6 +57,23 @@ const requestsReducer = (state = initialState, action) => {
         ...state,
         filteredRequests: [...state.allRequests],
       };
+    case types.UPDATE_REQUEST:
+      return {
+        ...state,
+        allRequests: state.allRequests.map((request) => {
+          if (request.id === action.payload.id) {
+            return action.payload;
+          }
+          return request;
+        }),
+        filteredRequests: state.allRequests.map((request) => {
+          if (request.id === action.payload.id) {
+            return action.payload;
+          }
+          return request;
+        }),
+        currentRequest: action.payload,
+      };
     default:
       return state;
   }

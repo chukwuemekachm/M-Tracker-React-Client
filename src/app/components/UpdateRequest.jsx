@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../assets/css/createRequestForm.css';
 
-class CreateRequestForm extends Component {
+class UpdateRequestForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,8 +22,8 @@ class CreateRequestForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { create, history } = this.props;
-    create(this.state).then((response) => {
+    const { update, history, request } = this.props;
+    update({ ...this.state, id: request.id }).then((response) => {
       if (response) {
         this.setState({
           title: '',
@@ -31,7 +31,7 @@ class CreateRequestForm extends Component {
           description: '',
         });
         switch (response.code) {
-          case 201:
+          case 200:
             history.push('/dashboard');
             break;
           case 401:
@@ -46,20 +46,21 @@ class CreateRequestForm extends Component {
 
   render() {
     const { title, type, description } = this.state;
+    const { request } = this.props;
     return (
       <div
         className="modal fade"
-        id="createRequest"
+        id="updateRequest"
         tabIndex="-1"
         role="dialog"
-        aria-labelledby="createRequest"
+        aria-labelledby="updateRequest"
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header p-2 w3-flat-midnight-blue">
               <h5 className="modal-title" id="exampleModalCenterTitle">
-                Create a new request
+                Update request
               </h5>
               <button type="button" className="close p-4" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">
@@ -76,7 +77,7 @@ class CreateRequestForm extends Component {
                     placeholder="Title"
                     name="title"
                     onChange={this.handleChange}
-                    value={title}
+                    value={title || request.title}
                     required
                   />
                 </div>
@@ -87,7 +88,7 @@ class CreateRequestForm extends Component {
                     className="form-control text"
                     onChange={this.handleChange}
                     required
-                    value={type}
+                    value={type || request.type}
                   >
                     <option value="">
                       Type
@@ -107,13 +108,13 @@ class CreateRequestForm extends Component {
                     className="form-control text"
                     placeholder="Description"
                     onChange={this.handleChange}
-                    value={description}
+                    value={description || request.description}
                     required
                   />
                 </div>
                 <div className="p-4">
                   <button type="submit" className="btn btn-success btn-md btn-block">
-                    Create request
+                    Update request
                   </button>
                 </div>
               </form>
@@ -125,10 +126,11 @@ class CreateRequestForm extends Component {
   }
 }
 
-CreateRequestForm.propTypes = {
-  create: PropTypes.func.isRequired,
+UpdateRequestForm.propTypes = {
+  update: PropTypes.func.isRequired,
   history: PropTypes.shape({}).isRequired,
+  request: PropTypes.shape({}).isRequired,
 };
 
 
-export default CreateRequestForm;
+export default UpdateRequestForm;
