@@ -4,6 +4,17 @@ import types from './commonTypes';
 
 const baseUrl = 'https://my-maintenance-tracker.herokuapp.com/api/v1';
 
+/**
+ * @description Makes async ajax requests to sign up or login a user
+ * Then dispatch actions to the store synchronously
+ * Returns the http response object
+ *
+ * @param {object} payload The user details
+ * @param {object} history The react-router-dom history object
+ * @param {string} route The action route to use
+ *
+ * @returns {object} The http response object
+ */
 const authAsync = (payload, history, route) => (dispatch) => {
   dispatch(loading());
   return fetch(`${baseUrl}/auth/${route}`, {
@@ -37,5 +48,10 @@ const authAsync = (payload, history, route) => (dispatch) => {
 
 export default {
   authAsync,
+  /**
+   * @description Creates and dispatches a logout action
+   *
+   * @returns {object} The log out object
+   */
   logout: () => ({ type: types.LOGOUT }),
 };

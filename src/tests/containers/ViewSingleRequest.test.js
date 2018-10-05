@@ -12,6 +12,7 @@ const props = {
   history: {
     push: mockFunction,
   },
+  authenticated: true,
   updateRequest: mockFunction,
   match: {
     params: { requestId: 20 },
@@ -50,5 +51,21 @@ describe('View single request componenet', () => {
     expect(wrapper.find(SideNav)).toHaveLength(1);
     expect(wrapper.find(CreateRequestForm)).toHaveLength(1);
     expect(wrapper.find(ViewSingleRequest)).toHaveLength(1);
+  });
+
+  it('should redirect to login when user is unauthenticated', () => {
+    const wrapper = shallow(<ViewSingleRequestPage {...props} authenticated={false} />);
+    const instance = wrapper.instance();
+    instance.componentDidMount();
+    expect(instance.props.history.push).toHaveBeenCalled();
+    expect(instance.props.history.push).toHaveBeenCalledWith('/login');
+  });
+
+  it('should call viewRequest method when user is authenticated', () => {
+    const wrapper = shallow(<ViewSingleRequestPage {...props} />);
+    const instance = wrapper.instance();
+    instance.componentDidMount();
+    expect(instance.props.viewRequest).toHaveBeenCalled();
+    expect(instance.props.viewRequest).toBeCalledWith(20);
   });
 });

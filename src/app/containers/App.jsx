@@ -10,6 +10,11 @@ import DefaultLogin from './LoginPage';
 import DefaultDashboard from './Dashboard';
 import DefaultViewSingleRequestPage from './ViewSingleRequestPage';
 
+/**
+ * @description The Main app component
+ *
+ * @returns {object}
+ */
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>

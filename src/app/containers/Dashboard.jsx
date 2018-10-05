@@ -11,25 +11,50 @@ import SideNav from '../components/SideNav';
 import CreateRequestForm from '../components/CreateRequest';
 import filterRequests, { navigateFilter } from '../actions/filterRequestsAction';
 
+/**
+ * @description Dashboard component
+ *
+ * @class
+ *
+ * @extends React.Component
+ */
 export class Dashboard extends Component {
+  /**
+   * @constructor
+   *
+   * @param {object} props The injected props
+   */
   constructor(props) {
     super(props);
     this.state = {};
   }
 
+  /**
+   * @description Evaluates the user's authentication
+   * Calls the getRequest method to fetch the user's request
+   *
+   * @function
+   */
   componentDidMount() {
     const {
       authenticated, history, getRequests, filter,
     } = this.props;
     if (!authenticated) {
-      history.push('/login');
+      return history.push('/login');
     }
-    getRequests().then(() => {
+    return getRequests().then(() => {
       const { search } = history.location;
       filter(search.substring(1));
     });
   }
 
+  /**
+   * @description Renders the component on a dom node
+   *
+   * @function
+   *
+   * @returns {object} The components to render
+   */
   render() {
     const {
       requests, history, createRequest, filteredRequests,

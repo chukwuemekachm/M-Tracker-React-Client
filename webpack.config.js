@@ -10,6 +10,11 @@ module.exports = {
   output: {
     path: `${CLT_DIR}/app`,
     filename: 'bundle.js',
+    publicPath: '/',
+  },
+  devtool: 'cheap-module-source-map',
+  devServer: {
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

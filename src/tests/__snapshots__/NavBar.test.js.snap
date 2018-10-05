@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar component should render without errors 1`] = `
+exports[`Navbar component should render without errors when a user is authenticated 1`] = `
 <nav
   className="navbar navbar-expand-lg w3-flat-midnight-blue"
 >
@@ -44,6 +44,7 @@ exports[`Navbar component should render without errors 1`] = `
         >
           <button
             className="btn btn-success"
+            name="logout"
             onClick={[Function]}
             type="button"
           >

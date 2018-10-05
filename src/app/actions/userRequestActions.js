@@ -4,6 +4,13 @@ import types from './commonTypes';
 
 const baseUrl = 'https://my-maintenance-tracker.herokuapp.com/api/v1';
 
+/**
+ * @description Makes an async ajax request to fetch the user's requests
+ * Then dispatch actions to the store synchronously
+ * Returns the http response object
+ *
+ * @returns {object} The http response object
+ */
 const getAllAsync = () => (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -28,6 +35,15 @@ const getAllAsync = () => (dispatch, getState) => {
   });
 };
 
+/**
+ * @description Makes an async ajax request to create a new request
+ * Then dispatch actions to the store synchronously
+ * Returns the http response object
+ *
+ * @param {object} payload The request details
+ *
+ * @returns {object} The http response object
+ */
 const createRequestAsync = payload => (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -56,6 +72,15 @@ const createRequestAsync = payload => (dispatch, getState) => {
   });
 };
 
+/**
+ * @description Makes an async ajax request to delete a user's request
+ * Then dispatch actions to the store synchronously
+ * Returns the http response object
+ *
+ * @param {number} payload The request id
+ *
+ * @returns {object} The http response object
+ */
 const deleteRequestAsync = payload => (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -83,6 +108,15 @@ const deleteRequestAsync = payload => (dispatch, getState) => {
   });
 };
 
+/**
+ * @description Makes an async ajax request to update a user's request
+ * Then dispatch actions to the store synchronously
+ * Returns the http response object
+ *
+ * @param {object} payload The request details
+ *
+ * @returns {object} The http response object
+ */
 const updateRequestAsync = payload => (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -114,6 +148,14 @@ const updateRequestAsync = payload => (dispatch, getState) => {
 export default {
   getAllAsync,
   deleteRequest: payload => deleteRequestAsync(payload),
+
+  /**
+ * @description Creates and dispatches a view single request action object
+ *
+ * @param {number} payload The request id
+ *
+ * @returns {object} The view single request object
+ */
   getSingleRequest: payload => ({ type: types.VIEW_SINGLE_REQUEST, payload }),
   createRequest: payload => createRequestAsync(payload),
   updateRequest: payload => updateRequestAsync(payload),

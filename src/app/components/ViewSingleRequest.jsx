@@ -1,6 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
+/**
+ * @description The User request preview component
+ *
+ * @param {string} title The title of the request
+ * @param {string} description The description of the request
+ * @param {string} type The type of the request
+ * @param {string} status The status of the request
+ * @param {string} createdat The created time of the request
+ *
+ * @returns {object}
+ */
 const ViewSingleRequest = ({
   title, description, type, status, createdat,
 }) => (
@@ -35,7 +47,9 @@ const ViewSingleRequest = ({
       </strong>
     </h6>
     <p className="text-left">
-      {new Date(createdat).toLocaleString('en-GB', { hour12: true })}
+      {moment(createdat).format('dddd, MMMM Do YYYY')}
+      {' at '}
+      {moment(createdat).format('hh:mm a')}
     </p>
     <h6 className="text-left">
       <strong>

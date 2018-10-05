@@ -1,5 +1,8 @@
 import types from '../actions/commonTypes';
 
+/**
+ * @description The initial state object shape of the requests reducer
+ */
 const initialState = {
   allRequests: [],
   currentFilter: 'all',
@@ -7,6 +10,15 @@ const initialState = {
   currentRequest: {},
 };
 
+/**
+ * @description Handles the requests object of the state
+ * Evaluates actions and returns a new state
+ *
+ * @param {object} state The state object of the redux store
+ * @param {object} action The action object dispatched
+ *
+ * @returns {object}
+ */
 const requestsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.VIEW_ALL_REQUESTS:
@@ -62,17 +74,17 @@ const requestsReducer = (state = initialState, action) => {
         ...state,
         allRequests: state.allRequests.map((request) => {
           if (request.id === action.payload.id) {
-            return action.payload;
+            return { ...request, ...action.payload };
           }
           return request;
         }),
         filteredRequests: state.allRequests.map((request) => {
           if (request.id === action.payload.id) {
-            return action.payload;
+            return { ...request, ...action.payload };
           }
           return request;
         }),
-        currentRequest: action.payload,
+        currentRequest: { ...state.currentRequest, ...action.payload },
       };
     default:
       return state;

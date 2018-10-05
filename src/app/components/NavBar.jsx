@@ -6,7 +6,19 @@ import { Link } from 'react-router-dom';
 import '../assets/css/navbar.css';
 import authActions from '../actions/authActions';
 
+/**
+ * @description Navbar component
+ *
+ * @class
+ *
+ * @extends React.PureComponent
+ */
 export class NavBar extends PureComponent {
+  /**
+   * @description Renders the component on a dom node
+   * @function
+   * @returns {object} The components to render
+   */
   render() {
     const { authenticated, logout } = this.props;
     return (
@@ -34,14 +46,14 @@ export class NavBar extends PureComponent {
                 !authenticated
                   ? (
                     <Link to="/login">
-                      <button type="button" className="btn btn-success">
+                      <button type="button" name="login" className="btn btn-success">
                         Login
                       </button>
                     </Link>
                   )
                   : (
                     <Link to="/">
-                      <button type="button" className="btn btn-success" onClick={() => logout()}>
+                      <button type="button" name="logout" className="btn btn-success" onClick={() => logout()}>
                         Logout
                       </button>
                     </Link>

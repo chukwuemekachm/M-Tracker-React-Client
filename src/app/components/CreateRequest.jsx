@@ -2,7 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../assets/css/createRequestForm.css';
 
+/**
+ * @description Create request form modal component
+ *
+ * @class
+ *
+ * @extends React.Component
+ */
 class CreateRequestForm extends Component {
+  /**
+   * @constructor
+   *
+   * @param {object} props The injected props
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -14,12 +26,29 @@ class CreateRequestForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /**
+   * @description Handles the input change events
+   * Updates the state value of the input field
+   *
+   * @function
+   *
+   * @param {object} event The event object
+   */
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
+  /**
+   * @description Handles the form submit event
+   * Executes the create method to submit the form
+   * Handle the result of the response
+   *
+   * @function
+   *
+   * @param {object} event The event object
+   */
   handleSubmit(event) {
     event.preventDefault();
     const { create, history } = this.props;
@@ -32,6 +61,7 @@ class CreateRequestForm extends Component {
         });
         switch (response.code) {
           case 201:
+            document.getElementById('closeCreateModal').click();
             history.push('/dashboard');
             break;
           case 401:
@@ -44,6 +74,13 @@ class CreateRequestForm extends Component {
     });
   }
 
+  /**
+   * @description Renders the component on a dom node
+   *
+   * @function
+   *
+   * @returns {object} The components to render
+   */
   render() {
     const { title, type, description } = this.state;
     return (
@@ -61,7 +98,13 @@ class CreateRequestForm extends Component {
               <h5 className="modal-title" id="exampleModalCenterTitle">
                 Create a new request
               </h5>
-              <button type="button" className="close p-4" data-dismiss="modal" aria-label="Close">
+              <button
+                type="button"
+                id="closeCreateModal"
+                className="close p-4"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">
                   &times;
                 </span>

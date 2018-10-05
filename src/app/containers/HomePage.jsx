@@ -5,6 +5,11 @@ import Icon from '../components/Icon';
 import Footer from '../components/Footer';
 import '../assets/css/home.css';
 
+/**
+ * @description The Home page component
+ *
+ * @returns {object}
+ */
 const HomePage = () => (
   <div>
     <DefaultNavBar />
