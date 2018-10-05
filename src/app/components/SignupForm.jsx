@@ -3,6 +3,15 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../assets/css/auth.css';
 
+/**
+ * @description The Sign up form component
+ *
+ * @param {object} bindValues The user details to bind to the input fields
+ * @param {function} handleSubmit The method to handle form submission
+ * @param {function} handleChange The method to handle input changes
+ *
+ * @returns {object}
+ */
 const SignupForm = ({ bindValues, handleSubmit, handleChange }) => (
   <div className="row mb-4 auth-form">
     <div className="col-md-4" />

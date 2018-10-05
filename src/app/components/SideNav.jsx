@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * @description The Side nav component
+ *
+ * @param {array} requests An array of requests belonging to the signed in user
+ * @param {function} handleNavigation The method to handle filter navigation
+ *
+ * @returns {object}
+ */
 const SideNav = ({ requests, handleNavigation }) => (
   <ul className="list-group mb-3">
     <li
@@ -13,6 +21,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     <li
       className="list-group-item d-flex justify-content-between align-items-center"
       onClick={() => handleNavigation('all')}
+      name="all"
     >
       All Requests
       <span className="badge badge-primary badge-pill">
@@ -22,6 +31,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     <li
       className="list-group-item d-flex justify-content-between align-items-center"
       onClick={() => handleNavigation('pending')}
+      name="pending"
     >
       Pending Requests
       <span className="badge badge-primary badge-pill">
@@ -31,6 +41,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     <li
       className="list-group-item d-flex justify-content-between align-items-center"
       onClick={() => handleNavigation('approved')}
+      name="approved"
     >
       Approved Requests
       <span className="badge badge-primary badge-pill">
@@ -40,6 +51,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     <li
       className="list-group-item d-flex justify-content-between align-items-center"
       onClick={() => handleNavigation('resolved')}
+      name="resolved"
     >
       Resolved Requests
       <span className="badge badge-primary badge-pill">
@@ -49,6 +61,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     <li
       className="list-group-item d-flex justify-content-between align-items-center"
       onClick={() => handleNavigation('disapproved')}
+      name="disapproved"
     >
       Dis-approved Requests
       <span className="badge badge-primary badge-pill">

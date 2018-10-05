@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Side nav component should render without errors 1`] = `
+exports[`Side nav component should render without errors when requests are present 1`] = `
 <ul
   className="list-group mb-3"
 >
@@ -13,6 +13,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    name="all"
     onClick={[Function]}
   >
     All Requests
@@ -24,6 +25,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    name="pending"
     onClick={[Function]}
   >
     Pending Requests
@@ -35,6 +37,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    name="approved"
     onClick={[Function]}
   >
     Approved Requests
@@ -46,6 +49,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    name="resolved"
     onClick={[Function]}
   >
     Resolved Requests
@@ -57,6 +61,7 @@ exports[`Side nav component should render without errors 1`] = `
   </li>
   <li
     className="list-group-item d-flex justify-content-between align-items-center"
+    name="disapproved"
     onClick={[Function]}
   >
     Dis-approved Requests

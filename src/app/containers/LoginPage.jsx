@@ -7,7 +7,19 @@ import LoginForm from '../components/LoginForm';
 import authActions from '../actions/authActions';
 import Loader from '../components/Loader';
 
+/**
+ * @description Login Page component
+ *
+ * @class
+ *
+ * @extends React.Component
+ */
 export class LoginPage extends Component {
+  /**
+   * @constructor
+   *
+   * @param {object} props The injected props
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -18,18 +30,42 @@ export class LoginPage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /**
+   * @description Handles the input change events
+   * Updates the state value of the input field
+   *
+   * @function
+   *
+   * @param {object} event The event object
+   */
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
+  /**
+   * @description Handles the form submit event
+   * Executes the create method to submit the form
+   * Handle the result of the response
+   *
+   * @function
+   *
+   * @param {object} event The event object
+   */
   handleSubmit(event) {
     event.preventDefault();
     const { userLogin, history } = this.props;
     userLogin(this.state, history, 'login');
   }
 
+  /**
+   * @description Renders the component on a dom node
+   *
+   * @function
+   *
+   * @returns {object} The components to render
+   */
   render() {
     const { loading } = this.props;
     return (
@@ -51,15 +87,12 @@ export class LoginPage extends Component {
 }
 
 LoginPage.propTypes = {
-  // message: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   userLogin: PropTypes.func.isRequired,
   history: PropTypes.shape({}).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  error: state.common.error,
-  message: state.common.message,
   loading: state.common.loading,
   history: ownProps.history,
 });

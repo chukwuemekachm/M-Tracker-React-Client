@@ -1,6 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
+/**
+ * @description The User request component
+ *
+ * @param {string} title The title of the request
+ * @param {string} createdat The created time of the request
+ * @param {string} status The status of the request
+ *
+ * @returns {object}
+ */
 const UserRequest = ({
   title, createdat, status,
 }) => (
@@ -9,7 +19,7 @@ const UserRequest = ({
       {title}
     </li>
     <li className="p-3 flex-fill bd-highlight">
-      {new Date(createdat).toLocaleString('en-GB', { hour12: true })}
+      {moment(createdat).fromNow()}
     </li>
     <li className="p-3 flex-fill bd-highlight">
       {status}

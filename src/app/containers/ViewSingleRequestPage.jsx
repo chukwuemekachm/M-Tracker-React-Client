@@ -12,6 +12,13 @@ import '../assets/css/viewSingleRequest.css';
 import { navigateFilter } from '../actions/filterRequestsAction';
 import UpdateRequestForm from '../components/UpdateRequest';
 
+/**
+ * @description View Single request Page component
+ *
+ * @class
+ *
+ * @extends React.Component
+ */
 export class ViewSingleRequestPage extends Component {
   constructor(props) {
     super(props);
@@ -20,12 +27,30 @@ export class ViewSingleRequestPage extends Component {
     getRequests();
   }
 
+  /**
+   * @description Evaluates the user's authentication
+   * Calls the viewRequest method to fetch a single request belonging to the user
+   *
+   * @function
+   */
   componentDidMount() {
-    const { match, viewRequest } = this.props;
+    const {
+      match, viewRequest, history, authenticated,
+    } = this.props;
+    if (!authenticated) {
+      history.push('/login');
+    }
     const { requestId } = match.params;
     viewRequest(Number.parseInt(requestId, 10));
   }
 
+  /**
+   * @description Renders the component on a dom node
+   *
+   * @function
+   *
+   * @returns {object} The components to render
+   */
   render() {
     const {
       request = {}, requests, createRequest, history, deleteRequest, updateRequest,
@@ -87,6 +112,7 @@ ViewSingleRequestPage.propTypes = {
   createRequest: PropTypes.func.isRequired,
   deleteRequest: PropTypes.func.isRequired,
   updateRequest: PropTypes.func.isRequired,
+  authenticated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -94,6 +120,7 @@ const mapStateToProps = (state, ownProps) => ({
   request: state.requests.currentRequest,
   history: ownProps.history,
   match: ownProps.match,
+  authenticated: state.auth.authenticated,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

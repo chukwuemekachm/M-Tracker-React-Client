@@ -1,9 +1,14 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import DefaultNavBar from '../components/NavBar';
 
+/**
+ * @description The Not found component
+ *
+ * @returns {object}
+ */
 const NotFound = () => (
   <div className="ch-aside">
-    <NavBar />
+    <DefaultNavBar />
     <div
       className="ch-row"
       style={{

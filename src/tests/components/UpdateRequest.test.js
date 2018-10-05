@@ -19,6 +19,12 @@ const props = {
 };
 
 describe('Update request component', () => {
+  beforeAll(() => {
+    window.getElementById = name => jest.fn(name).mockReturnValue({
+      click: jest.fn(),
+    });
+  });
+
   it('should render without errors', () => {
     const wrapper = shallow(<UpdateRequestForm {...props} />);
     expect(wrapper).toMatchSnapshot();

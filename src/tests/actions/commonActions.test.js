@@ -1,5 +1,5 @@
 import {
-  loading, userError, networkError, complete, toggleCreateModal, toggleUpdateModal,
+  loading, userError, networkError, complete,
 } from '../../app/actions/commonActions';
 import types from '../../app/actions/commonTypes';
 
@@ -18,13 +18,5 @@ describe('Tests common actions', () => {
 
   it('should return complete', () => {
     expect(complete()).toEqual({ type: types.COMPLETE });
-  });
-
-  it('should return toggle create request modal', () => {
-    expect(toggleCreateModal()).toEqual({ type: types.TOGGLE_CREATE_MODAL });
-  });
-
-  it('should return toggle update request modal', () => {
-    expect(toggleUpdateModal()).toEqual({ type: types.TOGGLE_UPDATE_MODAL });
   });
 });

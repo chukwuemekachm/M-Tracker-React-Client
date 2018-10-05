@@ -29,6 +29,7 @@ exports[`Create request component should render without errors 1`] = `
           aria-label="Close"
           className="close p-4"
           data-dismiss="modal"
+          id="closeCreateModal"
           type="button"
         >
           <span

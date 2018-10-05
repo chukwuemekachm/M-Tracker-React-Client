@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../assets/css/createRequestForm.css';
 
+/**
+ * @description Update request form modal component
+ *
+ * @class
+ *
+ * @extends React.Component
+ */
 class UpdateRequestForm extends Component {
+  /**
+   * @constructor
+   * @param {object} props The injected props
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -14,12 +25,25 @@ class UpdateRequestForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /**
+   * @description Handles the input change events
+   * Updates the state value of the input field
+   * @function
+   * @param {object} event The event object
+   */
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
+  /**
+   * @description Handles the form submit event
+   * Executes the create method to submit the form
+   * Handle the result of the response
+   * @function
+   * @param {object} event The event object
+   */
   handleSubmit(event) {
     event.preventDefault();
     const { update, history, request } = this.props;
@@ -32,6 +56,7 @@ class UpdateRequestForm extends Component {
         });
         switch (response.code) {
           case 200:
+            document.getElementById('closeUpdateModal').click();
             history.push('/dashboard');
             break;
           case 401:
@@ -44,6 +69,11 @@ class UpdateRequestForm extends Component {
     });
   }
 
+  /**
+   * @description Renders the component on a dom node
+   * @function
+   * @returns {object} The components to render
+   */
   render() {
     const { title, type, description } = this.state;
     const { request } = this.props;
@@ -62,7 +92,13 @@ class UpdateRequestForm extends Component {
               <h5 className="modal-title" id="exampleModalCenterTitle">
                 Update request
               </h5>
-              <button type="button" className="close p-4" data-dismiss="modal" aria-label="Close">
+              <button
+                type="button"
+                id="closeUpdateModal"
+                className="close p-4"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">
                   &times;
                 </span>

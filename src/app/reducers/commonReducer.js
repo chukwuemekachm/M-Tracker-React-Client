@@ -1,11 +1,23 @@
 import types from '../actions/commonTypes';
 
+/**
+ * @description The initial state object shape of the common reducer
+ */
 const initialState = {
   loading: false,
   error: false,
   message: '',
 };
 
+/**
+ * @description Handles the common object of the state
+ * Evaluates actions and returns a new state
+ *
+ * @param {object} state The state object of the redux store
+ * @param {object} action The action object dispatched
+ *
+ * @returns {object}
+ */
 const commonReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.USER_ERROR:
