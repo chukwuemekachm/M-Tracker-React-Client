@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../assets/css/navbar.css';
@@ -72,12 +71,12 @@ NavBar.propTypes = {
   logout: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   authenticated: state.auth.authenticated,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  logout: () => (authActions.logout()),
-}, dispatch);
+export const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(authActions.logout()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

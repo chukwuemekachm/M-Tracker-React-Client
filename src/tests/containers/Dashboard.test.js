@@ -1,13 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Dashboard } from '../../app/containers/Dashboard';
+import sinon from 'sinon';
+import { Dashboard, mapDispatchToProps, mapStateToProps } from '../../app/containers/Dashboard';
 
-const mockFunction = jest.fn();
-mockFunction.mockResolvedValue({
-  status: 201,
-});
 const history = {
-  push: mockFunction,
+  push: jest.fn(),
   location: {
     search: '?pending',
   },
@@ -55,30 +52,90 @@ const requests = [
   },
 ];
 
+const props = {
+  requests,
+  authenticated: true,
+  getRequests: jest.fn().mockResolvedValue({ code: 200 }),
+  history,
+  createRequest: jest.fn().mockResolvedValue({ code: 201 }),
+  filter: jest.fn(),
+  filteredRequests: requests,
+  getAdminRequests: jest.fn().mockResolvedValue({ code: 200 }),
+  admin: true,
+};
+const mockState = {
+  auth: {
+    authenticated: true,
+    user: { admin: true },
+  },
+  requests: {
+    allRequests: requests,
+    filteredRequests: requests,
+  },
+};
+
 describe('Dashboard container', () => {
-  it('should render without errors when props are truthy', () => {
-    const wrapper = shallow(<Dashboard
-      requests={requests}
-      authenticated
-      getRequests={mockFunction}
-      history={history}
-      createRequest={mockFunction}
-      filter={mockFunction}
-      filteredRequests={requests}
-    />);
+  it('should render without', () => {
+    const wrapper = shallow(<Dashboard {...props} />);
+    expect(wrapper).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render without errors when props are falsy', () => {
+  it('should redirect when a user is not authenticated', () => {
+    const wrapper = shallow(<Dashboard {...props} authenticated={false} />);
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('should render without errors when there are no requests', () => {
+    const wrapper = shallow(<Dashboard {...props} requests={[]} filteredRequests={[]} />);
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('should render without errors when there are no filtered requests', () => {
+    const wrapper = shallow(<Dashboard {...props} filteredRequests={[]} />);
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('should handle fetching all users requests', () => {
+    const wrapper = shallow(<Dashboard {...props} admin={false} />);
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('should handle redirect when user token is expired', () => {
     const wrapper = shallow(<Dashboard
-      requests={requests}
-      authenticated={false}
-      getRequests={mockFunction}
-      history={history}
-      createRequest={mockFunction}
-      filter={mockFunction}
-      filteredRequests={requests}
+      {...props}
+      admin={false}
+      getRequests={jest.fn().mockResolvedValue({ code: 401 })}
     />);
     expect(wrapper).toBeTruthy();
+  });
+
+  it('should handle redirect when admin token is expired', () => {
+    const wrapper = shallow(<Dashboard
+      {...props}
+      getAdminRequests={jest.fn().mockResolvedValue({ code: 401 })}
+    />);
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('should mapDispatchToProps', () => {
+    const sinonSpy = sinon.spy();
+    const result = mapDispatchToProps(sinonSpy);
+    result.getAdminRequests();
+    result.getRequests();
+    result.createRequest();
+    result.filter();
+    expect(sinonSpy.callCount).toBe(4);
+  });
+
+  it('should mapStateToProps', () => {
+    expect(mapStateToProps(mockState, { history }))
+      .toEqual({
+        requests,
+        filteredRequests: requests,
+        authenticated: mockState.auth.authenticated,
+        history,
+        admin: mockState.auth.user.admin,
+      });
   });
 });

@@ -25,7 +25,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     >
       All Requests
       <span className="badge badge-primary badge-pill">
-        {requests ? requests.length : 0}
+        {requests[0] ? requests.length : 0}
       </span>
     </li>
     <li
@@ -35,7 +35,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     >
       Pending Requests
       <span className="badge badge-primary badge-pill">
-        {requests ? requests.filter(request => request.status === 'pending').length : 0}
+        {requests[0] ? requests.filter(request => request.status === 'pending').length : 0}
       </span>
     </li>
     <li
@@ -45,7 +45,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     >
       Approved Requests
       <span className="badge badge-primary badge-pill">
-        {requests ? requests.filter(request => request.status === 'approved').length : 0}
+        {requests[0] ? requests.filter(request => request.status === 'approved').length : 0}
       </span>
     </li>
     <li
@@ -55,7 +55,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     >
       Resolved Requests
       <span className="badge badge-primary badge-pill">
-        {requests ? requests.filter(request => request.status === 'resolved').length : 0}
+        {requests[0] ? requests.filter(request => request.status === 'resolved').length : 0}
       </span>
     </li>
     <li
@@ -65,7 +65,7 @@ const SideNav = ({ requests, handleNavigation }) => (
     >
       Dis-approved Requests
       <span className="badge badge-primary badge-pill">
-        {requests ? requests.filter(request => request.status === 'disapproved').length : 0}
+        {requests[0] ? requests.filter(request => request.status === 'disapproved').length : 0}
       </span>
     </li>
   </ul>

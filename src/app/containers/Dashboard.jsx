@@ -10,6 +10,7 @@ import '../assets/css/dashboard.css';
 import SideNav from '../components/SideNav';
 import CreateRequestForm from '../components/CreateRequest';
 import filterRequests, { navigateFilter } from '../actions/filterRequestsAction';
+import getAllRequests from '../actions/adminRequestActions';
 
 /**
  * @description Dashboard component
@@ -37,14 +38,22 @@ export class Dashboard extends Component {
    */
   componentDidMount() {
     const {
-      authenticated, history, getRequests, filter,
+      authenticated, history, getRequests, filter, admin, getAdminRequests,
     } = this.props;
     if (!authenticated) {
       return history.push('/login');
     }
-    return getRequests().then(() => {
+    if (admin) {
+      return getAdminRequests().then((response) => {
+        if (response.code === 401) return history.push('/login');
+        const { search } = history.location;
+        return filter(search.substring(1));
+      });
+    }
+    return getRequests().then((response) => {
+      if (response.code === 401) return history.push('/login');
       const { search } = history.location;
-      filter(search.substring(1));
+      return filter(search.substring(1));
     });
   }
 
@@ -77,11 +86,23 @@ export class Dashboard extends Component {
                       </Link>
                     ))
                     : (
-                      <p className="text-center">
-                        You have no requests please click the
-                        {' '}
-                        create request button to make a new request.
-                      </p>
+                      <div>
+                        {
+                          requests[0] && !filteredRequests[0]
+                            ? (
+                              <p className="text-center">
+                                No requests exist for this category
+                              </p>
+                            )
+                            : (
+                              <p className="text-center">
+                                You have no requests please click the
+                                {' '}
+                                create request button to make a new request.
+                              </p>
+                            )
+                        }
+                      </div>
                     )
                 }
               </div>
@@ -103,19 +124,23 @@ Dashboard.propTypes = {
   createRequest: PropTypes.func.isRequired,
   filter: PropTypes.func.isRequired,
   filteredRequests: PropTypes.arrayOf(PropTypes.object).isRequired,
+  getAdminRequests: PropTypes.func.isRequired,
+  admin: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state, ownprops) => ({
+export const mapStateToProps = (state, ownprops) => ({
   requests: state.requests.allRequests,
   filteredRequests: state.requests.filteredRequests,
   authenticated: state.auth.authenticated,
   history: ownprops.history,
+  admin: state.auth.user.admin,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getRequests: () => (userRequestActions.getAllAsync()),
-  createRequest: payload => (userRequestActions.createRequest(payload)),
-  filter: payload => (filterRequests(payload)),
-}, dispatch);
+export const mapDispatchToProps = dispatch => ({
+  getAdminRequests: () => dispatch(getAllRequests()),
+  getRequests: () => dispatch(userRequestActions.getAllAsync()),
+  createRequest: payload => dispatch(userRequestActions.createRequest(payload)),
+  filter: payload => dispatch(filterRequests(payload)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

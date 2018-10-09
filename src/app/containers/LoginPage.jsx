@@ -92,12 +92,12 @@ LoginPage.propTypes = {
   history: PropTypes.shape({}).isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => ({
+export const mapStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   history: ownProps.history,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+export const mapDispatchToProps = dispatch => bindActionCreators({
   userLogin: (user, history, route) => (authActions.authAsync(user, history, route)),
 }, dispatch);
 
