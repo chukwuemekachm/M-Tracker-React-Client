@@ -11,6 +11,8 @@ import CreateRequestForm from '../components/CreateRequest';
 import '../assets/css/viewSingleRequest.css';
 import { navigateFilter } from '../actions/filterRequestsAction';
 import UpdateRequestForm from '../components/UpdateRequest';
+import getAllRequests from '../actions/adminRequestActions';
+import UserDetails from '../components/UserDetails';
 
 /**
  * @description View Single request Page component
@@ -23,8 +25,15 @@ export class ViewSingleRequestPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    const { getRequests } = this.props;
-    getRequests();
+    const { getRequests, admin, getAdminRequests } = this.props;
+    switch (admin) {
+      case true:
+        getAdminRequests();
+        break;
+      default:
+        getRequests();
+        break;
+    }
   }
 
   /**
@@ -53,7 +62,7 @@ export class ViewSingleRequestPage extends Component {
    */
   render() {
     const {
-      request = {}, requests, createRequest, history, deleteRequest, updateRequest,
+      request = {}, requests, createRequest, history, deleteRequest, updateRequest, admin,
     } = this.props;
     return (
       <div>
@@ -72,7 +81,7 @@ export class ViewSingleRequestPage extends Component {
                     </Link>
                   </div>
                   <div className="p-3 bd-highlight">
-                    <i className="icon ion-md-trash ion-icon-button" onClick={() => deleteRequest(request.id)} />
+                    <i className="icon ion-md-trash ion-icon-button" name="deleteIcon" onClick={() => deleteRequest(request.id)} />
                   </div>
                   <div className="p-3 bd-highlight">
                     <i
@@ -83,7 +92,7 @@ export class ViewSingleRequestPage extends Component {
                   </div>
                 </div>
                 {
-                  request.title ? (<ViewSingleRequest {...request} />)
+                  request.title ? (<ViewSingleRequest admin={admin} {...request} />)
                     : (
                       <p>
                         The request you are looking for does not exist.
@@ -91,7 +100,14 @@ export class ViewSingleRequestPage extends Component {
                     )
                 }
               </div>
-              <div className="col-md-3" />
+              <div className="col-md-3">
+                {
+                  admin
+                    ? (<UserDetails {...request} />)
+                    : ''
+
+                }
+              </div>
             </div>
           </div>
         </div>
@@ -113,22 +129,26 @@ ViewSingleRequestPage.propTypes = {
   deleteRequest: PropTypes.func.isRequired,
   updateRequest: PropTypes.func.isRequired,
   authenticated: PropTypes.bool.isRequired,
+  getAdminRequests: PropTypes.func.isRequired,
+  admin: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => ({
+export const mapStateToProps = (state, ownProps) => ({
   requests: state.requests.allRequests,
   request: state.requests.currentRequest,
   history: ownProps.history,
   match: ownProps.match,
   authenticated: state.auth.authenticated,
+  admin: state.auth.user.admin,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+export const mapDispatchToProps = dispatch => bindActionCreators({
   viewRequest: payload => (userRequestActions.getSingleRequest(payload)),
   getRequests: () => (userRequestActions.getAllAsync()),
   createRequest: payload => (userRequestActions.createRequest(payload)),
   deleteRequest: payload => (userRequestActions.deleteRequest(payload)),
   updateRequest: payload => (userRequestActions.updateRequest(payload)),
+  getAdminRequests: () => (getAllRequests()),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewSingleRequestPage);

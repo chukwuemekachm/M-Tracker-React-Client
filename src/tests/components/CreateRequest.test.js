@@ -20,7 +20,7 @@ const props = {
 
 describe('Create request component', () => {
   beforeAll(() => {
-    window.getElementById = name => jest.fn(name).mockReturnValue({
+    window.document.getElementById = jest.fn().mockReturnValue({
       click: jest.fn(),
     });
   });

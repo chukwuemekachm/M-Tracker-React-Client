@@ -27,6 +27,12 @@ const requestsReducer = (state = initialState, action) => {
         allRequests: [...action.payload],
         filteredRequests: [...action.payload],
       };
+    case types.VIEW_ALL_REQUESTS_ADMIN:
+      return {
+        ...state,
+        allRequests: action.payload.map(request => ({ ...request, id: request.request_id })),
+        filteredRequests: action.payload.map(request => ({ ...request, id: request.request_id })),
+      };
     case types.VIEW_SINGLE_REQUEST:
       return {
         ...state,

@@ -14,12 +14,22 @@ const updateRequestsArray = [
 ];
 
 describe('Tests requests reducer', () => {
-  it('should return a new array of requests', () => {
+  it('should return a new array of user requests', () => {
     expect(requestsReducer({}, { type: types.VIEW_ALL_REQUESTS, payload }))
       .toEqual(
         {
           allRequests: [],
           filteredRequests: [],
+        },
+      );
+  });
+
+  it('should return a new array of admin requests', () => {
+    expect(requestsReducer({}, { type: types.VIEW_ALL_REQUESTS_ADMIN, payload: [{ status: 'approved', request_id: 1 }, { status: 'approved', request_id: 2 }] }))
+      .toEqual(
+        {
+          allRequests: [{ id: 1, status: 'approved', request_id: 1 }, { id: 2, status: 'approved', request_id: 2 }],
+          filteredRequests: [{ id: 1, status: 'approved', request_id: 1 }, { id: 2, status: 'approved', request_id: 2 }],
         },
       );
   });

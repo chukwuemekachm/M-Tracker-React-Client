@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard container should render without errors when props are truthy 1`] = `
+exports[`Dashboard container should render without 1`] = `
 <div>
   <div
     className="dashboard-body"
@@ -142,35 +142,13 @@ exports[`Dashboard container should render without errors when props are truthy 
     </div>
   </div>
   <CreateRequestForm
-    create={
-      [MockFunction] {
-        "calls": Array [
-          Array [],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": Promise {},
-          },
-        ],
-      }
-    }
+    create={[MockFunction]}
     history={
       Object {
         "location": Object {
           "search": "?pending",
         },
-        "push": [MockFunction] {
-          "calls": Array [
-            Array [],
-          ],
-          "results": Array [
-            Object {
-              "isThrow": false,
-              "value": Promise {},
-            },
-          ],
-        },
+        "push": [MockFunction],
       }
     }
   />

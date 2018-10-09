@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginPage container should render without errors when props are falsy 1`] = `
+exports[`LoginPage container should render without 1`] = `
 <div>
   <Connect(NavBar) />
   <LoginForm

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Details component should render without errors 1`] = `
+<div
+  className="user-tag"
+>
+  <h6
+    className="text-left"
+  >
+    <strong>
+      <span
+        className="badge badge-pill badge-primary"
+      >
+        User Details
+      </span>
+    </strong>
+  </h6>
+  <h6
+    className="text-left"
+  >
+    <strong>
+      First name
+    </strong>
+  </h6>
+  <p
+    className="text-left"
+  >
+    John
+  </p>
+  <h6
+    className="text-left"
+  >
+    <strong>
+      Last name
+    </strong>
+  </h6>
+  <p
+    className="text-left"
+  >
+    Doe
+  </p>
+  <h6
+    className="text-left"
+  >
+    <strong>
+      Email
+    </strong>
+  </h6>
+  <p
+    className="text-left"
+  >
+    user@test.com
+  </p>
+</div>
+`;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import toastr from 'toastr';
@@ -105,16 +104,14 @@ SignupPage.propTypes = {
   history: PropTypes.shape({}).isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  error: state.common.error,
-  message: state.common.message,
+export const mapStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   history: ownProps.history,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  userSignup: (user, history, route) => (authActions.authAsync(user, history, route)),
-  userErrorHandler: message => (userError(message)),
-}, dispatch);
+export const mapDispatchToProps = dispatch => ({
+  userSignup: (user, history, route) => dispatch(authActions.authAsync(user, history, route)),
+  userErrorHandler: message => dispatch(userError(message)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupPage);
