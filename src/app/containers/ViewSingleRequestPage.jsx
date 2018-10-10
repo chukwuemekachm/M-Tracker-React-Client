@@ -80,16 +80,36 @@ export class ViewSingleRequestPage extends Component {
                       <i className="icon ion-md-arrow-round-back ion-icon-button" />
                     </Link>
                   </div>
-                  <div className="p-3 bd-highlight">
-                    <i className="icon ion-md-trash ion-icon-button" name="deleteIcon" onClick={() => deleteRequest(request.id)} />
-                  </div>
-                  <div className="p-3 bd-highlight">
-                    <i
-                      className="icon ion-md-create ion-icon-button"
-                      data-toggle="modal"
-                      data-target="#updateRequest"
-                    />
-                  </div>
+                  {
+                    request.title && !admin
+                      ? (
+                        <React.Fragment>
+                          {
+                            request.status === 'pending' || request.status === 'disapproved' || request.status === 'resolved'
+                              ? (
+                                <div className="p-3 bd-highlight">
+                                  <i className="icon ion-md-trash ion-icon-button" name="deleteIcon" onClick={() => deleteRequest(request.id)} />
+                                </div>
+                              )
+                              : ''
+                          }
+                          {
+                            request.status === 'pending'
+                              ? (
+                                <div className="p-3 bd-highlight">
+                                  <i
+                                    className="icon ion-md-create ion-icon-button"
+                                    data-toggle="modal"
+                                    data-target="#updateRequest"
+                                  />
+                                </div>
+                              )
+                              : ''
+                          }
+                        </React.Fragment>
+                      )
+                      : ''
+                  }
                 </div>
                 {
                   request.title ? (<ViewSingleRequest admin={admin} {...request} />)
@@ -102,7 +122,7 @@ export class ViewSingleRequestPage extends Component {
               </div>
               <div className="col-md-3">
                 {
-                  admin
+                  admin && request.title
                     ? (<UserDetails {...request} />)
                     : ''
 
@@ -112,7 +132,11 @@ export class ViewSingleRequestPage extends Component {
           </div>
         </div>
         <CreateRequestForm history={history} create={createRequest} />
-        <UpdateRequestForm history={history} update={updateRequest} request={request} />
+        {
+          request.title
+            ? (<UpdateRequestForm history={history} update={updateRequest} request={request} />)
+            : ''
+        }
       </div>
     );
   }

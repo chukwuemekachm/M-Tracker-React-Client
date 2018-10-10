@@ -28,7 +28,7 @@ const props = {
     title: 'New Request',
     description: 'The description of my test request',
     type: 'repair',
-    status: 'approved',
+    status: 'pending',
     createdat: '2018-09-04T18:11:56.976Z',
     firstname: 'John',
     lastname: 'Doe',

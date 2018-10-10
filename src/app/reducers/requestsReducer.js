@@ -36,7 +36,7 @@ const requestsReducer = (state = initialState, action) => {
     case types.VIEW_SINGLE_REQUEST:
       return {
         ...state,
-        currentRequest: state.allRequests.find(request => request.id === action.payload),
+        currentRequest: state.allRequests.find(request => request.id === action.payload) || {},
       };
     case types.CREATE_REQUEST:
       return {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard container should render without 1`] = `
+exports[`Dashboard container should render without errors 1`] = `
 <div>
   <div
     className="dashboard-body"

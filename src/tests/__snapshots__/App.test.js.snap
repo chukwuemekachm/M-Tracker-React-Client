@@ -29,12 +29,12 @@ exports[`App component should render without errors 1`] = `
         exact={true}
         path="/login"
       />
-      <Route
+      <Connect(PrivateRoute)
         component={[Function]}
         exact={true}
         path="/dashboard"
       />
-      <Route
+      <Connect(PrivateRoute)
         component={[Function]}
         path="/:requestId"
       />

@@ -9,6 +9,7 @@ import DefaultSignup from './SignupPage';
 import DefaultLogin from './LoginPage';
 import DefaultDashboard from './Dashboard';
 import DefaultViewSingleRequestPage from './ViewSingleRequestPage';
+import DefaultPrivateRoute from './PrivateRoute';
 
 /**
  * @description The Main app component
@@ -22,8 +23,8 @@ const App = () => (
         <Route path="/" exact component={DefaultHomePage} />
         <Route path="/signup" exact component={DefaultSignup} />
         <Route path="/login" exact component={DefaultLogin} />
-        <Route path="/dashboard" exact component={DefaultDashboard} />
-        <Route path="/:requestId" component={DefaultViewSingleRequestPage} />
+        <DefaultPrivateRoute path="/dashboard" exact component={DefaultDashboard} />
+        <DefaultPrivateRoute path="/:requestId" component={DefaultViewSingleRequestPage} />
         <Route component={DefaultNotFound} />
       </Switch>
     </BrowserRouter>

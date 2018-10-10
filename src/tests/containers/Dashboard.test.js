@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { Dashboard, mapDispatchToProps, mapStateToProps } from '../../app/containers/Dashboard';
+import DashboardDefault, { Dashboard, mapDispatchToProps, mapStateToProps } from '../../app/containers/Dashboard';
+import { mockStore } from '../../__mocks__/store';
 
 const history = {
   push: jest.fn(),
@@ -73,12 +74,18 @@ const mockState = {
     filteredRequests: requests,
   },
 };
+const store = mockStore(mockState);
 
 describe('Dashboard container', () => {
-  it('should render without', () => {
+  it('should render without errors', () => {
     const wrapper = shallow(<Dashboard {...props} />);
     expect(wrapper).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render connected component without errors', () => {
+    const wrapper = shallow(<DashboardDefault store={store} {...props} />);
+    expect(wrapper.length).toBe(1);
   });
 
   it('should redirect when a user is not authenticated', () => {

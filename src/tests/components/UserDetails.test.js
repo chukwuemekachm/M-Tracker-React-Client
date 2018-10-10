@@ -9,9 +9,15 @@ const props = {
 };
 
 describe('User Details component', () => {
+  const wrapper = shallow(<UserDetails {...props} />);
   it('should render without errors', () => {
-    const wrapper = shallow(<UserDetails {...props} />);
     expect(wrapper).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should display correct user details', () => {
+    expect(wrapper.find('#firstname').text()).toEqual(props.firstname);
+    expect(wrapper.find('#lastname').text()).toEqual(props.lastname);
+    expect(wrapper.find('#email').text()).toEqual(props.email);
   });
 });

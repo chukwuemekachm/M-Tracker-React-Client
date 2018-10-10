@@ -38,11 +38,11 @@ export class Dashboard extends Component {
    */
   componentDidMount() {
     const {
-      authenticated, history, getRequests, filter, admin, getAdminRequests,
+      history, getRequests, filter, admin, getAdminRequests,
     } = this.props;
-    if (!authenticated) {
-      return history.push('/login');
-    }
+    // if (!authenticated) {
+    //   return history.push('/login');
+    // }
     if (admin) {
       return getAdminRequests().then((response) => {
         if (response.code === 401) return history.push('/login');
