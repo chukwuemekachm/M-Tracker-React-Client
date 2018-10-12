@@ -6,6 +6,8 @@ const UserDetails = ({ firstname, lastname, email }) => (
     <h6 className="text-left">
       <strong>
         <span className="badge badge-pill badge-primary">
+          <i className="icon ion-md-person" />
+          {' '}
           User Details
         </span>
       </strong>

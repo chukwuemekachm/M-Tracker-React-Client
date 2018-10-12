@@ -11,6 +11,10 @@ exports[`User Details component should render without errors 1`] = `
       <span
         className="badge badge-pill badge-primary"
       >
+        <i
+          className="icon ion-md-person"
+        />
+         
         User Details
       </span>
     </strong>
