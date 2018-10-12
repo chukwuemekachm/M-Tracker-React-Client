@@ -31,7 +31,7 @@ export class Dashboard extends Component {
   }
 
   /**
-   * @description Evaluates the user's authentication
+   * @description Evaluates the authenticated user role
    * Calls the getRequest method to fetch the user's request
    *
    * @function
@@ -40,9 +40,6 @@ export class Dashboard extends Component {
     const {
       history, getRequests, filter, admin, getAdminRequests,
     } = this.props;
-    // if (!authenticated) {
-    //   return history.push('/login');
-    // }
     if (admin) {
       return getAdminRequests().then((response) => {
         if (response.code === 401) return history.push('/login');

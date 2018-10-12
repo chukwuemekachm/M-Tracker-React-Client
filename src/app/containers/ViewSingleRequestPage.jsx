@@ -11,7 +11,7 @@ import CreateRequestForm from '../components/CreateRequest';
 import '../assets/css/viewSingleRequest.css';
 import { navigateFilter } from '../actions/filterRequestsAction';
 import UpdateRequestForm from '../components/UpdateRequest';
-import getAllRequests from '../actions/adminRequestActions';
+import getAllRequests, { modifyRequestStatus } from '../actions/adminRequestActions';
 import UserDetails from '../components/UserDetails';
 
 /**
@@ -37,18 +37,15 @@ export class ViewSingleRequestPage extends Component {
   }
 
   /**
-   * @description Evaluates the user's authentication
-   * Calls the viewRequest method to fetch a single request belonging to the user
+   * @description Calls the viewRequest method to fetch a single request belonging to the user
    *
    * @function
    */
   componentDidMount() {
     const {
-      match, viewRequest, history, authenticated,
+      match, viewRequest,
     } = this.props;
-    if (!authenticated) {
-      history.push('/login');
-    }
+
     const { requestId } = match.params;
     viewRequest(Number.parseInt(requestId, 10));
   }
@@ -62,7 +59,8 @@ export class ViewSingleRequestPage extends Component {
    */
   render() {
     const {
-      request = {}, requests, createRequest, history, deleteRequest, updateRequest, admin,
+      request = {}, requests, createRequest, history,
+      deleteRequest, updateRequest, admin, modifyRequestAdmin,
     } = this.props;
     return (
       <div>
@@ -75,11 +73,42 @@ export class ViewSingleRequestPage extends Component {
               </div>
               <div className="col-md-6">
                 <div className="d-flex justify-content-center">
-                  <div className="p-3 bd-highlight">
+                  <div className="p-3 bd-highlight" title="Goto dashboard">
                     <Link to="/dashboard">
                       <i className="icon ion-md-arrow-round-back ion-icon-button" />
                     </Link>
                   </div>
+                  {
+                    request.title && admin
+                      ? (
+                        <React.Fragment>
+                          {
+                            request.status === 'pending'
+                              ? (
+                                <React.Fragment>
+                                  <div className="p-3 bd-highlight" title="Appove request">
+                                    <i className="icon ion-md-checkmark ion-icon-button" name="approveIcon" onClick={() => modifyRequestAdmin(request.id, 'approve')} />
+                                  </div>
+                                  <div className="p-3 bd-highlight" title="Disappove request">
+                                    <i className="icon ion-md-close-circle-outline ion-icon-button" name="disapproveIcon" onClick={() => modifyRequestAdmin(request.id, 'disapprove')} />
+                                  </div>
+                                </React.Fragment>
+                              )
+                              : ''
+                          }
+                          {
+                            request.status === 'approved'
+                              ? (
+                                <div className="p-3 bd-highlight" title="Resolve request">
+                                  <i className="icon ion-md-checkmark-circle-outline ion-icon-button" name="resolveIcon" onClick={() => modifyRequestAdmin(request.id, 'resolve')} />
+                                </div>
+                              )
+                              : ''
+                          }
+                        </React.Fragment>
+                      )
+                      : ''
+                  }
                   {
                     request.title && !admin
                       ? (
@@ -87,7 +116,7 @@ export class ViewSingleRequestPage extends Component {
                           {
                             request.status === 'pending' || request.status === 'disapproved' || request.status === 'resolved'
                               ? (
-                                <div className="p-3 bd-highlight">
+                                <div className="p-3 bd-highlight" title="Delete request">
                                   <i className="icon ion-md-trash ion-icon-button" name="deleteIcon" onClick={() => deleteRequest(request.id)} />
                                 </div>
                               )
@@ -96,7 +125,7 @@ export class ViewSingleRequestPage extends Component {
                           {
                             request.status === 'pending'
                               ? (
-                                <div className="p-3 bd-highlight">
+                                <div className="p-3 bd-highlight" title="Update request">
                                   <i
                                     className="icon ion-md-create ion-icon-button"
                                     data-toggle="modal"
@@ -155,6 +184,7 @@ ViewSingleRequestPage.propTypes = {
   authenticated: PropTypes.bool.isRequired,
   getAdminRequests: PropTypes.func.isRequired,
   admin: PropTypes.bool.isRequired,
+  modifyRequestAdmin: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = (state, ownProps) => ({
@@ -173,6 +203,7 @@ export const mapDispatchToProps = dispatch => bindActionCreators({
   deleteRequest: payload => (userRequestActions.deleteRequest(payload)),
   updateRequest: payload => (userRequestActions.updateRequest(payload)),
   getAdminRequests: () => (getAllRequests()),
+  modifyRequestAdmin: (requestId, action) => (modifyRequestStatus(requestId, action)),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewSingleRequestPage);

@@ -13,6 +13,7 @@ const props = {
   history: {
     push: mockFunction,
   },
+  modifyRequestAdmin: mockFunction,
   authenticated: true,
   admin: true,
   updateRequest: mockFunction,
@@ -80,14 +81,6 @@ describe('View single request componenet', () => {
     expect(wrapper).toBeTruthy();
   });
 
-  it('should redirect to login when user is unauthenticated', () => {
-    const wrapper = shallow(<ViewSingleRequestPage {...props} authenticated={false} />);
-    const instance = wrapper.instance();
-    instance.componentDidMount();
-    expect(instance.props.history.push).toHaveBeenCalled();
-    expect(instance.props.history.push).toHaveBeenCalledWith('/login');
-  });
-
   it('should call viewRequest method when user is authenticated', () => {
     const wrapper = shallow(<ViewSingleRequestPage {...props} />);
     const instance = wrapper.instance();
@@ -105,7 +98,8 @@ describe('View single request componenet', () => {
     result.deleteRequest();
     result.updateRequest();
     result.getAdminRequests();
-    expect(sinonSpy.callCount).toBe(6);
+    result.modifyRequestAdmin();
+    expect(sinonSpy.callCount).toBe(7);
   });
 
   it('should mapStateToProps', () => {
@@ -126,6 +120,29 @@ describe('View single request componenet', () => {
   it('should handle delete button click', () => {
     const wrapper = shallow(<ViewSingleRequestPage {...props} admin={false} />);
     wrapper.find('[name="deleteIcon"]').simulate('click');
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('should handle approve button click', () => {
+    const wrapper = shallow(<ViewSingleRequestPage {...props} admin />);
+    wrapper.find('[name="approveIcon"]').simulate('click');
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('should handle disapprove button click', () => {
+    const wrapper = shallow(<ViewSingleRequestPage {...props} admin />);
+    wrapper.find('[name="disapproveIcon"]').simulate('click');
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('should handle resolved button click', () => {
+    const { request } = props;
+    const wrapper = shallow(<ViewSingleRequestPage
+      {...props}
+      request={{ ...request, status: 'approved' }}
+      admin
+    />);
+    wrapper.find('[name="resolveIcon"]').simulate('click');
     expect(wrapper).toBeTruthy();
   });
 });
