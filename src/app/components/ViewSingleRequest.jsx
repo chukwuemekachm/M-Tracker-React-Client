@@ -22,7 +22,7 @@ const ViewSingleRequest = ({
         Title
       </strong>
     </h6>
-    <p className="text-left">
+    <p className="text-left light">
       {title}
     </p>
     <h6 className="text-left">
@@ -30,7 +30,7 @@ const ViewSingleRequest = ({
         Type
       </strong>
     </h6>
-    <p className="text-left">
+    <p className="text-left light">
       {type}
     </p>
     <h6 className="text-left">
@@ -38,7 +38,7 @@ const ViewSingleRequest = ({
         Description
       </strong>
     </h6>
-    <p className="text-left">
+    <p className="text-left light">
       {description}
     </p>
     <h6 className="text-left">
@@ -46,7 +46,7 @@ const ViewSingleRequest = ({
         Date
       </strong>
     </h6>
-    <p className="text-left">
+    <p className="text-left light">
       {moment(createdat).format('dddd, MMMM Do YYYY')}
       {' at '}
       {moment(createdat).format('hh:mm a')}
@@ -56,7 +56,7 @@ const ViewSingleRequest = ({
          Status
       </strong>
     </h6>
-    <p className="text-left">
+    <p className="text-left light">
       {status}
     </p>
   </React.Fragment>

@@ -10,6 +10,7 @@ import DefaultLogin from './LoginPage';
 import DefaultDashboard from './Dashboard';
 import DefaultViewSingleRequestPage from './ViewSingleRequestPage';
 import DefaultPrivateRoute from './PrivateRoute';
+import DefaultGuestRoute from './GuestRoute';
 
 /**
  * @description The Main app component
@@ -20,9 +21,9 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={DefaultHomePage} />
-        <Route path="/signup" exact component={DefaultSignup} />
-        <Route path="/login" exact component={DefaultLogin} />
+        <DefaultGuestRoute path="/" exact component={DefaultHomePage} />
+        <DefaultGuestRoute path="/signup" exact component={DefaultSignup} />
+        <DefaultGuestRoute path="/login" exact component={DefaultLogin} />
         <DefaultPrivateRoute path="/dashboard" exact component={DefaultDashboard} />
         <DefaultPrivateRoute path="/:requestId" component={DefaultViewSingleRequestPage} />
         <Route component={DefaultNotFound} />

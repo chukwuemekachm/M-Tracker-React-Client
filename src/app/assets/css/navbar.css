@@ -1,3 +1,8 @@
 .navbar {
   min-height: 4.5em !important;
 }
+
+button.btn-logout {
+  background-color: #505c68 !important;
+  color: aliceblue !important;
+}

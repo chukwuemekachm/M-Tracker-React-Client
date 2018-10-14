@@ -67,7 +67,7 @@ const putRequestsResponseSuccess = {
 
 
 describe('User requests action creators', () => {
-  it('should dispatch VIEW_SINGLE_REQUEST action types', () => {
+  it('should dispatch VIEW_SINGLE_REQUEST action types when getSingleRequest succeeds', () => {
     const store = mockStore(mockDetails);
 
     const expectedActions = [
@@ -79,8 +79,7 @@ describe('User requests action creators', () => {
     expect(actions.length).toBe(1);
     expect(actions).toEqual(expectedActions);
   });
-
-  it('should dispatch LOADING, VIEW_ALL_REQUESTS and COMPLETE action types', (done) => {
+  it('should dispatch LOADING, VIEW_ALL_REQUESTS and COMPLETE action types when getAllAsync succeeds', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.getOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests', getRequestsResponseSuccess);
@@ -100,7 +99,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, and USER_ERROR action types', (done) => {
+  it('should dispatch LOADING, and USER_ERROR action types when an error occurs during getAllAsync', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.getOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests', getRequestsResponseFailed);
@@ -119,7 +118,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, and NETWORK_ERROR action types', (done) => {
+  it('should dispatch LOADING, and NETWORK_ERROR action types when getAllAsync fails', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.getOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests', 1);
@@ -138,7 +137,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, CREATE_REQUEST, COMPLETE and LOADING action types', (done) => {
+  it('should dispatch LOADING, CREATE_REQUEST, COMPLETE and LOADING action types when createRequest succeeds', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.postOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests', createRequestsResponseSuccess);
@@ -164,7 +163,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, and USER_ERROR action types', (done) => {
+  it('should dispatch LOADING, and USER_ERROR action types when an error occurs during createRequest', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.postOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests', createRequestsResponseFailed);
@@ -187,7 +186,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, and NETWORK_ERROR action types', (done) => {
+  it('should dispatch LOADING, and NETWORK_ERROR action types when createRequest fails', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.postOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests', 1);
@@ -210,7 +209,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, DELETE_REQUEST and COMPLETE action types', (done) => {
+  it('should dispatch LOADING, DELETE_REQUEST and COMPLETE action types when deleteRequest succeeds', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.deleteOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests/1', deleteRequestsResponseSuccess);
@@ -232,7 +231,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING and USER_ERROR action types', (done) => {
+  it('should dispatch LOADING and USER_ERROR action types when an error occurs during deleteRequest', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.deleteOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests/1', deleteRequestsResponseFailed);
@@ -251,7 +250,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING and NETWORK_ERROR action types', (done) => {
+  it('should dispatch LOADING and NETWORK_ERROR action types when deleteRequest fails', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.deleteOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests/1', 1);
@@ -270,7 +269,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, UPDATE_REQUEST, COMPLETE and LOADING action types', (done) => {
+  it('should dispatch LOADING, UPDATE_REQUEST, COMPLETE and LOADING action types when updateRequest succeeds', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.putOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests/1', putRequestsResponseSuccess);
@@ -296,7 +295,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, USER_ERROR action types', (done) => {
+  it('should dispatch LOADING, USER_ERROR action types when an error occurs during updateRequest', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.putOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests/10', deleteRequestsResponseFailed);
@@ -319,7 +318,7 @@ describe('User requests action creators', () => {
       });
   });
 
-  it('should dispatch LOADING, NETWORK_ERROR action types', (done) => {
+  it('should dispatch LOADING, NETWORK_ERROR action types when updateRequest fails', (done) => {
     const store = mockStore(mockDetails);
     mockFetch.restore();
     mockFetch.putOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/users/requests/10', 1);

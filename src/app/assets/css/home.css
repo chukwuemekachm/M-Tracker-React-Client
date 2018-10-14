@@ -14,7 +14,7 @@
   color: white;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 760px) {
   .jumbotron {
     min-height: 30em !important;
   }
@@ -25,5 +25,12 @@
 
   .banner h2 {
     font-size: 1.1em;
+  }
+
+  .w3-display-middle {
+    width: 100% !important;
+    padding: 1em;
+    padding-top: 0em;
+    font-size: .7em;
   }
 }

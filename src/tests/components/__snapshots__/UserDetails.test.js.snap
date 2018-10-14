@@ -27,7 +27,7 @@ exports[`User Details component should render without errors 1`] = `
     </strong>
   </h6>
   <p
-    className="text-left"
+    className="text-left light"
     id="firstname"
   >
     John
@@ -40,7 +40,7 @@ exports[`User Details component should render without errors 1`] = `
     </strong>
   </h6>
   <p
-    className="text-left"
+    className="text-left light"
     id="lastname"
   >
     Doe
@@ -53,7 +53,7 @@ exports[`User Details component should render without errors 1`] = `
     </strong>
   </h6>
   <p
-    className="text-left"
+    className="text-left light"
     id="email"
   >
     user@test.com

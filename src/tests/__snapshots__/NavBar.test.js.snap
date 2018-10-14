@@ -43,7 +43,7 @@ exports[`Navbar component should render without errors when a user is authentica
           to="/"
         >
           <button
-            className="btn btn-success"
+            className="btn btn-logout"
             name="logout"
             onClick={[Function]}
             type="button"

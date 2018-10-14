@@ -21,6 +21,7 @@ class CreateRequestForm extends Component {
       title: '',
       type: '',
       description: '',
+      loading: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,22 +53,29 @@ class CreateRequestForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { create, history } = this.props;
+    this.setState({
+      loading: true,
+    });
     create(this.state).then((response) => {
       if (response) {
-        this.setState({
-          title: '',
-          type: '',
-          description: '',
-        });
         switch (response.code) {
           case 201:
             document.getElementById('closeCreateModal').click();
+            this.setState({
+              title: '',
+              type: '',
+              description: '',
+              loading: false,
+            });
             history.push('/dashboard');
             break;
           case 401:
             history.push('/login');
             break;
           default:
+            this.setState({
+              loading: false,
+            });
             break;
         }
       }
@@ -82,7 +90,9 @@ class CreateRequestForm extends Component {
    * @returns {object} The components to render
    */
   render() {
-    const { title, type, description } = this.state;
+    const {
+      title, type, description, loading,
+    } = this.state;
     return (
       <div
         className="modal fade"
@@ -156,7 +166,17 @@ class CreateRequestForm extends Component {
                 </div>
                 <div className="p-4">
                   <button type="submit" className="btn btn-success btn-md btn-block">
-                    Create request
+                    {
+                      loading
+                        ? (
+                          <React.Fragment>
+                            <i className="fa fa-refresh fa-spin" />
+                            {' '}
+                            Processing request
+                          </React.Fragment>
+                        )
+                        : 'Create Request'
+                    }
                   </button>
                 </div>
               </form>

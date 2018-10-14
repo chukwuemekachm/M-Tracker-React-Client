@@ -22,7 +22,7 @@ exports[`Login form component should render without errors and submit the form 1
         className="icon ion-md-construct text-center ion-icon"
       />
       <div
-        className="card-body"
+        className="card-body mb-4 p-4"
       >
         <form
           onSubmit={[MockFunction]}

@@ -21,7 +21,7 @@ const SignupForm = ({ bindValues, handleSubmit, handleChange }) => (
           Sign up to use Maintenance Tracker
         </h3>
         <i className="icon ion-md-construct text-center ion-icon" />
-        <div className="card-body">
+        <div className="card-body mb-4 p-4">
           <form onSubmit={handleSubmit}>
             <div className="input-group mb-4">
               <input
