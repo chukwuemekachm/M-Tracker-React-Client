@@ -53,7 +53,6 @@ h6.text-left>strong {
 }
 
 .user-tag {
-  margin-top: 4.5em;
   padding-left: 1em;
   -webkit-box-shadow: 1px 5px 6px -6px #777;
   -moz-box-shadow: 1px 5px 6px -6px #777;
@@ -63,8 +62,16 @@ h6.text-left>strong {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-@media only screen and (max-width: 600px) {
+p.light {
+  color: rgb(110, 120, 128);
+}
+
+@media only screen and (max-width: 760px) {
   .user-tag {
     margin-top: 0em;
+  }
+
+  div.single-request ul.list-group.mb-3 {
+    display: none;
   }
 }

@@ -17,7 +17,7 @@ const UserDetails = ({ firstname, lastname, email }) => (
         First name
       </strong>
     </h6>
-    <p className="text-left" id="firstname">
+    <p className="text-left light" id="firstname">
       {firstname}
     </p>
     <h6 className="text-left">
@@ -25,7 +25,7 @@ const UserDetails = ({ firstname, lastname, email }) => (
         Last name
       </strong>
     </h6>
-    <p className="text-left" id="lastname">
+    <p className="text-left light" id="lastname">
       {lastname}
     </p>
     <h6 className="text-left">
@@ -33,7 +33,7 @@ const UserDetails = ({ firstname, lastname, email }) => (
         Email
       </strong>
     </h6>
-    <p className="text-left" id="email">
+    <p className="text-left light" id="email">
       {email}
     </p>
   </div>

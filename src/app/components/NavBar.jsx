@@ -52,7 +52,7 @@ export class NavBar extends PureComponent {
                   )
                   : (
                     <Link to="/">
-                      <button type="button" name="logout" className="btn btn-success" onClick={() => logout()}>
+                      <button type="button" name="logout" className="btn btn-logout" onClick={() => logout()}>
                         Logout
                       </button>
                     </Link>

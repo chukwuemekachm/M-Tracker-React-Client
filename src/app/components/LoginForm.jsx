@@ -21,7 +21,7 @@ const LoginForm = ({ bindValues, handleSubmit, handleChange }) => (
           Login to access your account
         </h3>
         <i className="icon ion-md-construct text-center ion-icon" />
-        <div className="card-body">
+        <div className="card-body mb-4 p-4">
           <form onSubmit={handleSubmit}>
             <div className="input-group mb-4">
               <input

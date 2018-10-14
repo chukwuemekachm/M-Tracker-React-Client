@@ -14,17 +14,17 @@ exports[`App component should render without errors 1`] = `
 >
   <BrowserRouter>
     <Switch>
-      <Route
+      <Connect(GuestRoute)
         component={[Function]}
         exact={true}
         path="/"
       />
-      <Route
+      <Connect(GuestRoute)
         component={[Function]}
         exact={true}
         path="/signup"
       />
-      <Route
+      <Connect(GuestRoute)
         component={[Function]}
         exact={true}
         path="/login"

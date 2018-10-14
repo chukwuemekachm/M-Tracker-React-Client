@@ -106,7 +106,7 @@ exports[`Update request component should render without errors 1`] = `
               className="btn btn-success btn-md btn-block"
               type="submit"
             >
-              Update request
+              Update Request
             </button>
           </div>
         </form>

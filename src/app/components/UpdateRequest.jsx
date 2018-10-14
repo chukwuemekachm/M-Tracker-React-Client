@@ -20,6 +20,7 @@ class UpdateRequestForm extends Component {
       title: '',
       type: '',
       description: '',
+      loading: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,22 +48,28 @@ class UpdateRequestForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { update, history, request } = this.props;
+    this.setState({
+      loading: true,
+    });
     update({ ...this.state, id: request.id }).then((response) => {
       if (response) {
-        this.setState({
-          title: '',
-          type: '',
-          description: '',
-        });
         switch (response.code) {
           case 200:
             document.getElementById('closeUpdateModal').click();
-            history.push('/dashboard');
+            this.setState({
+              title: '',
+              type: '',
+              description: '',
+              loading: false,
+            });
             break;
           case 401:
             history.push('/login');
             break;
           default:
+            this.setState({
+              loading: false,
+            });
             break;
         }
       }
@@ -75,7 +82,9 @@ class UpdateRequestForm extends Component {
    * @returns {object} The components to render
    */
   render() {
-    const { title, type, description } = this.state;
+    const {
+      title, type, description, loading,
+    } = this.state;
     const { request } = this.props;
     return (
       <div
@@ -150,7 +159,17 @@ class UpdateRequestForm extends Component {
                 </div>
                 <div className="p-4">
                   <button type="submit" className="btn btn-success btn-md btn-block">
-                    Update request
+                    {
+                      loading
+                        ? (
+                          <React.Fragment>
+                            <i className="fa fa-refresh fa-spin" />
+                            {' '}
+                            Processing request
+                          </React.Fragment>
+                        )
+                        : 'Update Request'
+                    }
                   </button>
                 </div>
               </form>

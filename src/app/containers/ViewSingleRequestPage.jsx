@@ -64,98 +64,105 @@ export class ViewSingleRequestPage extends Component {
     } = this.props;
     return (
       <div>
-        <div className="dashboard-body">
+        <div className="dashboard-body single-request">
           <DefaultNavBar />
           <div className="container">
             <div className="row  mt-5">
               <div className="col-md-3">
                 <SideNav requests={requests} handleNavigation={navigateFilter} />
               </div>
-              <div className="col-md-6">
-                <div className="d-flex justify-content-center">
-                  <div className="p-3 bd-highlight" title="Goto dashboard">
-                    <Link to="/dashboard">
-                      <i className="icon ion-md-arrow-round-back ion-icon-button" />
-                    </Link>
+              <div className="col-md-9">
+                <div>
+                  <div className="d-flex justify-content-end">
+                    {
+                      request.title && admin
+                        ? (
+                          <React.Fragment>
+                            {
+                              request.status === 'pending'
+                                ? (
+                                  <React.Fragment>
+                                    <div className="ml-2 bd-highlight" title="Appove request">
+                                      <i className="icon ion-md-checkmark ion-icon-button" name="approveIcon" onClick={() => modifyRequestAdmin(request.id, 'approve')} />
+                                    </div>
+                                    <div className="ml-2 bd-highlight" title="Disappove request">
+                                      <i className="icon ion-md-close-circle-outline ion-icon-button" name="disapproveIcon" onClick={() => modifyRequestAdmin(request.id, 'disapprove')} />
+                                    </div>
+                                  </React.Fragment>
+                                )
+                                : ''
+                            }
+                            {
+                              request.status === 'approved'
+                                ? (
+                                  <div className="ml-2 bd-highlight" title="Resolve request">
+                                    <i className="icon ion-md-checkmark-circle-outline ion-icon-button" name="resolveIcon" onClick={() => modifyRequestAdmin(request.id, 'resolve')} />
+                                  </div>
+                                )
+                                : ''
+                            }
+                          </React.Fragment>
+                        )
+                        : ''
+                    }
+                    {
+                      request.title && !admin
+                        ? (
+                          <React.Fragment>
+                            {
+                              request.status === 'pending' || request.status === 'disapproved' || request.status === 'resolved'
+                                ? (
+                                  <div className="ml-2 bd-highlight" title="Delete request">
+                                    <i className="icon ion-md-trash ion-icon-button" name="deleteIcon" onClick={() => deleteRequest(request.id)} />
+                                  </div>
+                                )
+                                : ''
+                            }
+                            {
+                              request.status === 'pending'
+                                ? (
+                                  <div className="ml-2 bd-highlight" title="Update request">
+                                    <i
+                                      className="icon ion-md-create ion-icon-button"
+                                      data-toggle="modal"
+                                      data-target="#updateRequest"
+                                    />
+                                  </div>
+                                )
+                                : ''
+                            }
+                          </React.Fragment>
+                        )
+                        : ''
+                    }
+                    <div className="ml-2 bd-highlight" title="Goto dashboard">
+                      <Link to="/dashboard">
+                        <i className="icon ion-md-arrow-round-back ion-icon-button" />
+                      </Link>
+                    </div>
                   </div>
-                  {
-                    request.title && admin
-                      ? (
-                        <React.Fragment>
-                          {
-                            request.status === 'pending'
-                              ? (
-                                <React.Fragment>
-                                  <div className="p-3 bd-highlight" title="Appove request">
-                                    <i className="icon ion-md-checkmark ion-icon-button" name="approveIcon" onClick={() => modifyRequestAdmin(request.id, 'approve')} />
-                                  </div>
-                                  <div className="p-3 bd-highlight" title="Disappove request">
-                                    <i className="icon ion-md-close-circle-outline ion-icon-button" name="disapproveIcon" onClick={() => modifyRequestAdmin(request.id, 'disapprove')} />
-                                  </div>
-                                </React.Fragment>
-                              )
-                              : ''
-                          }
-                          {
-                            request.status === 'approved'
-                              ? (
-                                <div className="p-3 bd-highlight" title="Resolve request">
-                                  <i className="icon ion-md-checkmark-circle-outline ion-icon-button" name="resolveIcon" onClick={() => modifyRequestAdmin(request.id, 'resolve')} />
-                                </div>
-                              )
-                              : ''
-                          }
-                        </React.Fragment>
-                      )
-                      : ''
-                  }
-                  {
-                    request.title && !admin
-                      ? (
-                        <React.Fragment>
-                          {
-                            request.status === 'pending' || request.status === 'disapproved' || request.status === 'resolved'
-                              ? (
-                                <div className="p-3 bd-highlight" title="Delete request">
-                                  <i className="icon ion-md-trash ion-icon-button" name="deleteIcon" onClick={() => deleteRequest(request.id)} />
-                                </div>
-                              )
-                              : ''
-                          }
-                          {
-                            request.status === 'pending'
-                              ? (
-                                <div className="p-3 bd-highlight" title="Update request">
-                                  <i
-                                    className="icon ion-md-create ion-icon-button"
-                                    data-toggle="modal"
-                                    data-target="#updateRequest"
-                                  />
-                                </div>
-                              )
-                              : ''
-                          }
-                        </React.Fragment>
-                      )
-                      : ''
-                  }
                 </div>
-                {
-                  request.title ? (<ViewSingleRequest admin={admin} {...request} />)
-                    : (
-                      <p>
-                        The request you are looking for does not exist.
-                      </p>
-                    )
-                }
-              </div>
-              <div className="col-md-3">
-                {
-                  admin && request.title
-                    ? (<UserDetails {...request} />)
-                    : ''
+                <hr />
+                <div className="row mt-3">
+                  <div className="col-md-8">
+                    {
+                      request.title ? (<ViewSingleRequest admin={admin} {...request} />)
+                        : (
+                          <p>
+                            The request you are looking for does not exist.
+                          </p>
+                        )
+                    }
+                  </div>
+                  <div className="col-md-4">
+                    {
+                      admin && request.title
+                        ? (<UserDetails {...request} />)
+                        : ''
 
-                }
+                    }
+                  </div>
+                </div>
               </div>
             </div>
           </div>

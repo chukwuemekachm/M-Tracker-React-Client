@@ -33,7 +33,7 @@ const loginResponseFailed = {
 };
 
 describe('Auth action creators', () => {
-  it('should dispatch LOADING, LOGIN and COMPLETE action types', () => {
+  it('should dispatch LOADING, LOGIN and COMPLETE action types when login succeeds', () => {
     const store = mockStore({});
     mockFetch.restore();
     mockFetch.postOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/auth/login', loginResponseSuccess);
@@ -53,7 +53,7 @@ describe('Auth action creators', () => {
       });
   });
 
-  it('should dispatch LOADING and USER_ERROR action types, ', () => {
+  it('should dispatch LOADING and USER_ERROR action types when an error occurs during login', () => {
     const store = mockStore({});
     mockFetch.restore();
     mockFetch.postOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/auth/login', loginResponseFailed);
@@ -72,7 +72,7 @@ describe('Auth action creators', () => {
       });
   });
 
-  it('should dispatch LOADING and USER_ERROR action types, ', () => {
+  it('should dispatch LOADING and USER_ERROR action types when login fails', () => {
     const store = mockStore({});
     mockFetch.restore();
     mockFetch.postOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/auth/login', loginResponseFailed);
@@ -91,7 +91,7 @@ describe('Auth action creators', () => {
       });
   });
 
-  it('should dispatch LOADING and SIGNUP and COMPLETE action types, ', () => {
+  it('should dispatch LOADING and SIGNUP and COMPLETE action types when signup succeeds', () => {
     const store = mockStore({});
     mockFetch.restore();
     mockFetch.postOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/auth/signup', signupResponseSuccess);
@@ -111,7 +111,7 @@ describe('Auth action creators', () => {
       });
   });
 
-  it('should dispatch LOADING and NETWORK_ERROR action types, ', () => {
+  it('should dispatch LOADING and NETWORK_ERROR action types when an error occurs during signup', () => {
     const store = mockStore({});
     mockFetch.restore();
     mockFetch.postOnce('https://my-maintenance-tracker.herokuapp.com/api/v1/auth/signup', 1);
@@ -130,7 +130,7 @@ describe('Auth action creators', () => {
       });
   });
 
-  it('should dispatch LOGOUT action type', () => {
+  it('should dispatch LOGOUT action type when a user logs out', () => {
     const store = mockStore({});
 
     const expectedActions = [
