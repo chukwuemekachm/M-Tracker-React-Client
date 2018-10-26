@@ -67,7 +67,7 @@ describe('User requests action creators', () => {
 
     const expectedActions = [
       { type: commonTypes.LOADING },
-      { type: commonTypes.USER_ERROR, payload: getRequestsResponseFailed.message },
+      { type: commonTypes.LOGOUT, payload: getRequestsResponseFailed.message },
     ];
 
     store.dispatch(adminRequestActions())
@@ -127,7 +127,7 @@ describe('User requests action creators', () => {
 
     const expectedActions = [
       { type: commonTypes.LOADING },
-      { type: commonTypes.USER_ERROR, payload: putRequestResponseFailed.message },
+      { type: commonTypes.LOGOUT, payload: putRequestResponseFailed.message },
     ];
 
     store.dispatch(modifyRequestStatus(1, 'approve'))

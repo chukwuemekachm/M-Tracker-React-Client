@@ -13,6 +13,7 @@ import { navigateFilter } from '../actions/filterRequestsAction';
 import UpdateRequestForm from '../components/UpdateRequest';
 import getAllRequests, { modifyRequestStatus } from '../actions/adminRequestActions';
 import UserDetails from '../components/UserDetails';
+import DeleteRequest from '../components/DeleteRequest';
 
 /**
  * @description View Single request Page component
@@ -34,6 +35,7 @@ export class ViewSingleRequestPage extends Component {
         getRequests();
         break;
     }
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   /**
@@ -51,6 +53,36 @@ export class ViewSingleRequestPage extends Component {
   }
 
   /**
+   * @description Handles admin approve, resolve and disapprove request actions
+   *
+   * @param {number} requestId The id of the request to be modified
+   * @param {string} action The action to be performed on the request
+   *
+   * @returns {object}
+   */
+  handleModification(requestId, action) {
+    const { modifyRequestAdmin, history } = this.props;
+    return modifyRequestAdmin(requestId, action).then((response) => {
+      if (response.code === 401) return history.push('/login');
+      return true;
+    });
+  }
+
+  /**
+   * @description Handles the user delete action
+   *
+   * @returns {object}
+   */
+  handleDelete() {
+    const { deleteRequest, request, history } = this.props;
+    const { id: requestId } = request;
+    return deleteRequest(requestId).then((response) => {
+      if (response.code === 401) return history.push('/login');
+      return history.push('/dashboard');
+    });
+  }
+
+  /**
    * @description Renders the component on a dom node
    *
    * @function
@@ -60,7 +92,7 @@ export class ViewSingleRequestPage extends Component {
   render() {
     const {
       request = {}, requests, createRequest, history,
-      deleteRequest, updateRequest, admin, modifyRequestAdmin,
+      updateRequest, admin,
     } = this.props;
     return (
       <div>
@@ -83,10 +115,10 @@ export class ViewSingleRequestPage extends Component {
                                 ? (
                                   <React.Fragment>
                                     <div className="ml-2 bd-highlight" title="Appove request">
-                                      <i className="icon ion-md-checkmark ion-icon-button" name="approveIcon" onClick={() => modifyRequestAdmin(request.id, 'approve')} />
+                                      <i className="icon ion-md-checkmark ion-icon-button" name="approveIcon" onClick={() => this.handleModification(request.id, 'approve')} />
                                     </div>
                                     <div className="ml-2 bd-highlight" title="Disappove request">
-                                      <i className="icon ion-md-close-circle-outline ion-icon-button" name="disapproveIcon" onClick={() => modifyRequestAdmin(request.id, 'disapprove')} />
+                                      <i className="icon ion-md-close-circle-outline ion-icon-button" name="disapproveIcon" onClick={() => this.handleModification(request.id, 'disapprove')} />
                                     </div>
                                   </React.Fragment>
                                 )
@@ -96,7 +128,7 @@ export class ViewSingleRequestPage extends Component {
                               request.status === 'approved'
                                 ? (
                                   <div className="ml-2 bd-highlight" title="Resolve request">
-                                    <i className="icon ion-md-checkmark-circle-outline ion-icon-button" name="resolveIcon" onClick={() => modifyRequestAdmin(request.id, 'resolve')} />
+                                    <i className="icon ion-md-checkmark-circle-outline ion-icon-button" name="resolveIcon" onClick={() => this.handleModification(request.id, 'resolve')} />
                                   </div>
                                 )
                                 : ''
@@ -113,7 +145,12 @@ export class ViewSingleRequestPage extends Component {
                               request.status === 'pending' || request.status === 'disapproved' || request.status === 'resolved'
                                 ? (
                                   <div className="ml-2 bd-highlight" title="Delete request">
-                                    <i className="icon ion-md-trash ion-icon-button" name="deleteIcon" onClick={() => deleteRequest(request.id)} />
+                                    <i
+                                      className="icon ion-md-trash ion-icon-button"
+                                      name="deleteIcon"
+                                      data-toggle="modal"
+                                      data-target="#deleteRequest"
+                                    />
                                   </div>
                                 )
                                 : ''
@@ -168,6 +205,7 @@ export class ViewSingleRequestPage extends Component {
           </div>
         </div>
         <CreateRequestForm history={history} create={createRequest} />
+        <DeleteRequest handleClick={this.handleDelete} />
         {
           request.title
             ? (<UpdateRequestForm history={history} update={updateRequest} request={request} />)

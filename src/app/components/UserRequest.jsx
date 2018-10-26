@@ -14,14 +14,14 @@ import moment from 'moment';
 const UserRequest = ({
   title, createdat, status,
 }) => (
-  <ul className={`d-md-flex bd-highlight ${status} request-card`}>
-    <li className="p-3 flex-fill bd-highlight">
+  <ul className={`row bd-highlight ${status} request-card`}>
+    <li className="p-3 col-sm-4 bd-highlight">
       {title}
     </li>
-    <li className="p-3 flex-fill bd-highlight">
+    <li className="p-3 col-sm-4 bd-highlight">
       {moment(createdat).fromNow()}
     </li>
-    <li className="p-3 flex-fill bd-highlight">
+    <li className="p-3 col-sm-4 bd-highlight">
       {status}
     </li>
   </ul>

@@ -37,7 +37,7 @@ const authAsync = (payload, history, route) => (dispatch) => {
         break;
       default:
         toastr.error(response.message);
-        dispatch(userError(response.message));
+        dispatch(userError(response));
         break;
     }
     return response;
