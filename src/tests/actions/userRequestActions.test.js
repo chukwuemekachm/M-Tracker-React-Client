@@ -33,7 +33,7 @@ const getRequestsResponseSuccess = {
 };
 const getRequestsResponseFailed = {
   status: 'fail',
-  code: 401,
+  code: 400,
   message: 'Invalid token',
 };
 const createRequestsResponseSuccess = {

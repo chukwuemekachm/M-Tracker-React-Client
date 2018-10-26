@@ -26,7 +26,7 @@ const getAllRequests = () => (dispatch, getState) => {
         dispatch({ type: types.COMPLETE });
         break;
       default:
-        dispatch(userError(response.message));
+        dispatch(userError(response));
         break;
     }
     return response;
@@ -60,7 +60,7 @@ export const modifyRequestStatus = (requestId, action) => (dispatch, getState) =
         getAllRequests()(dispatch, getState);
         break;
       default:
-        dispatch(userError(response.message));
+        dispatch(userError(response));
         break;
     }
     return response;

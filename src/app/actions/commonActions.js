@@ -14,7 +14,17 @@ export const loading = () => ({ type: types.LOADING });
  *
  * @returns {object} The user error object
  */
-export const userError = payload => ({ type: types.USER_ERROR, payload });
+export const userError = (payload) => {
+  if (payload && payload.code) {
+    switch (payload.code) {
+      case 401:
+        return { type: types.LOGOUT, payload: payload.message };
+      default:
+        return { type: types.USER_ERROR, payload: payload.message };
+    }
+  }
+  return { type: types.USER_ERROR, payload };
+};
 
 /**
  * @description Creates and dispatches a network error action object

@@ -145,4 +145,13 @@ describe('View single request componenet', () => {
     wrapper.find('[name="resolveIcon"]').simulate('click');
     expect(wrapper).toBeTruthy();
   });
+
+  it('should handle delete and modify request events', () => {
+    const wrapper = shallow(<ViewSingleRequestPage {...props} />);
+
+    const instance = wrapper.instance();
+    instance.handleDelete();
+    instance.handleModification(2, 'approve');
+    expect(instance).toBeTruthy();
+  });
 });
